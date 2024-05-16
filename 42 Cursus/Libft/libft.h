@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 13:10:38 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/16 15:05:24 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/16 16:11:13 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_isascii(int num);
 int	ft_isdigit(int num);
 int	ft_atoi(const char *str);
 int	ft_strncmp(char *s1, char *s2, size_t n);
-int *ft_memcmp(const void *s, const void *s2, size_t n);
+int ft_memcmp(const void *s1, const void *s2, size_t n);
 
 char	*ft_strchr(const char *s, int n);
 char	*ft_strrchr(const char *s, int c);
