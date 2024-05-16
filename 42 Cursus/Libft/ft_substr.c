@@ -1,24 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 14:25:44 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/16 17:51:10 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/05/16 17:54:03 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/05/16 17:54:58 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memchr(const void *s, int c, size_t n)
-{
-	while (n--)
-	{
-		if (*(unsigned char *)s == (unsigned char )c)
-			return ((void *)s);
-		s++;
-	}
-	return (NULL);
-}
+char	*ft_substr(char const *s, unsigned int start, size_t len){}
