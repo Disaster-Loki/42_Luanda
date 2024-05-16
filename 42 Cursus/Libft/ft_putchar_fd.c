@@ -3,11 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:00:29 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/16 18:01:03 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:16:13 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar_fd(char c, int fd){}
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
