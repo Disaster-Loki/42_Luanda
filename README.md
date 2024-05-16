@@ -1,4 +1,4 @@
-# 42_Luanda
+# 42_Luanda 😄
 
 ## Description
 
