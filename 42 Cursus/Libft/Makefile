@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/14 12:37:53 by sde-carv          #+#    #+#              #
-#    Updated: 2024/05/14 12:47:44 by sde-carv         ###   ########.fr        #
+#    Created: 2024/05/16 14:51:47 by sde-carv          #+#    #+#              #
+#    Updated: 2024/05/16 14:51:50 by sde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
-SRCS = 
+SRCS = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c
 
 HEADER = libft.h
 

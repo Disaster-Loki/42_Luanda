@@ -6,8 +6,11 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 12:58:52 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/16 14:31:22 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/16 15:01:26 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+void    *ft_memmove(void *dest, const void *src, size_t n)
+{}
