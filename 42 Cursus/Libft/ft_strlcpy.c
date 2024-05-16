@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 12:55:02 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/14 12:55:06 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/16 14:29:04 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	if (i < size)
 		dst[i] = '\0';
-	while(src[i])
+	while (src[i])
 		i++;
 	return (i);
 }

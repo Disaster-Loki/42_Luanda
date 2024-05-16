@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 13:10:38 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/14 13:10:41 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/16 14:31:55 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,4 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <stddef.h>
-
-
-
 #endif
