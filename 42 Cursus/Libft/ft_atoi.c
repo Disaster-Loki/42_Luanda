@@ -3,19 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 13:03:42 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/14 13:03:43 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/17 11:38:51 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	ft_isspace(int c)
-{
-	return (c == ' ' || (c >= '\t' && c <= '\v'));
-}
 
 int	ft_atoi(const char *str)
 {
@@ -26,15 +21,15 @@ int	ft_atoi(const char *str)
 	nbr = 0;
 	if (str == NULL)
 		return (0);
-	while (ft_isspace(*str))
-		str++;
 	if (*str == '-' || *str == '+')
 	{
 		if (*str == '-')
 			sign = -1;
 		str++;
 	}
-	while (ft_isdigit(*str))
+	while (*str == ' ' || (*str >= '\t' && *str <= '\v'))
+		str++;
+	while (*str >= '0' && *str <= '9')
 	{
 		nbr = nbr * 10 + (*str - '0');
 		str++;
