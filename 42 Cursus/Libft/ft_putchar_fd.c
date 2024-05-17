@@ -6,9 +6,11 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:00:29 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/16 18:16:13 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:29:05 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
 {

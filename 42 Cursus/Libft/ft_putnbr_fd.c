@@ -6,15 +6,17 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 18:03:08 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/16 18:27:33 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/16 18:29:43 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
 	int		sign;
 	char	aux;
-	
+
 	sign = 1;
 	if (n > 0)
 	{
