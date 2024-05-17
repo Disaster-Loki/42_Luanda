@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 13:10:38 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/17 14:36:49 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/17 17:07:25 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,11 @@
 #include <stddef.h>
 #include <stdbool.h>
 
+typedef struct  s_list
+{
+    void    *content;
+    struct s_list  *next; 
+}   t_list;
 
 // Libc functions
 int	    ft_tolower(int c);
@@ -44,5 +49,7 @@ void    *ft_memmove(void *dest, const void *src, size_t n);
 // Additional functions
 char	*ft_strdup(const char *s);
 char	**ft_split(char const *s, char c);
+
+// Bonus
 
 #endif
