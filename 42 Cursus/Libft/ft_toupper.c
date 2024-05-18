@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 13:01:39 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/14 13:01:43 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/18 12:07:41 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int u)
 {
 	if (u >= 'a' && u <= 'z')
-		return (u -= 32);
-	else
-		return (u);
+		u -= 32;
+	return (u);
 }

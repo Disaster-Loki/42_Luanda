@@ -3,11 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:55:11 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/16 17:55:53 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/18 12:03:43 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strjoin(char const *s1, char const *s2){}
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*result;
+	int		i;
+	int		j;
+	size_t	total_len;
+
+	if (!s1 || !s2)
+		return (NULL);
+	i = 0;
+	total_len = ft_strlen(s1) + ft_strlen(s2);
+	result = (char *)malloc((total_len * sizeof(char)) + 1);
+	if (result == NULL)
+		return (NULL);
+	while (s1[i] != '\0')
+	{
+		result[i] = ((unsigned char *)s1)[i];
+		i++;
+	}
+	j = 0;
+	while (s2[j] != '\0')
+		result[i++] = ((unsigned char *)s2)[j++];
+	result[i] = '\0';
+	return (result);
+}
