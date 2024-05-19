@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 13:03:42 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/17 11:38:51 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/18 15:31:20 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 int	ft_atoi(const char *str)
 {
-	int	sign;
-	int	nbr;
+	int	i;
+	int	neg;
+	int	res;
 
-	sign = 1;
-	nbr = 0;
-	if (str == NULL)
-		return (0);
-	if (*str == '-' || *str == '+')
+	i = 0;
+	neg = 1;
+	res = 0;
+	while (str[i] == ' ' || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (*str == '-')
-			sign = -1;
-		str++;
+		if (str[i] == '-')
+			neg *= -1;
+		i++;
 	}
-	while (*str == ' ' || (*str >= '\t' && *str <= '\v'))
-		str++;
-	while (*str >= '0' && *str <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		nbr = nbr * 10 + (*str - '0');
-		str++;
+		res = (str[i] - '0') + (res * 10);
+		i++;
 	}
-	return (nbr * sign);
+	return (res * neg);
 }

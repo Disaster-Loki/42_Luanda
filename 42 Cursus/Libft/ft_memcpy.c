@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 12:58:32 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/16 17:33:46 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/18 16:38:10 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,17 @@
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	void	*aux;
+	size_t	i;
+	char	*c_dest;
+	char	*c_src;
 
-	if (dest == NULL || src == NULL)
-		return (NULL);
-	aux = dest;
-	while (n--)
-		*(unsigned char *)dest = *(unsigned char *)src;
-	return (aux);
+	i = 0;
+	c_dest = (char *)dest;
+	c_src = (char *)src;
+	while (i < n)
+	{
+		c_dest[i] = c_src[i];
+		i++;
+	}
+	return (dest);
 }

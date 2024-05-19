@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 17:09:16 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/18 11:59:28 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/18 18:51:33 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	*new;
+	t_list	*list;
 
-	new = (t_list *)malloc(sizeof(*new));
-	if (!new)
+	list = malloc(sizeof(t_list));
+	if (!list)
 		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	list->content = content;
+	list->next = NULL;
+	return (list);
 }

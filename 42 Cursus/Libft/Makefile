@@ -3,15 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+         #
+#    By: badriano <badriano@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/05/16 14:51:47 by sde-carv          #+#    #+#              #
-#    Updated: 2024/05/18 13:00:22 by sde-carv         ###   ########.fr        #
+#    Created: 2024/05/17 09:44:12 by badriano          #+#    #+#              #
+#    Updated: 2024/05/17 09:48:00 by badriano         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
@@ -82,4 +81,7 @@ clean:
 fclean: clean
 	/bin/rm -f $(NAME)
 
-re:
+re: fclean all
+
+.PHONY: all bonus clean fclean re
+

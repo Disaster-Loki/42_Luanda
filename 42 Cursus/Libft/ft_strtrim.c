@@ -6,13 +6,13 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:56:10 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/18 12:08:14 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/18 17:39:07 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+char	*ft_strtrim(const char*s1, char const *set)
 {
 	size_t	len;
 	char	*result;

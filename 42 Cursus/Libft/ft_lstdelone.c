@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/17 17:10:54 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/18 11:09:34 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/18 18:56:54 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (*del)
+	if (!lst)
 		return ;
-	if (lst)
-	{
-		(*del)(lst->content);
-		free(lst);
-	}
+	if (del)
+		(del)(lst->content);
+	free(lst);
 }

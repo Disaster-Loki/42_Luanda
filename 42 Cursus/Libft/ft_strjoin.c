@@ -6,13 +6,13 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:55:11 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/18 12:03:43 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/18 17:40:18 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(const char *s1, char const *s2)
 {
 	char	*result;
 	int		i;
