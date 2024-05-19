@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:15:38 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/19 17:20:18 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/19 17:52:51 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static char	*create_string(unsigned long value, int *len)
 	return (str);
 }
 
-int	print_pointer(unsigned long value, int asc)
+int	ft_print_pointer(unsigned long value, int asc)
 {
 	unsigned long	tempval;
 	char			*printout;
@@ -51,10 +51,10 @@ int	print_pointer(unsigned long value, int asc)
 		tempval = tempval / 16;
 	}
 	i = ft_strlen(printout);
-	i = i + print_string("0x");
+	i = i + ft_print_string("0x");
 	ft_putstr_fd(printout, 1);
 	free(printout);
 	if (value == 0)
-		i += print_char('0');
+		i += ft_print_char('0');
 	return (i);
 }

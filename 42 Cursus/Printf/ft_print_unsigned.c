@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 15:21:57 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/19 15:46:08 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/19 17:59:30 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	ft_printout(unsigned int nb)
 {
 	if (nb > 9)
-		print_unsigned(nb / 10);
+		ft_print_unsigned(nb / 10);
 	if (nb <= 9)
 	{
 		ft_putchar_fd(nb + 48, 1);
@@ -24,7 +24,7 @@ static void	ft_printout(unsigned int nb)
 	ft_putchar_fd((nb % 10) + 48, 1);
 }
 
-int	print_unsigned(unsigned int nb)
+int	ft_print_unsigned(unsigned int nb)
 {
 	unsigned int	i;
 
