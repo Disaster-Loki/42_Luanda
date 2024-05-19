@@ -6,13 +6,13 @@
 #    By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/18 14:36:52 by sde-carv          #+#    #+#              #
-#    Updated: 2024/05/19 14:19:03 by sde-carv         ###   ########.fr        #
+#    Updated: 2024/05/19 16:15:57 by sde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # DIRECTORIES
 
-NAME = liftprintf.a
+NAME = libftprintf.a
 
 CC = cc
 
@@ -22,32 +22,35 @@ LIBFTNAME = libft.a
 
 LIBFTFIR = ./Libft
 
-SRCS = 
+SRCS = ft_printf.c \
+		ft_print_pointer.c \
+		ft_print_unsigned.c \
+		ft_print_string.c \
+		ft_print_int.c \
+		ft_print_char.c \
+		ft_print_hex.c \
 
-BONUS =
+#BONUS =
+#BONUS_OBJ = $(BONUS:.c=.o)
 
-OBJ = $(SRCS:.c=.o)
-
-BONUS_OBJ = $(BONUS:.c=.o)
+OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c
-		$(CC) $(CFLAGS) -c $< -o $@
+makelibft:
+	@make -C $(LIBFTDIR)
+	@cp $(LIBFTDIR)/$(LIBFTNAME) .
+	@mv $(LIBFTNAME) $(NAME)
 
-$(NAME): $(OBJ)
-		ar rc $(NAME) $(OBJ)
-
-bonus: $(BONUS_OBJ)
-		ar rc $(NAME) $(BONUS)
+$(NAME): makelibft $(OBJS)
+	@ar -r $(NAME) $(OBJS)
 
 clean:
-		rm -r (OBJ) $(BONUS_OBJ)
-
-fclean:
-		clean
-		rm -f $(NAME)
-
+	@rm -f $(OBJS)
+	@cd $(LIBFTDIR) && make clean
+	
+fclean: clean
+	@rm -f $(NAME)
+	@cd $(LIBFTDIR) && make fclean
+	
 re: fclean all
-
-.PHONY: all bonus clean fclean re
