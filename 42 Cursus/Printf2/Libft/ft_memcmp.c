@@ -1,21 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 14:33:42 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/21 08:30:26 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/05/14 13:03:11 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/05/18 16:49:29 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
-#include <stdio.h>
-#include <stddef.h>
+#include "libft.h"
 
-int	ft_print_int(int n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	ft_putnbr_fd(n, 1);
-	return (1);
+	char	*p1;
+	char	*p2;
+	size_t	i;
+
+	i = 0;
+	p1 = (char *)s1;
+	p2 = (char *)s2;
+	while (i < n)
+	{
+		if (p1[i] != p2[i])
+			return ((unsigned char)p1[i] - (unsigned char)p2[i]);
+		i++;
+	}
+	return (0);
 }

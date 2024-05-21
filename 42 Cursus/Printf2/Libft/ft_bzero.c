@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 14:33:42 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/21 08:30:26 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/05/14 12:58:16 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/05/14 12:58:18 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
-#include <stdio.h>
-#include <stddef.h>
+#include "libft.h"
 
-int	ft_print_int(int n)
+void	ft_bzero(void *s, size_t n)
 {
-	ft_putnbr_fd(n, 1);
-	return (1);
+	ft_memset(s, 0, n);
 }

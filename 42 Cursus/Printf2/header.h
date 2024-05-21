@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 14:33:42 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/21 08:30:26 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/05/19 13:07:59 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/05/21 14:08:35 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
-#include <stdio.h>
-#include <stddef.h>
+#ifndef HEADER_H
+# define HEADER_H
 
-int	ft_print_int(int n)
-{
-	ft_putnbr_fd(n, 1);
-	return (1);
-}
+# include <stdarg.h>
+# include <stddef.h>
+# include <unistd.h>
+# include "./Libft/libft.h"
+
+int	ft_print_char(char c);
+int	ft_print_string(char *str);
+int	ft_print_pointer(unsigned long ptr, int base);
+int	ft_print_int(int n);
+int	ft_print_unsigned(unsigned int nb);
+int	ft_print_hex(unsigned int n, int base);
+int	ft_printf(const char *str, ...);
+
+#endif

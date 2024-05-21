@@ -1,21 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 14:33:42 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/21 08:30:26 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/05/16 17:59:18 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/05/18 15:38:58 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
-#include <stdio.h>
-#include <stddef.h>
+#include "libft.h"
 
-int	ft_print_int(int n)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	ft_putnbr_fd(n, 1);
-	return (1);
+	unsigned int	i;
+
+	if (!s)
+		return ;
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }

@@ -1,21 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 14:33:42 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/21 08:30:26 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/05/14 13:02:32 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/05/16 14:28:25 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
-#include <stdio.h>
-#include <stddef.h>
+#include "libft.h"
 
-int	ft_print_int(int n)
+char	*ft_strrchr(const char *s, int c)
 {
-	ft_putnbr_fd(n, 1);
-	return (1);
+	const char	*p;
+
+	p = s;
+	while (*p != '\0')
+		p++;
+	while (p >= s)
+	{
+		if (*p == (char)c)
+			return ((char *)p);
+		p--;
+	}
+	return (NULL);
 }

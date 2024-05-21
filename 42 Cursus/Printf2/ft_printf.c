@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 13:18:05 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/21 09:38:47 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/21 16:31:22 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,50 @@ static int	check_type(const char *input, va_list args)
 		i += ft_print_hex(va_arg(args, unsigned int), 87);
 	else if (*input == 'X')
 		i += ft_print_hex(va_arg(args, unsigned int), 55);
-	else if (*input == '%')
-		i += ft_print_char('%');
 	return (i);
+}
+
+static int	handle_width(const char **input)
+{
+	int	width;
+
+	width = 0;
+	while (**input >= '0' && **input <= '9')
+	{
+		width = width * 10 + (**input - '0');
+		(*input)++;
+	}
+	return (width);
+}
+
+static int	print_percent_with_width(int width)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (i < width - 1)
+	{
+		count += ft_print_char(' ');
+		i++;
+	}
+	count += ft_print_char('%');
+	return (count);
+}
+
+static int	handle_conversion(const char **input, va_list args)
+{
+	int	width;
+	int	count;
+
+	count = 0;
+	width = handle_width(input);
+	if (**input == '%')
+		count += print_percent_with_width(width);
+	else if (ft_strchr("cspdiuxX%", **input))
+		count += check_type(*input, args);
+	return (count);
 }
 
 int	ft_printf(const char *input, ...)
@@ -48,8 +89,7 @@ int	ft_printf(const char *input, ...)
 		if (*input == '%')
 		{
 			input++;
-			if (ft_strchr("cspdiuxX%", *input))
-				i += check_type(input, args);
+			i += handle_conversion(&input, args);
 		}
 		else
 			i += ft_print_char(*input);

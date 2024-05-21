@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/19 18:06:14 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/20 13:37:22 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/21 11:49:48 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,22 @@ void	test_pointer(void)
 
 	str = "Hello, World!";
 	ptr = (void *)str;
-	ft_printf("Test pointer:\n");
+	ft_printf("Test pointer\n");
 	printf("printf: |%p|\n", ptr);
 	ft_printf("ft_printf: |%p|\n", ptr);
 	printf("\n");
+
+	void *ptr1 = (void *)0x1234abcd;
+	void *ptr2 = (void *)0;
+	
+	ft_printf("Teste Pointer \n");
+	ft_printf("Test pointer 1:\n");
+	printf("printf: |%p|\n", ptr1);
+	ft_printf("ft_printf: |%p|\n", ptr1);
+
+	ft_printf("Test pointer 2:\n");
+	printf("printf: |%p|\n", ptr2);
+	ft_printf("ft_printf: |%p|\n", ptr2);
 }
 
 void	test_int(void)
@@ -54,6 +66,8 @@ void	test_int(void)
 	ft_printf("Test int:\n");
 	printf("printf: |%d|\n", n);
 	ft_printf("ft_printf: |%d|\n", n);
+	printf("printf: |%i|\n", n);
+	ft_printf("ft_printf: |%i|\n", n);
 }
 
 void	test_unsigned(void)
@@ -79,6 +93,13 @@ void	test_hex(void)
 	ft_printf("ft_printf: |%X|\n", n);
 }
 
+void	test_percent(void)
+{
+	ft_printf("Teste Percent\n");
+	printf("Printf: %%\n");
+	ft_printf("ft_printf: %%\n");
+}
+
 void	test_mixed(void)
 {
 	char			c;
@@ -92,19 +113,10 @@ void	test_mixed(void)
 	n = 42;
 	u = 42;
 	ptr = str;
-	ft_printf("Test mixed:\n");
-	printf("printf: |Char: %c\n", c);
-	printf("printf: |String: %s\n", str);
-	printf("printf: |Pointer: %p\n", ptr);
-	printf("printf: |Int: %d\n", n);
-	printf("printf: |Unsigned: %u\n", u);
-	printf("printf: |Hex: %x|\n\n", n);
-	ft_printf("printf: |Char: %c\n", c);
-	ft_printf("printf: |String: %s\n", str);
-	ft_printf("printf: |Pointer: %p\n", ptr);
-	ft_printf("printf: |Int: %d\n", n);
-	ft_printf("printf: |Unsigned: %u\n", u);
-	ft_printf("printf: |Hex: %x|\n\n", n);
+	ft_printf("Test mixed\n");
+	printf("printf\n |Char: %c\n |String: %s\n |Pointer: %p\n |Int: %d\n |Unsigned: %u\n|Hex: %x|\n\n", c, str, ptr, n, u, n);
+	ft_printf("ft_printf\n |Char: %c\n |String: %s\n |Pointer: %p\n |Int: %d\n |Unsigned: %u\n|Hex: %x|\n\n", c, str, ptr, n, u, n);
+	
 }
 
 int	main(void)
@@ -116,5 +128,6 @@ int	main(void)
 	test_unsigned();
 	test_hex();
 	test_mixed();
+	test_percent();
 	return (0);
 }

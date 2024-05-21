@@ -1,21 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_print_unsigned.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 14:33:42 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/21 08:30:26 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/05/19 15:21:57 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/05/19 17:59:30 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "header.h"
-#include <stdio.h>
-#include <stddef.h>
 
-int	ft_print_int(int n)
+static void	ft_printout(unsigned int nb)
 {
-	ft_putnbr_fd(n, 1);
-	return (1);
+	if (nb > 9)
+		ft_print_unsigned(nb / 10);
+	if (nb <= 9)
+	{
+		ft_putchar_fd(nb + 48, 1);
+		return ;
+	}
+	ft_putchar_fd((nb % 10) + 48, 1);
+}
+
+int	ft_print_unsigned(unsigned int nb)
+{
+	unsigned int	i;
+
+	ft_printout(nb);
+	i = 1;
+	while (nb > 9)
+	{
+		nb = nb / 10;
+		i++;
+	}
+	return (i);
 }

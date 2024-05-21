@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_int.c                                     :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/19 14:33:42 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/21 08:30:26 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/05/17 14:26:44 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/05/17 14:45:05 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "header.h"
-#include <stdio.h>
-#include <stddef.h>
+#include "libft.h"
 
-int	ft_print_int(int n)
+char	*ft_strdup(const char *s)
 {
-	ft_putnbr_fd(n, 1);
-	return (1);
+	size_t	len;
+	char	*new;
+
+	len = ft_strlen(s);
+	new = malloc((sizeof(char) * (len + 1)));
+	if (!new)
+		return (0);
+	ft_strlcpy(new, s, (len + 1));
+	return (new);
 }
