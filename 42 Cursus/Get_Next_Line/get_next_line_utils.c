@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:57:53 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/22 15:44:07 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/22 17:22:24 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ size_t	ft_strlen(const char *s)
 char	*ft_strchr(const char *s, int c)
 {
 	size_t			i;
-	unsigned char	*str;
+	unsigned char	str;
 
 	i = 0;
 	if (s[i])
@@ -37,7 +37,7 @@ char	*ft_strchr(const char *s, int c)
 			return ((char *)&s[i]);
 		i++;
 	}
-	if (str == NULL)
+	if (s[i] == str)
 		return ((char *)&s[i]);
 	return (NULL);
 }
