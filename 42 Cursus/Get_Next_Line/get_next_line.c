@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:57:34 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/23 16:26:29 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/23 16:36:19 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,24 @@ char	*read_and_join(int fd, char *buff, int *end_bool)
 
 char	*get_new_buff(char *buff, char **ret_str)
 {
+	char	*newline_pos;
 	char	*new_buff;
 
-	new_buff = ft_strjoin("", ft_strchr(buff, 10) + 1);
-	if (!new_buff)
+	newline_pos = ft_strchr(buff, '\n');
+	if (!newline_pos)
+	{
+		*ret_str = buff;
 		return (NULL);
-	ft_strchr(buff, 10)[1] = '\0';
+	}
+	*newline_pos = '\0';
 	*ret_str = ft_strjoin("", buff);
+	new_buff = ft_strjoin("", newline_pos + 1);
 	free(buff);
+	if (!new_buff)
+	{
+		free(*ret_str);
+		*ret_str = NULL;
+	}
 	return (new_buff);
 }
 
