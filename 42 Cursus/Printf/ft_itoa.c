@@ -6,11 +6,11 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 17:57:33 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/18 12:01:55 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/24 13:43:14 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 static	int	ft_numlen(int num)
 {

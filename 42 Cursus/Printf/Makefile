@@ -6,46 +6,42 @@
 #    By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/05/18 14:36:52 by sde-carv          #+#    #+#              #
-#    Updated: 2024/05/19 18:17:53 by sde-carv         ###   ########.fr        #
+#    Updated: 2024/05/24 14:05:11 by sde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-# DIRECTORIES
 
 NAME = libftprintf.a
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-LIBFTNAME = libft.a
-LIBFTDIR = ./Libft
+SRC = ft_itoa.c         \
+      ft_put.c          \
+      ft_printf.c       \
+      ft_print_int.c    \
+      ft_print_hex.c    \
+      ft_print_utils.c  \
+      ft_print_string.c \
+      ft_print_pointer.c\
+      ft_print_unsigned.c
 
-SRCS = ft_printf.c \
-       ft_print_pointer.c \
-       ft_print_unsigned.c \
-       ft_print_string.c \
-       ft_print_int.c \
-       ft_print_char.c \
-       ft_print_hex.c \
-
-OBJS = $(SRCS:.c=.o)
+OBJ = $(SRC:.c=.o)
 
 all: $(NAME)
 
-$(NAME): makelibft $(OBJS)
-	cp $(LIBFTDIR)/$(LIBFTNAME) .
-	mv $(LIBFTNAME) $(NAME)
-	ar -r $(NAME) $(OBJS)
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-makelibft:
-	make -C $(LIBFTDIR)
+$(NAME): $(OBJ)
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 clean:
-	rm -f $(OBJS)
-	cd $(LIBFTDIR) && make clean
+	/bin/rm -f $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
-	cd $(LIBFTDIR) && make fclean
+	/bin/rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

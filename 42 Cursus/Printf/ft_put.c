@@ -1,16 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_put.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/16 18:03:08 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/18 18:28:56 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/05/24 13:34:38 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/05/24 13:45:03 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
+
+void	ft_putchar_fd(char c, int fd)
+{
+	write(fd, &c, 1);
+}
+
+void	ft_putstr_fd(char *s, int fd)
+{
+	if (s == NULL)
+		return ;
+	write(fd, s, ft_strlen(s));
+}
+
+char	*ft_strchr(const char *s, int n)
+{
+	int				i;
+	unsigned char	aux;
+
+	i = 0;
+	aux = (unsigned char)n;
+	while (s[i])
+	{
+		if (s[i] == aux)
+			return ((char *)&s[i]);
+		i++;
+	}
+	if (aux == '\0')
+		return ((char *)&s[i]);
+	return (NULL);
+}
 
 void	ft_putnbr_fd(int n, int fd)
 {
