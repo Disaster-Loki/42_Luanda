@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:57:53 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/23 16:25:03 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/24 17:23:08 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,20 +38,6 @@ char	*ft_strchr(const char *s, int c)
 	if (s[i] == str)
 		return ((char *)&s[i]);
 	return (NULL);
-}
-
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ptr;
-	size_t	i;
-
-	ptr = malloc(count * size);
-	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	while (i < count * size)
-		((char *)ptr)[i++] = 0;
-	return (ptr);
 }
 
 char	*ft_strjoin(const char *s1, const char *s2)
