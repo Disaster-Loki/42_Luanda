@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:57:34 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/25 11:15:41 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/31 14:38:08 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
-	static char	*full_string;
+	static char	*full_str[10];
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (0);
-	full_string = ft_read(fd, full_string);
-	if (!full_string)
+	full_str[fd] = ft_read(fd, full_str[fd]);
+	if (!full_str[fd])
 		return (NULL);
-	line = ft_getline(full_string);
-	full_string = ft_getrest(full_string);
+	line = ft_getline(full_str[fd]);
+	full_str[fd] = ft_getrest(full_str[fd]);
 	return (line);
 }
 
@@ -51,58 +51,56 @@ char	*ft_read(int fd, char *str)
 	return (str);
 }
 
-char	*ft_getline(char *full_string)
+char	*ft_getline(char *full_str)
 {
 	int		i;
 	char	*line;
 
 	i = 0;
-	if (!full_string[i])
+	if (!full_str[i])
 		return (NULL);
-	while (full_string[i] && full_string[i] != '\n')
+	while (full_str[i] && full_str[i] != '\n')
 		i++;
 	line = (char *)malloc(sizeof(char) * (i + 2));
 	if (!line)
 		return (NULL);
 	i = 0;
-	while (full_string[i] && full_string[i] != '\n')
+	while (full_str[i] && full_str[i] != '\n')
 	{
-		line[i] = full_string[i];
+		line[i] = full_str[i];
 		i++;
 	}
-	if (full_string[i] == '\n')
+	if (full_str[i] == '\n')
 	{
-		line[i] = full_string[i];
+		line[i] = full_str[i];
 		i++;
 	}
 	line[i] = '\0';
 	return (line);
 }
 
-char	*ft_getrest(char *full_string)
+char	*ft_getrest(char *full_str)
 {
 	int		i;
 	int		j;
 	char	*restof;
-	size_t	total;
 
 	i = 0;
-	while (full_string[i] && full_string[i] != '\n')
+	while (full_str[i] && full_str[i] != '\n')
 		i++;
-	if (!full_string[i])
+	if (!full_str[i])
 	{
-		free(full_string);
+		free(full_str);
 		return (NULL);
 	}
-	total = ft_strlen(full_string);
-	restof = (char *)malloc(sizeof(char) * (total - i + 1));
+	restof = (char *)malloc(sizeof(char) * (ft_strlen(full_str) - i + 1));
 	if (!restof)
 		return (NULL);
 	i++;
 	j = 0;
-	while (full_string[i])
-		restof[j++] = full_string[i++];
+	while (full_str[i])
+		restof[j++] = full_str[i++];
 	restof[j] = '\0';
-	free(full_string);
+	free(full_str);
 	return (restof);
 }

@@ -1,5 +1,0 @@
-Hello, World!
-This is a test file.
-It contains multiple lines.
-Each line ends with a newline character.
-The last line does not end with a newline character
