@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:57:53 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/31 14:37:39 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/31 16:33:40 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*ft_strjoin(char *s1, char *s2)
 		s1[0] = '\0';
 	}
 	total = ft_strlen(s1) + ft_strlen(s2);
-	res = (char *)malloc((total * sizeof(char)) + 1);
+	res = (char *)malloc((total + 1)* sizeof(char));
 	if (res == NULL)
 		return (NULL);
 	i = -1;
@@ -63,8 +63,8 @@ char	*ft_strjoin(char *s1, char *s2)
 		res[i] = ((char *)s1)[i];
 	j = 0;
 	while (s2[j])
-		res[i++] = ((char *)s2)[j++];
-	res[i] = '\0';
+		res[j++] = s2[j++];
+	res[j] = '\0';
 	free(s1);
 	return (res);
 }

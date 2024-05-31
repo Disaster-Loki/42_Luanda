@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/22 13:57:34 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/05/31 14:38:08 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/05/31 16:25:39 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_read(int fd, char *str)
 	char	*tmp;
 	int		bytes;
 
-	tmp = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	tmp = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!tmp)
 		return (NULL);
 	bytes = 1;
