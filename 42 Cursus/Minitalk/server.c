@@ -3,21 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:04:08 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/06/12 14:44:52 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/06/14 11:49:24 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-int	r_bit = 0;
-
 void	rest(int signal, siginfo *siginfo)
 {
 	static unsigned char	buff;
+	static int				r_bit;
 
+	r_bit = 0
 	if (signal == SIGUSR1)
 		buff |= 1;
 	r_bit++;

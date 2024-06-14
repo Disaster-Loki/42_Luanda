@@ -1,21 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minitalk.h                                         :+:      :+:    :+:   */
+/*   ft_check.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 17:04:51 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/06/14 11:44:32 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/06/14 11:30:04 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/06/14 11:45:16 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINITALK_H
-# define MINITALK_H
+#include "minitalk.h"
 
-# include <unistd.h>
-# include <signal.h>
-// Check arguments
-void	ft_check(int av, char **arg);
+int static	ft_isdigit(int c)
+{
+	return (c >= 48 && c <= 57);
+}
 
-#endif
+void	ft_check(int av, char **arg)
+{
+	int	i;
+
+	if (av != 3)
+		ft_printf("Error - Usage: ./cliente [server_pid] [message]");
+	i = 0;
+	while (arg[1][i])
+	{
+		if (ft_isdigit(arg[1][i]) == 0)
+			ft_printf("Error - Invalid PID");
+		++i;
+	}
+	if (arg[2] == 0)
+		ft_printf("Error - Invalid message");
+}
