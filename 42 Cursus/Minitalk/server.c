@@ -6,16 +6,17 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:04:08 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/06/14 11:49:24 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/06/14 12:31:29 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
+static int				r_bit;
+
 void	rest(int signal, siginfo *siginfo)
 {
 	static unsigned char	buff;
-	static int				r_bit;
 
 	r_bit = 0
 	if (signal == SIGUSR1)
