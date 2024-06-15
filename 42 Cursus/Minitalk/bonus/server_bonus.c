@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   server_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:30:12 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/06/15 10:30:39 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/06/15 13:11:53 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 #include <signal.h>
 #include <unistd.h>
 #include <stdio.h>
@@ -31,10 +31,14 @@ void	rest(int signal, siginfo_t *siginfo, void *context)
 		write(1, &buff, 1);
 		g_r_bit = 0;
 		buff = 0;
+		if (kill(siginfo->si_pid, SIGUSR1) == -1)
+		{
+			ft_printf("Error sending ACK signal");
+			exit(EXIT_FAILURE);
+		}
 	}
 	else
 		buff = buff << 1;
-	kill(siginfo->si_pid, SIGUSR1);
 }
 
 void	sig_handler(void)

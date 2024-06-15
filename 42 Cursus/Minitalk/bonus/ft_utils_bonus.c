@@ -6,11 +6,11 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:35:12 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/06/15 13:02:26 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/06/15 10:33:01 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk_bonus.h"
+#include "minitalk.h"
 
 int	ft_isdigit(int c)
 {

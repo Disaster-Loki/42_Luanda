@@ -6,7 +6,7 @@
 #    By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/10 17:03:42 by sde-carv          #+#    #+#              #
-#    Updated: 2024/06/14 15:30:27 by sde-carv         ###   ########.fr        #
+#    Updated: 2024/06/15 13:28:07 by sde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,31 +30,39 @@ PRINTF_FILES = $(PRINTF_DIR)/ft_printf.c \
                $(PRINTF_DIR)/ft_printf_display.c \
                $(PRINTF_DIR)/ft_printf_hex.c \
                $(PRINTF_DIR)/ft_printf_utils.c
-PRINTF_OBJS = $(PRINTF_FILES:.c=.o)
+PRINTF_OBJS = $(PRINTF_FILES:$(PRINTF_DIR)/%.c=$(PRINTF_DIR)/%.o)
+
+UTILS_FILE = ft_utils.c
+UTILS_OBJS = $(UTILS_FILE:.c=.o)
 
 all: $(SERVER) $(CLIENT)
 
-$(PRINTF_FILES): 
-			$(PRINTF_FILES) $(PRINTF_DIR)/ft_printf.h
-			$(CC) $(CFLAGS) -c $(PRINTF_FILES)
+$(PRINTF_DIR)/%.o: $(PRINTF_DIR)/%.c $(HEADERS)
+	$(CC) $(CFLAGS) -c -o $@ $<
 
-$(SERVER): $(S_OBJS)
-			$(CC) $(CFLAGS) -o $(SERVER) $(S_OBJS) $(PRINTF_OBJS)
+$(UTILS_OBJS): $(UTILS_FILE) $(HEADERS)
+	$(CC) $(CFLAGS) -c -o $(UTILS_OBJS) $(UTILS_FILE)
 
-$(CLIENT): $(C_OBJS)
-			$(CC) $(CFLAGS) -o $(CLIENT) $(C_OBJS) $(PRINTF_OBJS)
+$(SERVER): $(S_OBJS) $(PRINTF_OBJS) $(UTILS_OBJS)
+	$(CC) $(CFLAGS) -o $(SERVER) $(S_OBJS) $(PRINTF_OBJS) $(UTILS_OBJS)
+
+$(CLIENT): client.o ft_check.o $(PRINTF_OBJS) $(UTILS_OBJS)
+	$(CC) $(CFLAGS) -o $(CLIENT) client.o ft_check.o $(PRINTF_OBJS) $(UTILS_OBJS)
+
+client.o: client.c $(HEADERS)
+	$(CC) $(CFLAGS) -c -o client.o client.c
+
+ft_check.o: ft_check.c $(HEADERS)
+	$(CC) $(CFLAGS) -c -o ft_check.o ft_check.c
 
 $(S_OBJS): $(S_FILE) $(HEADERS)
-			$(CC) $(CFLAGS) -c $(S_FILE)
-
-$(C_OBJS): $(C_FILE) $(HEADERS)
-			$(CC) $(CFLAGS) -c $(C_FILE)
+	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean: 
-		rm -f $(S_OBJS) $(C_OBJS) $(PRINTF_OBJS)
+	/bin/rm -f $(S_OBJS) $(C_OBJS) $(PRINTF_DIR)/*.o $(UTILS_OBJS)
 
-fclean: 
-		clean rm -f $(SERVER) $(CLIENT)
+fclean: clean
+	/bin/rm -f $(SERVER) $(CLIENT)
 
 re: fclean all
 

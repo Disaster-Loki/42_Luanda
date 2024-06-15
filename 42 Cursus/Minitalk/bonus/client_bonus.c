@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   client.c                                           :+:      :+:    :+:   */
+/*   client_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 17:03:59 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/06/15 10:28:29 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/06/15 13:18:10 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	send_message(int pid, char *str)
 	i = -1;
 	while (str[++i])
 		send_bit(pid, str[i]);
+	send_bit(pid, '\0');
 }
 
 int	main(int ac, char **av)
@@ -77,6 +78,6 @@ int	main(int ac, char **av)
 		send_message(pid, "\0");
 	else
 		send_message(pid, av[2]);
-	send_message(pid, "\n");
+	send_message(pid, '\0');
 	return (0);
 }
