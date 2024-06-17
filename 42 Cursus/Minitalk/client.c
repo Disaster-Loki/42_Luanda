@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 17:03:59 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/06/15 10:28:29 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/06/17 09:35:38 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/06/17 09:35:41 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	sig_handler(void)
 	sa.sa_handler = &send_signal;
 	sa.sa_flags = 0;
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
-		ft_printf("Error - Problem receiving signal");
+		ft_putstr("Error - Problem receiving signal");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
-		ft_printf("Error - Problem receiving signal");
+		ft_putstr("Error - Problem receiving signal");
 }
 
 void	send_bit(int pid, char bit)
@@ -69,7 +69,7 @@ int	main(int ac, char **av)
 	pid = ft_atoi(av[1]);
 	if (pid <= 0)
 	{
-		ft_printf("Invalid PID\n");
+		ft_putstr("Invalid PID\n");
 		exit(EXIT_FAILURE);
 	}
 	sig_handler();

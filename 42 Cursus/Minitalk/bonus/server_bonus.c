@@ -6,7 +6,7 @@
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/15 11:30:12 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/06/15 13:11:53 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/06/17 08:56:21 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	main(void)
 	pid_t	pid;
 
 	pid = getpid();
-	printf("Server PID: %i\n", pid);
+	ft_printf("Server PID: %i\n", pid);
 	sig_handler();
 	while (1)
 		pause();

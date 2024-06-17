@@ -5,16 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/15 11:30:12 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/06/15 10:30:39 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/06/17 09:35:19 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/06/17 09:55:23 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
-#include <signal.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 static int	g_r_bit;
 
@@ -45,9 +41,9 @@ void	sig_handler(void)
 	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
-		perror("Error - Problem receiving SIGUSR1");
+		ft_putstr("Error - Problem receiving SIGUSR1");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
-		perror("Error - Problem receiving SIGUSR2");
+		ft_putstr("Error - Problem receiving SIGUSR2");
 }
 
 int	main(void)
@@ -55,7 +51,9 @@ int	main(void)
 	pid_t	pid;
 
 	pid = getpid();
-	printf("Server PID: %i\n", pid);
+	ft_putstr("Server PID: ");
+	ft_putnbr(pid);
+	ft_putchar('\n');
 	sig_handler();
 	while (1)
 		pause();
