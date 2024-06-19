@@ -5,16 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/15 11:30:12 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/06/17 08:56:21 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/06/17 09:35:19 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/06/17 11:25:05 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk_bonus.h"
-#include <signal.h>
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 static int	g_r_bit;
 
@@ -31,14 +27,10 @@ void	rest(int signal, siginfo_t *siginfo, void *context)
 		write(1, &buff, 1);
 		g_r_bit = 0;
 		buff = 0;
-		if (kill(siginfo->si_pid, SIGUSR1) == -1)
-		{
-			ft_printf("Error sending ACK signal");
-			exit(EXIT_FAILURE);
-		}
 	}
 	else
 		buff = buff << 1;
+	kill(siginfo->si_pid, SIGUSR1);
 }
 
 void	sig_handler(void)
@@ -49,9 +41,9 @@ void	sig_handler(void)
 	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
-		perror("Error - Problem receiving SIGUSR1");
+		ft_putstr("Error - Problem receiving SIGUSR1");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
-		perror("Error - Problem receiving SIGUSR2");
+		ft_putstr("Error - Problem receiving SIGUSR2");
 }
 
 int	main(void)
@@ -59,7 +51,9 @@ int	main(void)
 	pid_t	pid;
 
 	pid = getpid();
-	ft_printf("Server PID: %i\n", pid);
+	ft_putstr("Server PID: ");
+	ft_putnbr(pid);
+	ft_putchar('\n');
 	sig_handler();
 	while (1)
 		pause();

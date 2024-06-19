@@ -5,18 +5,18 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <sde-carv@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 17:03:59 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/06/15 13:18:10 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/06/17 09:35:38 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/06/17 11:27:40 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minitalk_bonus.h"
 
 static int	g_send_bit;
 
 void	send_signal(int signal)
 {
-	if (signal == SIGUSR1)
+	if (signal == SIGUSR1 || signal == SIGUSR2)
 		g_send_bit = 1;
 }
 
@@ -27,9 +27,9 @@ void	sig_handler(void)
 	sa.sa_handler = &send_signal;
 	sa.sa_flags = 0;
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
-		ft_printf("Error - Problem receiving signal");
+		ft_putstr("Error - Problem receiving signal");
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
-		ft_printf("Error - Problem receiving signal");
+		ft_putstr("Error - Problem receiving signal");
 }
 
 void	send_bit(int pid, char bit)
@@ -58,7 +58,11 @@ void	send_message(int pid, char *str)
 
 	i = -1;
 	while (str[++i])
+	{
 		send_bit(pid, str[i]);
+		sleep(1);
+		ft_putstr("Signal Received from Server\n");
+	}
 	send_bit(pid, '\0');
 }
 
@@ -70,7 +74,7 @@ int	main(int ac, char **av)
 	pid = ft_atoi(av[1]);
 	if (pid <= 0)
 	{
-		ft_printf("Invalid PID\n");
+		ft_putstr("Invalid PID\n");
 		exit(EXIT_FAILURE);
 	}
 	sig_handler();
@@ -78,6 +82,6 @@ int	main(int ac, char **av)
 		send_message(pid, "\0");
 	else
 		send_message(pid, av[2]);
-	send_message(pid, '\0');
+	send_message(pid, "\n");
 	return (0);
 }
