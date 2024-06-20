@@ -25,6 +25,7 @@ void	rest(int signal, siginfo_t *siginfo, void *context)
 	if (g_r_bit == 8)
 	{
 		write(1, &buff, 1);
+		sleep(1);
 		g_r_bit = 0;
 		buff = 0;
 	}
