@@ -5,20 +5,19 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/09 08:21:38 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/07/09 08:21:43 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/07/13 15:00:35 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/07/13 15:00:38 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <stdio.h>
 #include <stdlib.h>
+#include <stdio.h>
 
-char	**ft_split(char *str)
+char    **ft_split(char *str)
 {
-	int	i = 0;
-	int	len = 0;
-	int	f;
+	int		i = 0;
+	int		len = 0;
+	int		col = 0;
 	char	**result;
 
 	while (str[len])
@@ -30,13 +29,13 @@ char	**ft_split(char *str)
 		return (NULL);
 	while (*str)
 	{
-		f = 0;
+		col = 0;
 		result[i] = (char *)malloc(sizeof(char) * (len + 1));
-		while (*str != ' ' && *str != '\t' && *str)
-			result[i][f++] = *(str++);
+		while (*str && *str != ' ' && *str != '\t')
+			result[i][col++] = *(str++);
 		while (*str == ' ' || *str == '\t')
 			str++;
-		result[i++][f] = '\0';
+		result[i++][col] = '\0';
 	}
 	result[i] = NULL;
 	return (result);

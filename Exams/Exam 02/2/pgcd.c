@@ -5,56 +5,33 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/14 16:03:46 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/06/14 16:37:38 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/07/13 14:43:09 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/07/13 14:43:12 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int static	ft_atoi(char *str)
-{
-	int	i;
-	int	sign;
-	int	result;
-
-	i = 0;
-	sign = 1;
-	result = 0;
-	while (str[i] >= 9 && str[i] <= 13)
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
-	while (str[i] >= 48 && str[i] <= 57)
-	{
-		result = (result * 10) + (str[i] - '0');
-		++i;
-	}
-	return (result * sign);
-}
+#include <stdio.h>
+#include <stdlib.h>
 
 int	main(int av, char **args)
 {
-	int	i;
-	int	count;
-	char	num;
+	int	i = 1;
+	int	n, n2, min;
+	int	count = 0;
 
-	i = 1;
 	if (av == 3)
 	{
-		while (i <= ft_atoi(args[1]) || i <= ft_atoi(args[2]))
+		n = atoi(args[1]);
+		n2 = atoi(args[2]);
+		while ((i <= n) || (i <= n2))
 		{
-			if ((ft_atoi(args[1]) % i == 0) && (ft_atoi(args[2]) % i == 0))
+			if ((n % i == 0) && (n2 % i == 0))
 				count = i;
 			i++;
 		}
-		num = count + '0';
-		write(1, &num, 1);
+		printf("%d", count);
 	}
-	write(1, "\n", 1);
+	printf("\n");
 	return (0);
 }
+
