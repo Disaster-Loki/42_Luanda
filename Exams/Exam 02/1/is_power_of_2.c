@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_bits.c                                       :+:      :+:    :+:   */
+/*   is_power_of_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 18:14:09 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/07/08 18:14:15 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/07/15 14:05:44 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/07/15 14:05:48 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-void	print_bits(unsigned char octet)
+int	    is_power_of_2(unsigned int n)
 {
-	int	div;
-	int	oct;
-
-	div = 128;
-	oct = octet;
-	while (div != 0)
+	if (n == 0)
+		return (0);
+	while (n > 1)
 	{
-		if (div <= oct)
-		{
-			write(1, "1", 1);
-			oct %= div;
-		}
+		if (n % 2 == 0)
+			n /= 2;
 		else
-			write(1, "0", 1);
-		div /= 2;
+			return (0);
 	}
+	return (1);
 }

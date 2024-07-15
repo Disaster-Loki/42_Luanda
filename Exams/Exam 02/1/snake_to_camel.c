@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_bits.c                                       :+:      :+:    :+:   */
+/*   snake_to_camel.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/08 18:14:09 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/07/08 18:14:15 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/07/15 16:20:41 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/07/15 16:20:45 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	print_bits(unsigned char octet)
+int	main(int av, char **args)
 {
-	int	div;
-	int	oct;
-
-	div = 128;
-	oct = octet;
-	while (div != 0)
+	int	i = 0;
+	char	*str;
+	str = args[1];
+	while (av == 2 && str[i])
 	{
-		if (div <= oct)
-		{
-			write(1, "1", 1);
-			oct %= div;
-		}
-		else
-			write(1, "0", 1);
-		div /= 2;
+		if (str[i] == '_')
+			str[++i] -= 32;
+		write(1, &str[i], 1);
+		i++;
 	}
+	write(1, "\n", 1);
+	return (0);
 }
