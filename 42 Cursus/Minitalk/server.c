@@ -59,7 +59,9 @@ int	main(void)
 	sleep(1);
 	ft_putstr("Server PID: ", LIME);
 	ft_putnbr(pid);
-	ft_putchar('\n\n');
+	ft_putchar('\n');
+	ft_putstr("Message for client", AQUA);
+	ft_putchar('\n');
 	sig_handler();
 	while (1)
 		pause();
