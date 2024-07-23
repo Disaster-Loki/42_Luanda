@@ -1,39 +1,37 @@
-# 42_Luanda 😄
+# 42_Luanda 😄🎓
 
-![42 Logo](https://www.42.us.org/wp-content/uploads/2020/12/42-Logo.png)
+## Description
 
-## Descrição
+Welcome to the 42_Luanda repository! This repository is a collection of exercises completed during courses at 42 Luanda, primarily written in C. It serves as a valuable resource for anyone interested in honing their C programming skills and delving into the 42 Luanda curriculum.
 
-Bem-vindo ao repositório 42_Luanda! Este repositório é uma coleção de exercícios concluídos durante os cursos na 42 Luanda, principalmente escritos em C. Ele serve como um recurso valioso para qualquer pessoa interessada em aprimorar suas habilidades em C e mergulhar no currículo da 42 Luanda.
-
-## Estrutura do Repositório
+## Repository Structure
 
 ### 📁 C Piscine
 
-* **Descrição:** Este diretório contém exercícios fundamentais que constituem a base para sua jornada na programação em C.
-* **Objetivo:** Construir uma base sólida nas habilidades essenciais de C.
+* **Description:** This folder contains foundational exercises that lay the groundwork for your C programming journey.
+* **Goal:** Build a solid foundation in essential C skills.
 
 ### 📁 C Piscine Reloaded
 
-* **Descrição:** Esta seção reforça os conceitos da "Piscine", oferecendo exercícios adicionais e revisões para solidificar seu entendimento.
-* **Objetivo:** Consolidar sua compreensão dos conceitos fundamentais da programação em C.
+* **Description:** This section reinforces "Piscine" concepts by offering additional exercises and reviews to solidify your understanding.
+* **Goal:** Consolidate your grasp of fundamental C programming concepts.
 
 ### 📁 42 Courses
 
-* **Descrição:** Diretório com exercícios dos cursos regulares da 42, ampliando seus horizontes na programação em C.
-* **Objetivo:** Abordar tópicos mais avançados e apresentar desafios mais complexos para aprimorar suas habilidades.
+* **Description:** This folder contains exercises from the regular 42 courses, expanding your C programming horizons.
+* **Goal:** Tackle more advanced topics and present more intricate challenges to sharpen your skills.
 
 ### 📁 Exam
 
-* **Descrição:** Diretório com resoluções dos exames para cadetes.
-* **Objetivo:** Fornecer exemplos práticos e soluções para os exames da 42.
+* **Description:** This folder contains the resolution of exams for cadets.
+* **Goal:** Provide practical examples and solutions for 42 exams.
 
-## Como Usar
+## How to Use
 
-### Clonar o Repositório
+### Clone the Repository
 
-1. Abra seu terminal ou prompt de comando.
-2. Execute o comando abaixo para clonar o repositório:
+1. Open your terminal or command prompt.
+2. Execute the following command to clone the repository:
 
 ```bash
-git clone https://github.com/Disaster-Loki/42_Luanda.git
+git clone https://github.com/Disaster-Loki/42_Luanda.git 
