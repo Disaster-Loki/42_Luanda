@@ -22,22 +22,29 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-void	ft_putstr(char *str)
+void	ft_putstr(char *str, char *color)
 {
-	int	i;
+	char	*reset;
 
-	i = 0;
-	while (str[i])
+	if (color)
 	{
-		ft_putchar(str[i]);
-		i++;
+		while (*color)
+			write(1, color++, 1);
+	}
+	while (*str)
+		write(1, str++, 1);
+	if (color)
+	{
+		reset = COLOR_RESET;
+		while (*reset)
+			write(1, reset++, 1);
 	}
 }
 
 void	ft_putnbr(int n)
 {
 	if (n == -2147483648)
-		ft_putstr("-2147483648");
+		ft_putstr("-2147483648", LIME);
 	else if (n < 0)
 	{
 		ft_putchar('-');

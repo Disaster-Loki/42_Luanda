@@ -23,13 +23,13 @@ void	ft_validate_pid(char *pid_str)
 	{
 		if (!ft_isdigit(pid_str[i]))
 		{
-			ft_putstr("Error - Invalid PID\n");
+			ft_putstr("Error - Invalid PID\n", COLOR_RED);
 			exit(EXIT_FAILURE);
 		}
 	}
 	if (kill(server_pid, 0) == -1)
 	{
-		ft_putstr("Error - Server PID not accessible\n");
+		ft_putstr("Error - Server PID not accessible\n", COLOR_RED);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -38,13 +38,13 @@ void	ft_check(int ac, char **av)
 {
 	if (ac != 3)
 	{
-		ft_putstr("Error - Usage: ./client [server_pid] [message]\n");
+		ft_putstr("Error - Usage: ./client [server_pid] [message]\n", DARK_ORANGE);
 		exit(EXIT_FAILURE);
 	}
 	ft_validate_pid(av[1]);
 	if (!av[2][0])
 	{
-		ft_putstr("Error - Invalid message\n");
+		ft_putstr("Error - Invalid message\n", COLOR_RED);
 		exit(EXIT_FAILURE);
 	}
 }

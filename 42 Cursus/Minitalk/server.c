@@ -41,9 +41,9 @@ void	sig_handler(void)
 	sa.sa_flags = SA_SIGINFO;
 	sigemptyset(&sa.sa_mask);
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
-		ft_putstr("Error - Problem receiving SIGUSR1");
+		ft_putstr("Error - Problem receiving SIGUSR1", DARK_ORANGE);
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
-		ft_putstr("Error - Problem receiving SIGUSR2");
+		ft_putstr("Error - Problem receiving SIGUSR2", DARK_ORANGE);
 }
 
 int	main(void)
@@ -51,11 +51,18 @@ int	main(void)
 	pid_t	pid;
 
 	pid = getpid();
-	ft_putstr("Server PID: ");
+	ft_putstr("=============================\n", LIME);
+	ft_putstr("|                           |\n", LIME);
+	ft_putstr("|        Starting Server    |\n", LIME);
+	ft_putstr("|                           |\n", LIME);
+	ft_putstr("=============================\n\n", LIME);
+	sleep(1);
+	ft_putstr("Server PID: ", LIME);
 	ft_putnbr(pid);
-	ft_putchar('\n');
+	ft_putchar('\n\n');
 	sig_handler();
 	while (1)
 		pause();
+	ft_putstr("Connection completed\n", YELLOW);
 	return (0);
 }

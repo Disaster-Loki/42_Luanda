@@ -27,9 +27,9 @@ void	sig_handler(void)
 	sa.sa_handler = &send_signal;
 	sa.sa_flags = 0;
 	if (sigaction(SIGUSR1, &sa, NULL) == -1)
-		ft_putstr("Error - Problem receiving signal");
+		ft_putstr("Error - Problem receiving signal", DARK_ORANGE);
 	if (sigaction(SIGUSR2, &sa, NULL) == -1)
-		ft_putstr("Error - Problem receiving signal");
+		ft_putstr("Error - Problem receiving signal", DARK_ORANGE);
 }
 
 void	send_bit(int pid, char bit)
@@ -61,7 +61,7 @@ void	send_message(int pid, char *str)
 	{
 		send_bit(pid, str[i]);
 		sleep(1);
-		ft_putstr("Signal Received from Server\n");
+		ft_putstr("Signal Received from Server\n", BLUE);
 	}
 	send_bit(pid, '\0');
 }
@@ -74,7 +74,7 @@ int	main(int ac, char **av)
 	pid = ft_atoi(av[1]);
 	if (pid <= 0)
 	{
-		ft_putstr("Invalid PID\n");
+		ft_putstr("Invalid PID\n", RED);
 		exit(EXIT_FAILURE);
 	}
 	sig_handler();
