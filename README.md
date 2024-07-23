@@ -1,39 +1,39 @@
 # 42_Luanda 😄
 
-## Description
+![42 Logo](https://www.42.us.org/wp-content/uploads/2020/12/42-Logo.png)
 
-This repository is a collection of exercises completed during courses at 42 Luanda, primarily written in the C programming language. It serves as a valuable resource for anyone interested in honing their C programming skills and delving into the 42 Luanda curriculum. 
+## Descrição
 
-The repository is well-organized, with exercises categorized into the following folders:
+Bem-vindo ao repositório 42_Luanda! Este repositório é uma coleção de exercícios concluídos durante os cursos na 42 Luanda, principalmente escritos em C. Ele serve como um recurso valioso para qualquer pessoa interessada em aprimorar suas habilidades em C e mergulhar no currículo da 42 Luanda.
 
-* **C Piscine:** This folder houses exercises from the foundational "Piscine" phase, designed to equip beginners with core C programming concepts.
-* **C Piscine Reloaded:** This section provides additional challenges and reviews of the "Piscine" topics, solidifying your understanding of the initial phase material.
-* **42 Courses:** This folder contains exercises from the regular 42 courses, venturing into more advanced C programming areas and offering a broader range of problems to tackle.
+## Estrutura do Repositório
 
-## Repository Structure
+### 📁 C Piscine
 
-### C Piscine
+* **Descrição:** Este diretório contém exercícios fundamentais que constituem a base para sua jornada na programação em C.
+* **Objetivo:** Construir uma base sólida nas habilidades essenciais de C.
 
-* This folder encapsulates fundamental exercises that lay the groundwork for your C programming journey.
-* It focuses on building a solid foundation in essential C skills.
+### 📁 C Piscine Reloaded
 
-### C Piscine Reloaded
+* **Descrição:** Esta seção reforça os conceitos da "Piscine", oferecendo exercícios adicionais e revisões para solidificar seu entendimento.
+* **Objetivo:** Consolidar sua compreensão dos conceitos fundamentais da programação em C.
 
-* This section acts as a reinforcement for the "Piscine" concepts, offering additional exercises and reviews to solidify your understanding.
-* It helps you solidify your grasp of the foundational C programming concepts.
+### 📁 42 Courses
 
-### 42 Courses
+* **Descrição:** Diretório com exercícios dos cursos regulares da 42, ampliando seus horizontes na programação em C.
+* **Objetivo:** Abordar tópicos mais avançados e apresentar desafios mais complexos para aprimorar suas habilidades.
 
-* This folder houses exercises from the regular 42 courses, expanding your C programming horizons.
-* It delves into more advanced topics and presents more intricate challenges to sharpen your skills.
+### 📁 Exam
 
-## How to Use
+* **Descrição:** Diretório com resoluções dos exames para cadetes.
+* **Objetivo:** Fornecer exemplos práticos e soluções para os exames da 42.
 
-### Clone the Repository
+## Como Usar
 
-1. Open your terminal or command prompt.
-2. Execute the following command to clone the repository:
+### Clonar o Repositório
+
+1. Abra seu terminal ou prompt de comando.
+2. Execute o comando abaixo para clonar o repositório:
 
 ```bash
-git clone [https://github.com/your-username/42_Luanda.git](https://github.com/your-username/42_Luanda.git)
-
+git clone https://github.com/Disaster-Loki/42_Luanda.git
