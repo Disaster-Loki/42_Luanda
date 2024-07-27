@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/11 14:02:55 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/07/11 14:25:57 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/07/27 13:31:20 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/07/27 13:31:24 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,21 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int	isPrime(int num)
+int	isPrime(int n)
 {
 	int	i = 2;
-	if (num <= 1)
+	if (n <= 1)
 		return (0);
-	while (i * i <= num)
+	while (i * i <= n)
 	{
-		if (num % i == 0)
-			return (0);
+		if (n % i == 0)
+			return  (0);
 		i++;
 	}
 	return (1);
 }
 
-void	ft_putnbr(int	n)
+void	ft_putnbr(int n)
 {
 	if (n > 9)
 		ft_putnbr(n / 10);
@@ -40,10 +40,8 @@ void	ft_putnbr(int	n)
 
 int	ft_atoi(char *str)
 {
-	int	i = 0;
+	int	res = 0;
 	int	sign = 1;
-	int	result = 0;
-
 	while (*str == ' ' || *str == '\t')
 		str++;
 	if (*str == '+' || *str == '-')
@@ -53,27 +51,23 @@ int	ft_atoi(char *str)
 		str++;
 	}
 	while (*str >= '0' && *str <= '9')
-	{
-		result = (result * 10) + (*str - '0');
-		str++;
-	}
-	return (result * sign);
+		res = (res * 10) + (*str++ - '0');
+	return (res * sign);
 }
 
-int	main(int argc, char **argv)
+int	main(int av, char **args)
 {
-	int	num;
-	int	sum;
 	int	i;
+	int	sum;
 
-	if (argc == 2 && *argv[1])
+	if (av == 2)
 	{
-		num = ft_atoi(argv[1]);
-		sum = 0;
 		i = 2;
+		sum = 0;
+		int	num = ft_atoi(args[1]);
 		while (i <= num)
 		{
-			if (isPrime(i))
+			if(isPrime(i))
 				sum += i;
 			i++;
 		}

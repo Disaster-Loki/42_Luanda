@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   paramsum.c                                         :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/27 16:40:47 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/07/27 16:40:52 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/07/27 15:52:00 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/07/27 15:52:02 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
+int	ft_abs(int n)
 {
-	write(1, &c, 1);
+	if (n < 0)
+		return (-n);
+	return (n);
 }
 
-void	ft_putnbr(int n)
+int	*ft_range(int start, int end)
 {
-	if (n > 9)
-		ft_putnbr(n / 10);
-	ft_putchar((n % 10) + '0');
+	int	*res;
+	int i = 0;
+	int	len = ft_abs(end - start) + 1;
+	res = malloc(sizeof(int) * len);
+	while (i < len)
+	{
+		res[i++] = start;
+		if (start < end)
+			start++;
+		else
+			start--;
+	}
+	return (res);
 }
-
-int	main(int av, char **args)
-{
-	int	i = av - 1;
-	(void)args;
-	if (i > 0)
-		ft_putnbr(i);
-	else
-		ft_putnbr(0);
-	ft_putchar('\n');
-	return (0);
-}
-
