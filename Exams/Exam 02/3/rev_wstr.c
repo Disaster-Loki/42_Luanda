@@ -5,42 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/16 08:55:37 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/07/16 09:01:22 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/07/29 14:28:04 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/07/29 14:28:07 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdlib.h>
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 int	main(int av, char **args)
 {
-	int	start;
-	int	end;
-	int	flag;
-	int	i = 0;
-
 	if (av == 2)
 	{
-		while (args[1][i] == '\0')
+		int	i = 0;
+		int	flg = 0;
+		int	end = 0;
+		int	start = 0;
+
+		while (args[1][i])
 			i++;
 		while (i >= 0)
 		{
 			while (args[1][i] == '\0' || args[1][i] == ' ' || args[1][i] == '\t')
 				i--;
 			end = i;
-			while (args[1][i] && args[1][i] != ' ' args[1][i] != '\t')
+			while (args[1][i] && args[1][i] != ' ' && args[1][i] != '\t')
 				i--;
 			start = i + 1;
-			flag = start;
+			flg = start;
 			while (start <= end)
-			{
-				write(1, &args[1][start], 1);
-				start++;
-			}
-			if (flag != 0)
-				write(1, " ", 1);
+				ft_putchar(args[1][start++]);
+			if(flg)
+				ft_putchar(' ');
 		}
 	}
-	write(1, "\n", 1);
+	ft_putchar('\n');
 	return (0);
 }
+
+

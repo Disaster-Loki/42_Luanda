@@ -10,25 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "list.h"
-#include <stddef.h>
+#include <stdlib.h>
 
-t_list *sort_list(t_list *lst, int (*cmp)(int, int))
+typedef struct s_list t_list;
+
+struct s_list {
+    int data;
+    t_list *next;
+};
+
+t_list  *sort_list(t_list* lst, int (*cmp)(int, int))
 {
-    int tmp;
-    t_list *begin = lst;
-    t_list *current;
-
-    if (!lst)
-        return NULL;
-
+    int tmp = 0;
     int sorted = 0;
-
+    t_list  *begin = lst;
+    t_list  *current;
+    if (!lst)
+        return (NULL);
     while (!sorted)
     {
         sorted = 1;
         current = begin;
-
         while (current->next)
         {
             if (!cmp(current->data, current->next->data))
@@ -41,8 +43,6 @@ t_list *sort_list(t_list *lst, int (*cmp)(int, int))
             current = current->next;
         }
     }
-
-    return begin;
+    return (begin);
 }
-
 
