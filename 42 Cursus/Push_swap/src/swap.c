@@ -12,3 +12,36 @@
 
 #include "../inc/push_swap.h"
 
+static void	swap(t_stack **stack)
+{
+	int	index;
+	int	content;
+
+	if (!(*stack)->next)
+		return ;
+	content = (*stack)->next->content;
+	index = (*stack)->next->index;
+	(*stack)->next->content = (*stack)->content;
+	(*stack)->next->index = (*stack)->index;
+	(*stack)->content = content;
+	(*stack)->index = index;
+}
+
+void	sa(t_stack **stack)
+{
+	swap(stack);
+	ft_putstr("sa\n", AQUA);
+}
+
+void	sb(t_stack **stack)
+{
+	swap(stack);
+	ft_putstr("sb\n", AQUA);
+}
+
+void	ss(t_stack **a, t_stack **b)
+{
+	swap(a);
+	swap(b);
+	ft_putstr("ss\n", AQUA);
+}

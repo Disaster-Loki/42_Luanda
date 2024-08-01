@@ -10,4 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../inc/push_swap.h"
 
+void	reverse(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (!(*stack) || !(*stack)->next)
+		return ;
+	tmp = ft_lst_last(*stack);
+	tmp->prev->next = NULL;
+	tmp->prev = NULL;
+	tmp->next = *stack;
+	(*stack)->prev = tmp;
+	*stack = (*stack)->prev;
+}
+
+void	rra(t_stack **stack)
+{
+	reverse(stack);
+	ft_putstr("rra\n", BLUE);
+}
+
+void	rrb(t_stack **stack)
+{
+	reverse(stack);
+	ft_putstr("rrb\n", BLUE);
+}
+
+void	ra(t_stack **a, t_stack **b)
+{
+	reverse(a);
+	reverse(b);
+	ft_putstr("rrr\n", BLUE);
+}
