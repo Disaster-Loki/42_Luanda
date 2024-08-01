@@ -63,7 +63,7 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	src = (char *)s;
 	if (!src)
 		return (NULL);
-	if (start >= ft_strlen(s))
+	if ((int)start >= ft_strlen(s))
 	{
 		str = (char *)malloc(sizeof(char));
 		if (!str)
@@ -82,30 +82,30 @@ char	*ft_substr(char *s, unsigned int start, size_t len)
 	return (str);
 }
 
-char	**ft_split(char *str, char c)
+char	**ft_split(char *s, char c)
 {
 	int		i;
 	int		len;
-	char	**split;
+	char	**new;
 
-	if (!str)
+	if (!s)
 		return (0);
 	i = 0;
-	split = (char **)malloc(sizeof(char *) * (ft_toklen(str, c) + 1));
-	if (!split)
+	new = (char **)malloc(sizeof(char *) * (ft_toklen(s, c) + 1));
+	if (!new)
 		return (NULL);
-	while (*str)
+	while (*s)
 	{
 		if (*s != c)
 		{
 			len = 0;
-			while (*str && *str != c && ++len)
-				++str;
-			split[i++] = ft_substr(s - len, 0, len);
+			while (*s && *s != c && ++len)
+				++s;
+			new[i++] = ft_substr((s - len), 0, len);
 		}
 		else
-			++str;
+			++s;
 	}
-	split[i] = '\0';
-	return (split);
+	new[i] = '\0';
+	return (new);
 }

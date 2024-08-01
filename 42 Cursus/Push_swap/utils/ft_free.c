@@ -1,19 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/07/31 16:09:22 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/07/31 16:09:24 by sde-carv         ###   ########.fr       */
+/*   Created: 2024/08/01 14:37:04 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/08/01 14:37:06 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
 
-int	main(int av, char **args)
+void	free_split(char **split)
 {
-	error_handler(av, args);
-	return (0);
+	int	i;
+
+	if (split)
+	{
+		i = 0;
+		while (split[i])
+		{
+			free(split[i]);
+			i++;
+		}
+		free(split);
+	}
 }
