@@ -38,7 +38,7 @@ void	rb(t_stack **stack)
 	ft_putstr("rb\n", LIME);
 }
 
-void	ra(t_stack **a, t_stack **b)
+void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);

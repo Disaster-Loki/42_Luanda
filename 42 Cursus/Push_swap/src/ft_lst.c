@@ -63,7 +63,7 @@ t_stack	*ft_lst_new(int content)
 	return (stack);
 }
 
-t_stack	*ft_lst_last(t_stack **stack)
+t_stack	*ft_lst_last(t_stack *stack)
 {
 	if (!stack)
 		return (NULL);

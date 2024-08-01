@@ -38,7 +38,7 @@ void	rrb(t_stack **stack)
 	ft_putstr("rrb\n", BLUE);
 }
 
-void	ra(t_stack **a, t_stack **b)
+void	rrr(t_stack **a, t_stack **b)
 {
 	reverse(a);
 	reverse(b);
