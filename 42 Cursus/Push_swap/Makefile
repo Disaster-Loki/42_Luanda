@@ -17,13 +17,14 @@ CFLAGS  = -Wall -Werror -Wextra
 HEADER  = ./inc/push_swap.h
 
 # Files
-S_FILES = ./src/error_handler.c 	\
- 		  ./src/ft_lst.c  		\
+S_FILES = ./src/aux_error_handler.c \
+		  ./src/error_handler.c 	\
+ 		  ./src/ft_lst.c  			\
 		  ./src/swap.c 				\
 		  ./src/rotate.c 			\
 		  ./src/reverse.c 			\
 		  ./src/push.c 				\
-		   ./src/push_swap.c  		\
+		  ./src/push_swap.c  		\
 
 U_FILES = ./utils/ft_print.c 		\
 			./utils/ft_split.c 		\

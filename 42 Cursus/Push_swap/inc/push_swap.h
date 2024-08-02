@@ -56,6 +56,9 @@ void	rrr(t_stack **a, t_stack **b);
 void	pa(t_stack **a, t_stack **b);
 void	pb(t_stack **a, t_stack **b);
 // Error handlers
+int		is_valid_integer(char *s);
+int		ft_isdigit_string(char *s);
+int		has_duplicates(char **args);
 void	error_handler(int av, char **args);
 //List handlers
 t_stack	*ft_lst_new(int content);

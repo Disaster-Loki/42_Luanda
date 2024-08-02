@@ -54,6 +54,8 @@ int	ft_atoi(char *str)
 
 	res = 0;
 	sign = 1;
+	if (!str)
+		return (0);
 	while (*str == ' ' || *str == '\t')
 		str++;
 	if (*str == '+' || *str == '-')
