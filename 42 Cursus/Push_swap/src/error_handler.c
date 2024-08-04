@@ -12,26 +12,26 @@
 
 #include "../inc/push_swap.h"
 
+static void	error(char *color)
+{
+	ft_putstr("Error\n", color);
+	exit(EXIT_FAILURE);
+}
+
 static void	val_single_argument(char *arg)
 {
-	int i;
-	char **split_args;
+	int		i;
+	char	**split_args;
 
 	split_args = ft_split(arg, ' ');
 	i = -1;
 	while (split_args[++i])
 	{
 		if (!is_valid_integer(split_args[i]))
-		{
-			ft_putstr("Error\n", DARK_ORANGE);
-			exit(EXIT_FAILURE);
-		}
+			error(DARK_ORANGE);
 	}
 	if (has_duplicates(split_args))
-	{
-		ft_putstr("Error\n", DARK_ORANGE);
-		exit(EXIT_FAILURE);
-	}
+		error(DARK_ORANGE);
 	free_split(split_args);
 }
 
@@ -43,16 +43,10 @@ static void	val_multiple_arguments(int ac, char **args)
 	while (++i < ac)
 	{
 		if (!is_valid_integer(args[i]))
-		{
-			ft_putstr("Error\n", DARK_ORANGE);
-			exit(EXIT_FAILURE);
-		}
+			error(DARK_ORANGE);
 	}
 	if (has_duplicates(args + 1))
-	{
-		ft_putstr("Error\n", DARK_ORANGE);
-		exit(EXIT_FAILURE);
-	}
+		error(DARK_ORANGE);
 }
 
 void	error_handler(int ac, char **args)
