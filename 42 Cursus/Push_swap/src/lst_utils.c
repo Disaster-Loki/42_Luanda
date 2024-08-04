@@ -12,6 +12,46 @@
 
 #include "../inc/push_swap.h"
 
+int	lst_size(t_stack *stack)
+{
+	int		len;
+	t_stack	*lst;
+
+	if (!stack)
+		return (0);
+	len = 0;
+	lst = stack;
+	while (lst)
+	{
+		len++;
+		lst = lst->next;
+	}
+	return (len);
+}
+
+t_stack	*ft_lst_new(int content)
+{
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->content = content;
+	stack->index = -1;
+	stack->prev = NULL;
+	stack->next = NULL;
+	return (stack);
+}
+
+t_stack	*ft_lst_last(t_stack *stack)
+{
+	if (!stack)
+		return (NULL);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}
+
 void	ft_lst_addfront(t_stack **stack, t_stack *news)
 {
 	if (!stack || !news)
@@ -47,27 +87,4 @@ void	ft_lst_addback(t_stack **stack, t_stack *news)
 		tmp = tmp->next;
 	tmp->next = news;
 	news->prev = tmp;
-}
-
-t_stack	*ft_lst_new(int content)
-{
-	t_stack	*stack;
-
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->content = content;
-	stack->index = -1;
-	stack->prev = NULL;
-	stack->next = NULL;
-	return (stack);
-}
-
-t_stack	*ft_lst_last(t_stack *stack)
-{
-	if (!stack)
-		return (NULL);
-	while (stack->next)
-		stack = stack->next;
-	return (stack);
 }

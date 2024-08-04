@@ -60,11 +60,25 @@ int		is_valid_integer(char *s);
 int		ft_isdigit_string(char *s);
 int		has_duplicates(char **args);
 void	error_handler(int av, char **args);
+// Indexing
+void	get_index(t_stack **stack);
 //List handlers
+int		lst_size(t_stack *stack);
 t_stack	*ft_lst_new(int content);
 t_stack	*ft_lst_last(t_stack *stack);
 void	ft_lst_addback(t_stack **stack, t_stack *news);
 void	ft_lst_addfront(t_stack **stack, t_stack *news);
+// Stack Init and clear
+void	clear_stack(t_stack **stack);
+int		init_stack(int av, char **args, t_stack **stack_a);
+// stack_utils
+void	reset_index(t_stack **stack);
+int		check_sorted(t_stack **stack);
+int		sorted_to_top(t_stack **stack, int size);
+void	move_min_to_top(t_stack **stack, int size);
+// Sorting Algorithm
+void	radix_sort(t_stack **stack_a, t_stack **stack_b);
+void	simple_sort(t_stack **stack_a, t_stack **stack_b);
 // utils
 void	ft_putnbr(int n);
 int		ft_atoi(char *str);

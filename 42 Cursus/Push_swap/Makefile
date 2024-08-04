@@ -6,7 +6,7 @@
 #    By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/31 15:58:54 by sde-carv          #+#    #+#              #
-#    Updated: 2024/07/31 15:58:57 by sde-carv         ###   ########.fr        #
+#    Updated: 2024/08/04 13:39:34 by sde-carv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,11 +19,16 @@ HEADER  = ./inc/push_swap.h
 # Files
 S_FILES = ./src/aux_error_handler.c \
 		  ./src/error_handler.c 	\
- 		  ./src/ft_lst.c  			\
-		  ./src/swap.c 				\
+		  ./src/index.c				\
+ 		  ./src/lst_utils.c  		\
+		  ./src/radix.c				\
 		  ./src/rotate.c 			\
 		  ./src/reverse.c 			\
 		  ./src/push.c 				\
+		  ./src/stack_init.c		\
+		  ./src/stack_sort.c		\
+ 		  ./src/stack_utils.c 		\
+		  ./src/swap.c 				\
 		  ./src/push_swap.c  		\
 
 U_FILES = ./utils/ft_print.c 		\

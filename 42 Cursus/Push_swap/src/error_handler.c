@@ -52,7 +52,7 @@ static void	val_multiple_arguments(int ac, char **args)
 void	error_handler(int ac, char **args)
 {
 	if (ac < 2)
-		return ;
+		error(DARK_ORANGE);
 	if (ac == 2)
 		val_single_argument(args[1]);
 	else
