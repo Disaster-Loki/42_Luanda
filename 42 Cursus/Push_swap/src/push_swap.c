@@ -18,6 +18,8 @@ int	main(int av, char **args)
 	t_stack	*stack_b;
 
 	error_handler(av, args);
+	stack_a = NULL;
+	stack_b = NULL;
 	init_stack(av, args, &stack_a);
 	get_index(&stack_a);
 	if (check_sorted(&stack_a) != 1)

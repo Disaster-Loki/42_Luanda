@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
+#include <stdio.h>
 
 int	init_stack(int av, char **args, t_stack **stack_a)
 {
@@ -32,9 +33,15 @@ int	init_stack(int av, char **args, t_stack **stack_a)
 
 void	clear_stack(t_stack **stack)
 {
+	t_stack	*current;
+
 	if (!stack || !(*stack))
 		return ;
-	clear_stack(&(*stack)->next);
-	free(*stack);
+	while (*stack)
+	{
+		current = *stack;
+		*stack = (*stack)->next;
+		free(current);
+	}
 	*stack = NULL;
 }

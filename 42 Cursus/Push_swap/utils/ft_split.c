@@ -89,7 +89,7 @@ char	**ft_split(char *s, char c)
 	char	**new;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	i = 0;
 	new = (char **)malloc(sizeof(char *) * (ft_toklen(s, c) + 1));
 	if (!new)
@@ -106,6 +106,6 @@ char	**ft_split(char *s, char c)
 		else
 			++s;
 	}
-	new[i] = '\0';
+	new[i] = NULL;
 	return (new);
 }

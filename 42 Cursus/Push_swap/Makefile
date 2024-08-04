@@ -17,8 +17,8 @@ CFLAGS  = -Wall -Werror -Wextra
 HEADER  = ./inc/push_swap.h
 
 # Files
-S_FILES = ./src/aux_error_handler.c \
-		  ./src/error_handler.c 	\
+S_FILES = ./src/error_handler.c 	\
+		  ./src/error_utils.c 		\
 		  ./src/index.c				\
  		  ./src/lst_utils.c  		\
 		  ./src/radix.c				\
