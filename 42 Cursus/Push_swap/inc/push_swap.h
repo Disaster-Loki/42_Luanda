@@ -74,7 +74,8 @@ int		init_stack(int av, char **args, t_stack **stack_a);
 // stack_utils
 void	reset_index(t_stack **stack);
 int		check_sorted(t_stack **stack);
-int		sorted_to_top(t_stack **stack, int size);
+int		find_min_pos(t_stack **stack);
+//int		sorted_to_top(t_stack **stack, int size);
 void	move_min_to_top(t_stack **stack, int size);
 // Sorting Algorithm
 void	radix_sort(t_stack **stack_a, t_stack **stack_b);

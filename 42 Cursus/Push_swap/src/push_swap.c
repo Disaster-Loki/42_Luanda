@@ -12,17 +12,17 @@
 
 #include "../inc/push_swap.h"
 
-int	main(int av, char **args)
+int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	error_handler(av, args);
+	error_handler(argc, argv);
 	stack_a = NULL;
 	stack_b = NULL;
-	init_stack(av, args, &stack_a);
+	init_stack(argc, argv, &stack_a);
 	get_index(&stack_a);
-	if (check_sorted(&stack_a) != 1)
+	if (!check_sorted(&stack_a))
 	{
 		if (lst_size(stack_a) <= 5)
 			simple_sort(&stack_a, &stack_b);
