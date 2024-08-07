@@ -30,18 +30,18 @@ static void	swap(t_stack **stack)
 void	sa(t_stack **stack)
 {
 	swap(stack);
-	ft_putstr("sa\n", AQUA);
+	ft_putstr("sa\n");
 }
 
 void	sb(t_stack **stack)
 {
 	swap(stack);
-	ft_putstr("sb\n", AQUA);
+	ft_putstr("sb\n");
 }
 
 void	ss(t_stack **a, t_stack **b)
 {
 	swap(a);
 	swap(b);
-	ft_putstr("ss\n", AQUA);
+	ft_putstr("ss\n");
 }

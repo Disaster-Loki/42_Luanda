@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	get_index(&stack_a);
 	if (!check_sorted(&stack_a))
 	{
-		if (lst_size(stack_a) <= 5)
+		if (lst_size(stack_a) <= 4)
 			simple_sort(&stack_a, &stack_b);
 		else
 			radix_sort(&stack_a, &stack_b);

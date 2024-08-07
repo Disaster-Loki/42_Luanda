@@ -12,9 +12,9 @@
 
 #include "../inc/push_swap.h"
 
-static void	error(char *color)
+static void	error()
 {
-	ft_putstr("Error\n", color);
+	ft_putstr("Error\n");
 	exit(EXIT_FAILURE);
 }
 
@@ -28,10 +28,10 @@ static void	val_single_argument(char *arg)
 	while (split_args[++i])
 	{
 		if (!is_valid_integer(split_args[i]))
-			error(DARK_ORANGE);
+			error();
 	}
 	if (has_duplicates(split_args))
-		error(DARK_ORANGE);
+		error();
 	free_split(split_args);
 }
 
@@ -43,10 +43,10 @@ static void	val_multiple_arguments(int ac, char **args)
 	while (++i < ac)
 	{
 		if (!is_valid_integer(args[i]))
-			error(DARK_ORANGE);
+			error();
 	}
 	if (has_duplicates(args + 1))
-		error(DARK_ORANGE);
+		error();
 }
 
 int	error_handler(int ac, char **args)

@@ -29,18 +29,18 @@ void	rotate(t_stack **stack)
 void	ra(t_stack **stack)
 {
 	rotate(stack);
-	ft_putstr("ra\n", LIME);
+	ft_putstr("ra\n");
 }
 
 void	rb(t_stack **stack)
 {
 	rotate(stack);
-	ft_putstr("rb\n", LIME);
+	ft_putstr("rb\n");
 }
 
 void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);
-	ft_putstr("rr\n", LIME);
+	ft_putstr("rr\n");
 }

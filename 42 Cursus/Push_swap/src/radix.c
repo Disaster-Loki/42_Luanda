@@ -49,10 +49,10 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 		j = 0;
 		while (j++ < size)
 		{
-			if ((((*stack_a)->index >> i) & 1) == 0)
-				pb(stack_a, stack_b);
-			else
+			if ((((*stack_a)->index >> i) & 1) == 1)
 				ra(stack_a);
+			else
+				pb(stack_a, stack_b);
 		}
 		while (*stack_b)
 			pa(stack_a, stack_b);

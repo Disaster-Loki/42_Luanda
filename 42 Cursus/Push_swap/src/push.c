@@ -28,11 +28,11 @@ static void	push(t_stack **a, t_stack **b)
 void	pa(t_stack **a, t_stack **b)
 {
 	push(a, b);
-	ft_putstr("pa\n", YELLOW);
+	ft_putstr("pa\n");
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
 	push(b, a);
-	ft_putstr("pb\n", YELLOW);
+	ft_putstr("pb\n");
 }
