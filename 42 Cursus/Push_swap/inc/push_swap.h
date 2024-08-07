@@ -59,7 +59,7 @@ void	pb(t_stack **a, t_stack **b);
 int		is_valid_integer(char *s);
 int		ft_isdigit_string(char *s);
 int		has_duplicates(char **args);
-void	error_handler(int av, char **args);
+int		error_handler(int av, char **args);
 // Indexing
 void	get_index(t_stack **stack);
 //List handlers

@@ -36,14 +36,18 @@ void	radix_sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int		i;
 	int		j;
+	int		size;
+	int		max_bit;
 
 	i = -1;
+	size = lst_size(*stack_a);
+	max_bit = max_bits(stack_a);
 	if (check_sorted(stack_a))
 		return ;
-	while (++i < max_bits(stack_a))
+	while (++i < max_bit)
 	{
 		j = 0;
-		while (j++ < lst_size(*stack_a))
+		while (j++ < size)
 		{
 			if ((((*stack_a)->index >> i) & 1) == 0)
 				pb(stack_a, stack_b);

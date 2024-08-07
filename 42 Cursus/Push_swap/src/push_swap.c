@@ -17,7 +17,8 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	error_handler(argc, argv);
+	if(!error_handler(argc, argv))
+		return (0);
 	stack_a = NULL;
 	stack_b = NULL;
 	init_stack(argc, argv, &stack_a);

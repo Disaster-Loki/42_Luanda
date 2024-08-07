@@ -49,12 +49,13 @@ static void	val_multiple_arguments(int ac, char **args)
 		error(DARK_ORANGE);
 }
 
-void	error_handler(int ac, char **args)
+int	error_handler(int ac, char **args)
 {
 	if (ac < 2)
-		error(DARK_ORANGE);
+		return (0);
 	if (ac == 2)
 		val_single_argument(args[1]);
 	else
 		val_multiple_arguments(ac, args);
+	return (1);
 }
