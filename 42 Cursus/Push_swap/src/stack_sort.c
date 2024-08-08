@@ -29,13 +29,18 @@ static void	rotate_to_min(t_stack **stack, int min_pos, int stack_size)
 
 static void	sort_three(t_stack **stack)
 {
+	int	top;
+	int	mid;
+	int	bot;
+
 	while (!check_sorted(stack))
 	{
-		if (((*stack)->index > (*stack)->next->index)
-			&& ((*stack)->index < (*stack)->next->next->index))
+		top = (*stack)->index;
+		mid = (*stack)->next->index;
+		bot = (*stack)->next->next->index;
+		if (top > mid && top < bot)
 			sa(stack);
-		else if (((*stack)->index > ((*stack)->next->index))
-			&& ((*stack)->index > (*stack)->next->next->index))
+		else if (top > mid && top > bot)
 			ra(stack);
 		else
 			rra(stack);
@@ -45,21 +50,13 @@ static void	sort_three(t_stack **stack)
 static void	sort_four(t_stack **stack_a, t_stack **stack_b)
 {
 	int	min_pos;
-	int	stack_size;
 
 	if (check_sorted(stack_a))
 		return ;
-	stack_size = lst_size(*stack_a);
 	min_pos = find_min_pos(stack_a);
-	if (min_pos == 0)
+	rotate_to_min(stack_a, min_pos, lst_size(*stack_a));
+	if (!check_sorted(stack_a))
 	{
-		pb(stack_a, stack_b);
-		sort_three(stack_a);
-		pa(stack_a, stack_b);
-	}
-	else
-	{
-		rotate_to_min(stack_a, min_pos, stack_size);
 		pb(stack_a, stack_b);
 		sort_three(stack_a);
 		pa(stack_a, stack_b);
@@ -73,21 +70,9 @@ static void	sort_five(t_stack **stack_a, t_stack **stack_b)
 	if (check_sorted(stack_a))
 		return ;
 	min_pos = find_min_pos(stack_a);
-	if (min_pos == 1)
-		ra(stack_a);
-	else if (min_pos == 2)
+	rotate_to_min(stack_a, min_pos, lst_size(*stack_a));
+	if (!check_sorted(stack_a))
 	{
-		ra(stack_a);
-		ra(stack_a);
-	}
-	else if (min_pos == 3)
-	{
-		rra(stack_a);
-		rra(stack_a);
-	}
-	else if (min_pos == 4)
-	{
-		rra(stack_a);
 		pb(stack_a, stack_b);
 		sort_four(stack_a, stack_b);
 		pa(stack_a, stack_b);

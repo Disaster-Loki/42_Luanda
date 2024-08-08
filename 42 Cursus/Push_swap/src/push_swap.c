@@ -17,7 +17,7 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	if(!error_handler(argc, argv))
+	if (!error_handler(argc, argv))
 		return (0);
 	stack_a = NULL;
 	stack_b = NULL;
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 	get_index(&stack_a);
 	if (!check_sorted(&stack_a))
 	{
-		if (lst_size(stack_a) <= 4)
+		if (lst_size(stack_a) <= 5)
 			simple_sort(&stack_a, &stack_b);
 		else
 			radix_sort(&stack_a, &stack_b);

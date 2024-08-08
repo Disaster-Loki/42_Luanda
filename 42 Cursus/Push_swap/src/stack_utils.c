@@ -26,35 +26,6 @@ int	check_sorted(t_stack **stack)
 	return (1);
 }
 
-/*int	sorted_to_top(t_stack **stack, int size)
-{
-	int	i;
-
-	i = 0;
-	while ((*stack)->index != 0)
-	{
-		rotate(stack);
-		i++;
-	}
-	if (check_sorted(stack) == 1)
-	{
-		if (i > (size / 2))
-		{
-			if ((size == 5) && (i == 3))
-				ft_putstr("rra\n", BLUE);
-			ft_putstr("rra\n", BLUE);
-		}
-		else
-			while (i-- > 0)
-				ft_putstr("ra\n", LIME);
-		return (1);
-	}
-	else
-		while (i-- > 0)
-			reverse(stack);
-	return (0);
-}*/
-
 void	reset_index(t_stack **stack)
 {
 	t_stack	*lst;
