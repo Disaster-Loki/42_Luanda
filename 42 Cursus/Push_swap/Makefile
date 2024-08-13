@@ -14,6 +14,13 @@ NAME    = push_swap
 CC      = cc
 CFLAGS  = -Wall -Werror -Wextra
 
+# Colors
+RED		= \033[31m
+BLUE	= \033[34m
+RESET	= \033[0m
+GREEN	= \033[32m
+YELLOW	= \033[33m
+
 HEADER  = ./inc/push_swap.h
 
 # Files
@@ -41,18 +48,31 @@ U_OBJ   = $(U_FILES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(S_OBJ) $(U_OBJ)
-	$(CC) $(CFLAGS) -o $(NAME) $(S_OBJ) $(U_OBJ)
+	@$(CC) $(CFLAGS) -o $(NAME) $(S_OBJ) $(U_OBJ)
+	@clear
+	@echo "$(GREEN)COMPILATION COMPLETE!$(RESET)"
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c -o $@ $<
+	@clear
 
 clean:
-	rm -f $(S_OBJ) $(U_OBJ)
+	@if [ -f $(NAME) ]; then \
+		rm -f $(S_OBJ) $(U_OBJ); \
+		echo "$(YELLOW)OBJECT FILES CLEANED!$(RESET)"; \
+	else \
+		echo "$(RED)NOTHING TO CLEAN$(RESET)"; \
+	fi
 
 fclean: clean
-	rm -f $(NAME)
+	@if [ -f $(NAME) ]; then \
+		rm -f $(NAME); \
+		echo "$(BLUE)ALL FILES CLEANED!$(RESET)"; \
+	fi
 
-re: fclean all
+re: fclean
+	@clear
+	$(MAKE) --no-print-directory all
 
 .PHONY: all clean fclean re
 
