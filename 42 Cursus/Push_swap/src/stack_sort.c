@@ -12,84 +12,112 @@
 
 #include "../inc/push_swap.h"
 
-static void	rotate_to_min(t_stack **stack, int min_pos, int stack_size)
+void	sort_three(t_stack **stack_a)
 {
-	if (min_pos <= stack_size / 2)
+	if (min(*stack_a) == (*stack_a)->content)
 	{
-		while (min_pos-- > 0)
-			ra(stack);
+		rra(stack_a);
+		sa(stack_a);
+	}
+	else if (max(*stack_a) == (*stack_a)->content)
+	{
+		ra(stack_a);
+		if (!check_sorted(*stack_a))
+			sa(stack_a);
 	}
 	else
 	{
-		min_pos = stack_size - min_pos;
-		while (min_pos-- > 0)
-			rra(stack);
-	}
-}
-
-static void	sort_three(t_stack **stack)
-{
-	int	top;
-	int	mid;
-	int	bot;
-
-	while (!check_sorted(stack))
-	{
-		top = (*stack)->index;
-		mid = (*stack)->next->index;
-		bot = (*stack)->next->next->index;
-		if (top > mid && top < bot)
-			sa(stack);
-		else if (top > mid && top > bot)
-			ra(stack);
+		if (find_index(*stack_a, max(*stack_a)) == 1)
+			rra(stack_a);
 		else
-			rra(stack);
+			sa(stack_a);
 	}
 }
 
-static void	sort_four(t_stack **stack_a, t_stack **stack_b)
+void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 {
-	int	min_pos;
+	int		i;
+	t_stack	*tmp;
 
-	if (check_sorted(stack_a))
-		return ;
-	min_pos = find_min_pos(stack_a);
-	rotate_to_min(stack_a, min_pos, lst_size(*stack_a));
-	if (!check_sorted(stack_a))
+	while (lst_size(*stack_a) > 3 && !check_sorted(*stack_a))
 	{
-		pb(stack_a, stack_b);
+		tmp = *stack_a;
+		i = min_rot_ab(*stack_a, *stack_b);
+		while (i >= 0)
+		{
+			if (i == case_rarb(*stack_a, *stack_b, tmp->content))
+				i = use_rarb(stack_a, stack_b, tmp->content, 'a');
+			else if (i == case_rrarrb(*stack_a, *stack_b, tmp->content))
+				i = use_rrarrb(stack_a, stack_b, tmp->content, 'a');
+			else if (i == case_rarrb(*stack_a, *stack_b, tmp->content))
+				i = use_rarrb(stack_a, stack_b, tmp->content, 'a');
+			else if (i == case_rrarb(*stack_a, *stack_b, tmp->content))
+				i = use_rrarb(stack_a, stack_b, tmp->content, 'a');
+			else
+				tmp = tmp->next;
+		}
+	}
+}
+
+t_stack	*ft_sort_b(t_stack **stack_a)
+{
+	t_stack	*stack_b;
+
+	stack_b = NULL;
+	if (lst_size(*stack_a) > 3 && !check_sorted(*stack_a))
+		pb(stack_a, &stack_b);
+	if (lst_size(*stack_a) > 3 && !check_sorted(*stack_a))
+		pb(stack_a, &stack_b);
+	if (lst_size(*stack_a) > 3 && !check_sorted(*stack_a))
+		ft_sort_b_till_3(stack_a, &stack_b);
+	if (!check_sorted(*stack_a))
 		sort_three(stack_a);
-		pa(stack_a, stack_b);
-	}
+	return (stack_b);
 }
 
-static void	sort_five(t_stack **stack_a, t_stack **stack_b)
+t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 {
-	int	min_pos;
+	int		i;
+	t_stack	*tmp;
 
-	if (check_sorted(stack_a))
-		return ;
-	min_pos = find_min_pos(stack_a);
-	rotate_to_min(stack_a, min_pos, lst_size(*stack_a));
-	if (!check_sorted(stack_a))
+	while (*stack_b)
 	{
-		pb(stack_a, stack_b);
-		sort_four(stack_a, stack_b);
-		pa(stack_a, stack_b);
+		tmp = *stack_b;
+		i = min_rot_ba(*stack_a, *stack_b);
+		while (i >= 0)
+		{
+			if (i == case_rarb_a(*stack_a, *stack_b, tmp->content))
+				i = use_rarb(stack_a, stack_b, tmp->content, 'b');
+			else if (i == case_rarrb_a(*stack_a, *stack_b, tmp->content))
+				i = use_rarrb(stack_a, stack_b, tmp->content, 'b');
+			else if (i == case_rrarrb_a(*stack_a, *stack_b, tmp->content))
+				i = use_rrarrb(stack_a, stack_b, tmp->content, 'b');
+			else if (i == case_rrarb_a(*stack_a, *stack_b, tmp->content))
+				i = use_rrarb(stack_a, stack_b, tmp->content, 'b');
+			else
+				tmp = tmp->next;
+		}
 	}
+	return (stack_a);
 }
 
-void	simple_sort(t_stack **stack_a, t_stack **stack_b)
+void	ft_sort(t_stack **stack_a, t_stack **stack_b)
 {
-	int	size;
+	int			i;
 
-	size = lst_size(*stack_a);
-	if (size == 2)
+	if (lst_size(*stack_a) == 2)
 		sa(stack_a);
-	else if (size == 3)
-		sort_three(stack_a);
-	else if (size == 4)
-		sort_four(stack_a, stack_b);
-	else if (size == 5)
-		sort_five(stack_a, stack_b);
+	else
+	{
+		*stack_b = ft_sort_b(stack_a);
+		stack_a = ft_sort_a(stack_a, stack_b);
+		i = find_index(*stack_a, min(*stack_a));
+		if (i < lst_size(*stack_a) - i)
+			while ((*stack_a)->content != min(*stack_a))
+				ra(stack_a);
+		else
+			while ((*stack_a)->content != min(*stack_a))
+				rra(stack_a);
+	}
 }
+

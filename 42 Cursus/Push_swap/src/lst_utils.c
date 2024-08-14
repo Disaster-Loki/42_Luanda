@@ -14,18 +14,13 @@
 
 int	lst_size(t_stack *stack)
 {
-	int		len;
-	t_stack	*lst;
+	int	len;
 
 	if (!stack)
 		return (0);
-	len = 0;
-	lst = stack;
-	while (lst)
-	{
-		len++;
-		lst = lst->next;
-	}
+	len = -1;
+	while (++len >= 0 && stack)
+		stack = stack->next;
 	return (len);
 }
 

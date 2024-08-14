@@ -23,13 +23,8 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	init_stack(argc, argv, &stack_a);
 	get_index(&stack_a);
-	if (!check_sorted(&stack_a))
-	{
-		if (lst_size(stack_a) <= 5)
-			simple_sort(&stack_a, &stack_b);
-		else
-			radix_sort(&stack_a, &stack_b);
-	}
+	if (!check_sorted(stack_a))
+		ft_sort(&stack_a, &stack_b);
 	clear_stack(&stack_a);
 	clear_stack(&stack_b);
 	return (0);

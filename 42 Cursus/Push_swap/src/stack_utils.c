@@ -12,71 +12,82 @@
 
 #include "../inc/push_swap.h"
 
-int	check_sorted(t_stack **stack)
+int	min(t_stack *stack)
 {
-	t_stack	*tmp;
+	int	min;
 
-	tmp = *stack;
-	while (tmp->next)
+	min = stack->content;
+	while (stack)
 	{
-		if (tmp->index > tmp->next->index)
+		if (stack->content < min)
+			min = stack->content;
+		stack = stack->next;
+	}
+	return (min);
+}
+
+int	max(t_stack *stack)
+{
+	int	max;
+
+	max = stack->content;
+	while (stack)
+	{
+		if (stack->content > max)
+			max = stack->content;
+		stack = stack->next;
+	}
+	return (max);
+}
+
+int	check_sorted(t_stack *stack)
+{
+	int	i;
+
+	i = stack->content;
+	while (stack)
+	{
+		if (i > stack->content)
 			return (0);
-		tmp = tmp->next;
+		i = stack->content;
+		stack = stack->next;
 	}
 	return (1);
 }
 
-void	reset_index(t_stack **stack)
+int find_index(t_stack *a, int content)
 {
-	t_stack	*lst;
+    int i;
 
-	lst = *stack;
-	while (lst)
-	{
-		lst->index = -1;
-		lst = lst->next;
-	}
-	get_index(stack);
+    i = 0;
+    while (a->content != content)
+    {
+        i++;
+        a = a->next;
+    }
+    a->index = 0;
+    return (i);
 }
 
-int	find_min_pos(t_stack **stack)
+int find_place(t_stack *stack_a, int content)
 {
-	int		i;
-	int		min;
-	int		pos;
-	t_stack	*tmp;
+    int     i;
+    t_stack *tmp;
 
-	tmp = *stack;
-	min = tmp->index;
-	pos = 0;
-	i = 0;
-	while (tmp)
-	{
-		if (tmp->index < min)
-		{
-			min = tmp->index;
-			pos = i;
-		}
-		tmp = tmp->next;
-		i++;
-	}
-	return (pos);
-}
-
-void	move_min_to_top(t_stack **stack, int size)
-{
-	int	i;
-	int	pos;
-
-	pos = find_min_pos(stack);
-	i = pos;
-	if (i > size / 2)
-		i = size - i;
-	while (i-- > 0)
-	{
-		if (pos > size / 2)
-			reverse(stack);
-		else
-			rotate(stack);
-	}
+    i = 1;
+    if (content < stack_a->content && content > ft_lst_last(stack_a)->content)
+        i = 0;
+    else if (content > max(stack_a) || content < min(stack_a))
+        i = find_index(stack_a, min(stack_a));
+    else
+    {
+        tmp = stack_a->next;
+        while (stack_a->content > content || tmp->content < content)
+        {
+            stack_a = stack_a->next;
+            tmp = stack_a->next;
+            i++;
+        }
+    }
+    return (i);
 }

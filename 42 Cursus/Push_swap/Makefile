@@ -14,13 +14,6 @@ NAME    = push_swap
 CC      = cc
 CFLAGS  = -Wall -Werror -Wextra
 
-# Colors
-RED		= \033[31m
-BLUE	= \033[34m
-RESET	= \033[0m
-GREEN	= \033[32m
-YELLOW	= \033[33m
-
 HEADER  = ./inc/push_swap.h
 
 # Files
@@ -28,7 +21,6 @@ S_FILES = ./src/error_handler.c 	\
 		  ./src/error_utils.c 		\
 		  ./src/index.c				\
  		  ./src/lst_utils.c  		\
-		  ./src/radix.c				\
 		  ./src/rotate.c 			\
 		  ./src/reverse.c 			\
 		  ./src/push.c 				\
@@ -37,6 +29,10 @@ S_FILES = ./src/error_handler.c 	\
  		  ./src/stack_utils.c 		\
 		  ./src/swap.c 				\
 		  ./src/push_swap.c  		\
+		  ./src/case_stack_a.c 		\
+		  ./src/case_stack_b.c 		\
+		  ./src/rot_strat.c 		\
+		  ./src/rot_strat_utils.c 	\
 
 U_FILES = ./utils/ft_print.c 		\
 			./utils/ft_split.c 		\
@@ -48,31 +44,18 @@ U_OBJ   = $(U_FILES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(S_OBJ) $(U_OBJ)
-	@$(CC) $(CFLAGS) -o $(NAME) $(S_OBJ) $(U_OBJ)
-	@clear
-	@echo "$(GREEN)COMPILATION COMPLETE!$(RESET)"
+	$(CC) $(CFLAGS) -o $(NAME) $(S_OBJ) $(U_OBJ)
 
 %.o: %.c $(HEADER)
 	$(CC) $(CFLAGS) -c -o $@ $<
-	@clear
 
 clean:
-	@if [ -f $(NAME) ]; then \
-		rm -f $(S_OBJ) $(U_OBJ); \
-		echo "$(YELLOW)OBJECT FILES CLEANED!$(RESET)"; \
-	else \
-		echo "$(RED)NOTHING TO CLEAN$(RESET)"; \
-	fi
+	rm -f $(S_OBJ) $(U_OBJ)
 
 fclean: clean
-	@if [ -f $(NAME) ]; then \
-		rm -f $(NAME); \
-		echo "$(BLUE)ALL FILES CLEANED!$(RESET)"; \
-	fi
+	rm -f $(NAME)
 
-re: fclean
-	@clear
-	$(MAKE) --no-print-directory all
+re: fclean all
 
 .PHONY: all clean fclean re
 

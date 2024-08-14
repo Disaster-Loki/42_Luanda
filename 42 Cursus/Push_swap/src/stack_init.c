@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../inc/push_swap.h"
-#include <stdio.h>
 
 int	init_stack(int av, char **args, t_stack **stack_a)
 {
