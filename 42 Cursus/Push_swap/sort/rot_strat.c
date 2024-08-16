@@ -16,21 +16,21 @@ int	use_rarb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
-		while ((*a)->content != c && find_place(*b, c) > 0)
+		while ((*a)->content != c && find_place_b(*b, c) > 0)
 			rr(a, b);
 		while ((*a)->content != c)
 			ra(a);
-		while (find_place(*b, c) > 0)
+		while (find_place_b(*b, c) > 0)
 			rb(b);
 		pb(a, b);
 	}
 	else
 	{
-		while ((*b)->content != c && find_place(*a, c) > 0)
+		while ((*b)->content != c && find_place_a(*a, c) > 0)
 			rr(a, b);
 		while ((*b)->content != c)
 			rb(b);
-		while (find_place(*a, c) > 0)
+		while (find_place_a(*a, c) > 0)
 			ra(a);
 		pa(a, b);
 	}
@@ -41,21 +41,21 @@ int	use_rrarrb(t_stack **a, t_stack **b, int c, char s)
 {
 	if (s == 'a')
 	{
-		while ((*a)->content != c && find_place(*b, c) > 0)
+		while ((*a)->content != c && find_place_b(*b, c) > 0)
 			rrr(a, b);
 		while ((*a)->content != c)
 			rra(a);
-		while (find_place(*b, c) > 0)
+		while (find_place_b(*b, c) > 0)
 			rrb(b);
 		pb(a, b);
 	}
 	else
 	{
-		while ((*b)->content != c && find_place(*a, c) > 0)
+		while ((*b)->content != c && find_place_a(*a, c) > 0)
 			rrr(a, b);
 		while ((*b)->content != c)
 			rrb(b);
-		while (find_place(*a, c) > 0)
+		while (find_place_a(*a, c) > 0)
 			rra(a);
 		pa(a, b);
 	}
@@ -68,13 +68,13 @@ int	use_rrarb(t_stack **a, t_stack **b, int c, char s)
 	{
 		while ((*a)->content != c)
 			rra(a);
-		while (find_place(*b, c) > 0)
+		while (find_place_b(*b, c) > 0)
 			rb(b);
 		pb(a, b);
 	}
 	else
 	{
-		while (find_place(*a, c) > 0)
+		while (find_place_a(*a, c) > 0)
 			rra(a);
 		while ((*b)->content != c)
 			rb(b);
@@ -89,13 +89,13 @@ int	use_rarrb(t_stack **a, t_stack **b, int c, char s)
 	{
 		while ((*a)->content != c)
 			ra(a);
-		while (find_place(*b, c) > 0)
+		while (find_place_b(*b, c) > 0)
 			rrb(b);
 		pb(a, b);
 	}
 	else
 	{
-		while (find_place(*a, c) > 0)
+		while (find_place_a(*a, c) > 0)
 			ra(a);
 		while ((*b)->content != c)
 			rrb(b);

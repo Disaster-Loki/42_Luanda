@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	init_stack(argc, argv, &stack_a);
 	get_index(&stack_a);
 	if (!check_sorted(stack_a))
-		ft_sort(&stack_a, &stack_b);
+		quick_sorted(&stack_a, &stack_b);
 	clear_stack(&stack_a);
 	clear_stack(&stack_b);
 	return (0);

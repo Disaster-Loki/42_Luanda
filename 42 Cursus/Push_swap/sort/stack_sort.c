@@ -12,29 +12,34 @@
 
 #include "../inc/push_swap.h"
 
-void	sort_three(t_stack **stack_a)
+void	sort_three(t_stack **stack)
 {
-	if (min(*stack_a) == (*stack_a)->content)
+	int	top;
+	int	mid;
+	int	bot;
+
+	top = (*stack)->content;
+	mid = (*stack)->next->content;
+	bot = (*stack)->next->next->content;
+	if (top > mid && mid < bot && top < bot)
+		sa(stack);
+	else if (top > mid && mid > bot)
 	{
-		rra(stack_a);
-		sa(stack_a);
+		sa(stack);
+		rra(stack);
 	}
-	else if (max(*stack_a) == (*stack_a)->content)
+	else if (top > bot && bot > mid)
+		ra(stack);
+	else if (mid > bot && bot > top)
 	{
-		ra(stack_a);
-		if (!check_sorted(*stack_a))
-			sa(stack_a);
+		sa(stack);
+		ra(stack);
 	}
-	else
-	{
-		if (find_index(*stack_a, max(*stack_a)) == 1)
-			rra(stack_a);
-		else
-			sa(stack_a);
-	}
+	else if (top < mid && mid > bot)
+		rra(stack);
 }
 
-void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
+void	ft_partition_stack(t_stack **stack_a, t_stack **stack_b)
 {
 	int		i;
 	t_stack	*tmp;
@@ -59,20 +64,17 @@ void	ft_sort_b_till_3(t_stack **stack_a, t_stack **stack_b)
 	}
 }
 
-t_stack	*ft_sort_b(t_stack **stack_a)
+t_stack	*ft_sort_b(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*stack_b;
-
-	stack_b = NULL;
 	if (lst_size(*stack_a) > 3 && !check_sorted(*stack_a))
-		pb(stack_a, &stack_b);
+		pb(stack_a, stack_b);
 	if (lst_size(*stack_a) > 3 && !check_sorted(*stack_a))
-		pb(stack_a, &stack_b);
+		pb(stack_a, stack_b);
 	if (lst_size(*stack_a) > 3 && !check_sorted(*stack_a))
-		ft_sort_b_till_3(stack_a, &stack_b);
+		ft_partition_stack(stack_a, stack_b);
 	if (!check_sorted(*stack_a))
 		sort_three(stack_a);
-	return (stack_b);
+	return (*stack_b);
 }
 
 t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
@@ -101,23 +103,26 @@ t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 	return (stack_a);
 }
 
-void	ft_sort(t_stack **stack_a, t_stack **stack_b)
+void	quick_sorted(t_stack **stack_a, t_stack **stack_b)
 {
-	int			i;
+	int		i;
 
 	if (lst_size(*stack_a) == 2)
 		sa(stack_a);
 	else
 	{
-		*stack_b = ft_sort_b(stack_a);
+		*stack_b = ft_sort_b(stack_a, stack_b);
 		stack_a = ft_sort_a(stack_a, stack_b);
 		i = find_index(*stack_a, min(*stack_a));
 		if (i < lst_size(*stack_a) - i)
+		{
 			while ((*stack_a)->content != min(*stack_a))
 				ra(stack_a);
+		}
 		else
+		{
 			while ((*stack_a)->content != min(*stack_a))
 				rra(stack_a);
+		}
 	}
 }
-

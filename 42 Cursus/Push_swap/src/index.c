@@ -49,16 +49,3 @@ void	get_index(t_stack **stack)
 		lst = get_min(stack);
 	}
 }
-
-void	reset_index(t_stack **stack)
-{
-	t_stack	*lst;
-
-	lst = *stack;
-	while (lst)
-	{
-		lst->index = -1;
-		lst = lst->next;
-	}
-	get_index(stack);
-}

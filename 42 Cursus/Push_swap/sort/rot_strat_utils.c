@@ -12,6 +12,34 @@
 
 #include "../inc/push_swap.h"
 
+int	min(t_stack *stack)
+{
+	int	i;
+
+	i = stack->content;
+	while (stack)
+	{
+		if (stack->content < i)
+			i = stack->content;
+		stack = stack->next;
+	}
+	return (i);
+}
+
+int	max(t_stack *stack)
+{
+	int	i;
+
+	i = stack->content;
+	while (stack)
+	{
+		if (stack->content > i)
+			i = stack->content;
+		stack = stack->next;
+	}
+	return (i);
+}
+
 int	min_rot_ba(t_stack *a, t_stack *b)
 {
 	int		i;
