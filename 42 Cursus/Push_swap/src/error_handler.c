@@ -12,7 +12,7 @@
 
 #include "../inc/push_swap.h"
 
-static void	error(void)
+void	error(void)
 {
 	ft_putstr("Error\n");
 	exit(EXIT_FAILURE);
@@ -23,6 +23,10 @@ static void	val_single_argument(char *arg)
 	int		i;
 	char	**split_args;
 
+	if (*arg == '\0')
+		exit(1);
+	if (!ft_val_space(arg))
+		error();
 	split_args = ft_split(arg, ' ');
 	i = -1;
 	while (split_args[++i])

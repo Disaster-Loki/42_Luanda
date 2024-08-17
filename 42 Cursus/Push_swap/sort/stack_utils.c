@@ -86,4 +86,3 @@ int	find_place_a(t_stack *stack_a, int content)
 	}
 	return (i);
 }
-

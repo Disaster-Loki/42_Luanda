@@ -23,6 +23,15 @@ int	ft_isdigit_string(char *s)
 	return (1);
 }
 
+int	ft_val_space(char *s)
+{
+	while (*s && *s == ' ')
+		s++;
+	if (*s == '\0')
+		return (0);
+	return (1);
+}
+
 int	is_valid_integer(char *s)
 {
 	long	num;
