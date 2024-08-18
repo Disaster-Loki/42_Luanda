@@ -108,21 +108,26 @@ void	quick_sorted(t_stack **stack_a, t_stack **stack_b)
 	int		i;
 
 	if (lst_size(*stack_a) == 2)
-		sa(stack_a);
+	{
+		if ((*stack_a)->content > (*stack_a)->next->content)
+			sa(stack_a);
+	}
 	else
 	{
+		if ((*stack_a)->content == max(*stack_a)
+			&& check_sorted((*stack_a)->next))
+			ra(stack_a);
+		else if (ft_lst_last(*stack_a)->content == min(*stack_a)
+			&& check_sorted_last(*stack_a))
+			rra(stack_a);
 		*stack_b = ft_sort_b(stack_a, stack_b);
 		stack_a = ft_sort_a(stack_a, stack_b);
 		i = find_index(*stack_a, min(*stack_a));
 		if (i < lst_size(*stack_a) - i)
-		{
 			while ((*stack_a)->content != min(*stack_a))
 				ra(stack_a);
-		}
 		else
-		{
 			while ((*stack_a)->content != min(*stack_a))
 				rra(stack_a);
-		}
 	}
 }

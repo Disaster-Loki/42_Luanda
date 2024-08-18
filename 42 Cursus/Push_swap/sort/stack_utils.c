@@ -27,6 +27,20 @@ int	check_sorted(t_stack *stack)
 	return (1);
 }
 
+int	check_sorted_last(t_stack *stack)
+{
+	t_stack	*current;
+
+	current = stack;
+	while (current->next->next)
+	{
+		if (current->content > current->next->content)
+			return (0);
+		current = current->next;
+	}
+	return (1);
+}
+
 int	find_index(t_stack *stack, int content)
 {
 	int	i;

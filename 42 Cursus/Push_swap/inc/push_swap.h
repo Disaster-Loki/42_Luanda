@@ -52,6 +52,7 @@ int			error_handler(int av, char **args);
 // Indexing and Sorted
 void		get_index(t_stack **stack);
 int			check_sorted(t_stack *stack);
+int			check_sorted_last(t_stack *stack);
 //List handlers
 int			lst_size(t_stack *stack);
 t_stack		*ft_lst_new(int content);
