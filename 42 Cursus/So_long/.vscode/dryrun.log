@@ -1,0 +1,19 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long'
+make -C ./Libft	
+ 
+make[1]: Entering directory '/home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long/Libft'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long/Libft'
+ 
+make -C ./Libft	
+ 
+make[1]: Entering directory '/home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long/Libft'
+make[1]: Nothing to be done for 'all'.
+make[1]: Leaving directory '/home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long/Libft'
+ 
+cc -Wall -Wextra -Werror -o so_long ./SRCS/main.o ./SRCS/Error/error_handler.o -L./Libft	 -lft
+clear
+echo "\033[32m COMPILATION COMPLETE\033[0m"
+make: Leaving directory '/home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long'
+ 

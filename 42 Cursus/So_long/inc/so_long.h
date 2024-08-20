@@ -13,8 +13,15 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-#include <unistd.h>
-#include <stdlib.h>
-#include "../Libft/libft.h"
+# include <unistd.h>
+# include <stdlib.h>
+#include <stdio.h>
+# include <fcntl.h>
+# include "../Libft/inc/libft.h"
+
+void	error(char *msg, int n);
+int     error_handler(char *args);
+int     main(int av, char **args);
+void	valid_open_file(char *file);
 
 #endif

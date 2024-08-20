@@ -10,15 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-# Name project
+# NAME PROJECT
 NAME	= so_long
  
 CC		= cc
 CFLAGS	= -Wall -Wextra -Werror
-
+L_DIR	= ./Libft	
+LIBFT	= -L$(L_DIR) -lft
 HEADER	= inc/so_long.h
 
-# Colors
+# COLORS
 RESET	= \033[0m
 RED		= \033[31m
 BLUE	= \033[34m
@@ -26,4 +27,37 @@ YELLOW	= \033[33m
 ORANGE	= \033[38;5;208m
 GREEN	= \033[32m
 
-# Files
+# FILES
+S_FILES	= ./SRCS/main.c					\
+		  ./SRCS/Error/error_handler.c	\
+
+S_OBJ	= $(S_FILES:.c=.o)
+
+all:	$(NAME)
+
+$(NAME): $(S_OBJ) $(LIBFT)
+		 $(CC) $(CFLAGS) -o $(NAME) $(S_OBJ) $(LIBFT)
+		 clear
+		 @echo "$(GREEN) COMPILATION COMPLETE$(RESET)"
+
+%.o: %.c $(HEADER)
+		 $(CC) $(CFLAGS) -c -o $@ $<
+
+$(LIBFT):
+		 @$(MAKE) -C $(L_DIR)
+
+clean:
+		@$(MAKE) clean -C $(L_DIR)
+		rm -f $(S_OBJ)
+		clear
+		@echo "$(ORANGE) CLEANING THE OBJECTS$(RESET)"
+
+fclean: clean
+		@$(MAKE) fclean -C $(L_DIR)
+		rm -f $(NAME)
+		clear
+		@echo "$(RED) CLEARING ALL FILES$(RESET)"
+
+re: fclean all
+
+.PHONY: all clean fclean re

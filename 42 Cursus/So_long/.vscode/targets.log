@@ -1,0 +1,2311 @@
+make all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Tue Aug 20 10:42:55 2024
+
+# Variables
+
+# makefile (from 'Makefile', line 64)
+OBJ = $(SRC:.c=.o)
+# environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# makefile (from 'Makefile', line 19)
+SRC = Is/ft_isalpha.c Is/ft_isdigit.c Is/ft_isalnum.c Is/ft_isascii.c Is/ft_isprint.c String/ft_strlen.c Memory/ft_memset.c Rest/ft_bzero.c Memory/ft_memcpy.c Memory/ft_memmove.c String/ft_strlcpy.c String/ft_strlcat.c Rest/ft_toupper.c Rest/ft_tolower.c String/ft_strchr.c String/ft_strrchr.c String/ft_strncmp.c Memory/ft_memchr.c Memory/ft_memcmp.c String/ft_strnstr.c Rest/ft_atoi.c Rest/ft_calloc.c String/ft_strdup.c String/ft_substr.c String/ft_strjoin.c String/ft_strtrim.c Rest/ft_split.c Rest/ft_itoa.c String/ft_strmapi.c String/ft_striteri.c Put/ft_putchar_fd.c Put/ft_putstr_fd.c Put/ft_putendl_fd.c Put/ft_putnbr_fd.c 
+# environment
+SSH_AGENT_LAUNCHER = openssh
+# makefile (from 'Makefile', line 65)
+BONUS_OBJ = $(BONUS:.c=.o)
+# environment
+VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+# environment
+VSCODE_CWD = /home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long
+# environment
+GDM_LANG = en_US.UTF-8
+# default
+MAKE_COMMAND := make
+# environment
+QT_ACCESSIBILITY = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+XDG_DATA_DIRS = /usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+OLDPWD = /home/optimus-prime/Documents/42_Luanda/42 Cursus
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = /home/optimus-prime/.config/Code/CachedData/fee1edb8d6d72a0ddff41e5f71a671c23ed924b9
+# environment
+LANG = C
+# environment
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.9R93S2
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+GNOME_TERMINAL_SERVICE = :1.128
+# makefile
+MAKEFLAGS = pqrRw
+# makefile (from 'Makefile', line 54)
+BONUS = List/ft_lstnew.c List/ft_lstadd_front.c List/ft_lstsize.c List/ft_lstlast.c List/ft_lstadd_back.c List/ft_lstdelone.c List/ft_lstclear.c List/ft_lstiter.c List/ft_lstmap.c 
+# environment
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=e726ad2edb674ee580f1bdb966c4885d
+# makefile
+CURDIR := /home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long/Libft
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrRw
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+WAYLAND_DISPLAY = wayland-0
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = gnome
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 3376
+# environment
+XDG_SESSION_TYPE = wayland
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+SESSION_MANAGER = local/Optimus:@/tmp/.ICE-unix/1440,unix/Optimus:/tmp/.ICE-unix/1440
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=e726ad2edb674ee580f1bdb966c4885d
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en","availableLanguages":{}}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# environment
+XMODIFIERS = @im=ibus
+# environment
+SHLVL = 1
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/39c0fb60_0a06_4c32_a072_19ee219cd2c6
+# environment
+MAKELEVEL := 1
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# makefile (from 'Makefile', line 17)
+HEADER = ./inc/libft.h
+# environment
+USERNAME = optimus-prime
+# environment
+GNOME_SETUP_DISPLAY = :1
+# automatic
+?F = $(notdir $?)
+# makefile (from 'Makefile', line 13)
+NAME = libft.a
+# environment
+XDG_CURRENT_DESKTOP = GNOME
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:
+# automatic
++F = $(notdir $+)
+# environment
+DESKTOP_SESSION = gnome
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = GNOME
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = optimus-prime
+# makefile
+.DEFAULT_GOAL := all
+# environment
+SYSTEMD_EXEC_PID = 1440
+# environment
+DISPLAY = :0
+# environment
+USER = optimus-prime
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# environment
+DBUS_STARTER_BUS_TYPE = session
+# environment
+_ = /usr/bin/code
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# makefile (from 'Makefile', line 15)
+CFLAGS = -Wall -Wextra -Werror
+# environment
+COLORTERM = truecolor
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/optimus-prime
+# environment
+QT_IM_MODULE = ibus
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-b8cd84b0-1.92-main.sock
+# environment
+TERM = xterm-256color
+# environment
+IM_CONFIG_PHASE = 1
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 7006
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# makefile (from 'Makefile', line 14)
+CC = gcc
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+GDMSESSION = gnome
+# variable set hash-table stats:
+ 
+# Load=102/1024=10%, Rehash=0, Collisions=15/140=11%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 65025, inode 1179884): 11 files, no impossibilities.
+# String (device 65025, inode 1179921): 28 files, no impossibilities so far.
+# Is (device 65025, inode 1179885): 11 files, no impossibilities so far.
+# Rest (device 65025, inode 1179913): 16 files, no impossibilities so far.
+# Put (device 65025, inode 1179908): 10 files, no impossibilities so far.
+# Memory (device 65025, inode 1179902): 12 files, no impossibilities so far.
+
+# 88 files, no impossibilities in 6 directories.
+
+# Implicit Rules
+
+%.o: %.c
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# 1 implicit rules, 0 (0.0%) terminal.
+# Files
+
+# Not a target:
+Is/ft_isprint.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+String/ft_strmapi.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Rest/ft_atoi.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+List/ft_lstadd_back.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+Put/ft_putchar_fd.o: Put/ft_putchar_fd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Put/ft_putchar_fd'
+#  Last modified 2024-08-20 10:40:07.445856511
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+String/ft_strnstr.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+String/ft_substr.o: String/ft_substr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_substr'
+#  Last modified 2024-08-20 10:40:07.32985554
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+String/ft_strdup.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Put/ft_putstr_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Rest/ft_atoi.o: Rest/ft_atoi.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_atoi'
+#  Last modified 2024-08-20 10:40:07.281855138
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Put/ft_putchar_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+libft.a: Is/ft_isalpha.o Is/ft_isdigit.o Is/ft_isalnum.o Is/ft_isascii.o Is/ft_isprint.o String/ft_strlen.o Memory/ft_memset.o Rest/ft_bzero.o Memory/ft_memcpy.o Memory/ft_memmove.o String/ft_strlcpy.o String/ft_strlcat.o Rest/ft_toupper.o Rest/ft_tolower.o String/ft_strchr.o String/ft_strrchr.o String/ft_strncmp.o Memory/ft_memchr.o Memory/ft_memcmp.o String/ft_strnstr.o Rest/ft_atoi.o Rest/ft_calloc.o String/ft_strdup.o String/ft_substr.o String/ft_strjoin.o String/ft_strtrim.o Rest/ft_split.o Rest/ft_itoa.o String/ft_strmapi.o String/ft_striteri.o Put/ft_putchar_fd.o Put/ft_putstr_fd.o Put/ft_putendl_fd.o Put/ft_putnbr_fd.o
+#  Implicit rule search has not been done.
+#  Last modified 2024-08-20 10:40:07.533857248
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 73):
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
+
+# Not a target:
+String/ft_strchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Rest/ft_itoa.o: Rest/ft_itoa.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_itoa'
+#  Last modified 2024-08-20 10:40:07.393856076
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+List/ft_lstadd_front.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+String/ft_strtrim.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Rest/ft_toupper.o: Rest/ft_toupper.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_toupper'
+#  Last modified 2024-08-20 10:40:07.137853931
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+String/ft_strchr.o: String/ft_strchr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strchr'
+#  Last modified 2024-08-20 10:40:07.1818543
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+String/ft_strlen.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Is/ft_isalnum.o: Is/ft_isalnum.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Is/ft_isalnum'
+#  Last modified 2024-08-20 10:40:06.977852594
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Is/ft_isalpha.o: Is/ft_isalpha.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Is/ft_isalpha'
+#  Last modified 2024-08-20 10:40:06.945852331
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Rest/ft_toupper.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+String/ft_strrchr.o: String/ft_strrchr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strrchr'
+#  Last modified 2024-08-20 10:40:07.201854467
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Is/ft_isdigit.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+List/ft_lstmap.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Memory/ft_memchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+String/ft_strtrim.o: String/ft_strtrim.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strtrim'
+#  Last modified 2024-08-20 10:40:07.361855808
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Rest/ft_calloc.o: Rest/ft_calloc.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_calloc'
+#  Last modified 2024-08-20 10:40:07.297855272
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Put/ft_putnbr_fd.o: Put/ft_putnbr_fd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Put/ft_putnbr_fd'
+#  Last modified 2024-08-20 10:40:07.497856947
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Memory/ft_memcpy.o: Memory/ft_memcpy.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Memory/ft_memcpy'
+#  Last modified 2024-08-20 10:40:07.069853362
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+bonus: List/ft_lstnew.o List/ft_lstadd_front.o List/ft_lstsize.o List/ft_lstlast.o List/ft_lstadd_back.o List/ft_lstdelone.o List/ft_lstclear.o List/ft_lstiter.o List/ft_lstmap.o
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 77):
+	ar rc $(NAME) $(BONUS_OBJ)
+	ranlib $(NAME)
+
+String/ft_strlcat.o: String/ft_strlcat.c
+ 
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strlcat'
+#  Last modified 2024-08-20 10:40:07.121853797
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Memory/ft_memcpy.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Is/ft_isascii.o: Is/ft_isascii.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Is/ft_isascii'
+#  Last modified 2024-08-20 10:40:06.993852726
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Rest/ft_calloc.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 81):
+	/bin/rm -f $(OBJ) $(BONUS_OBJ)
+
+Memory/ft_memcmp.o: Memory/ft_memcmp.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Memory/ft_memcmp'
+#  Last modified 2024-08-20 10:40:07.249854869
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+List/ft_lstclear.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+String/ft_strncmp.o: String/ft_strncmp.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strncmp'
+#  Last modified 2024-08-20 10:40:07.217854601
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+String/ft_strlcpy.o: String/ft_strlcpy.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strlcpy'
+#  Last modified 2024-08-20 10:40:07.105853663
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Rest/ft_bzero.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Put/ft_putendl_fd.o: Put/ft_putendl_fd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Put/ft_putendl_fd'
+#  Last modified 2024-08-20 10:40:07.477856779
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+String/ft_strncmp.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Put/ft_putstr_fd.o: Put/ft_putstr_fd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Put/ft_putstr_fd'
+#  Last modified 2024-08-20 10:40:07.461856645
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+String/ft_strjoin.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+String/ft_striteri.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+List/ft_lstsize.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+String/ft_strmapi.o: String/ft_strmapi.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strmapi'
+#  Last modified 2024-08-20 10:40:07.413856243
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+String/ft_strjoin.o: String/ft_strjoin.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strjoin'
+#  Last modified 2024-08-20 10:40:07.345855674
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Rest/ft_itoa.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+String/ft_striteri.o: String/ft_striteri.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_striteri'
+#  Last modified 2024-08-20 10:40:07.429856377
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+String/ft_strlen.o: String/ft_strlen.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strlen'
+#  Last modified 2024-08-20 10:40:07.025852993
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Put/ft_putendl_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+String/ft_strdup.o: String/ft_strdup.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strdup'
+#  Last modified 2024-08-20 10:40:07.313855406
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+List/ft_lstdelone.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Memory/ft_memset.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+String/ft_strlcpy.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Rest/ft_tolower.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+all: libft.a
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 84):
+	/bin/rm -f $(NAME)
+
+# Not a target:
+List/ft_lstlast.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+Rest/ft_bzero.o: Rest/ft_bzero.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_bzero'
+#  Last modified 2024-08-20 10:40:07.057853261
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+List/ft_lstnew.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Is/ft_isalpha.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Memory/ft_memset.o: Memory/ft_memset.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Memory/ft_memset'
+#  Last modified 2024-08-20 10:40:07.041853127
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+String/ft_strlcat.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+List/ft_lstiter.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+Memory/ft_memchr.o: Memory/ft_memchr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Memory/ft_memchr'
+#  Last modified 2024-08-20 10:40:07.233854735
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Is/ft_isascii.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Memory/ft_memmove.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Rest/ft_split.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Is/ft_isalnum.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+String/ft_substr.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Is/ft_isdigit.o: Is/ft_isdigit.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Is/ft_isdigit'
+#  Last modified 2024-08-20 10:40:06.961852463
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Rest/ft_split.o: Rest/ft_split.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_split'
+#  Last modified 2024-08-20 10:40:07.377855942
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Is/ft_isprint.o: Is/ft_isprint.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Is/ft_isprint'
+#  Last modified 2024-08-20 10:40:07.005852826
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Put/ft_putnbr_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Rest/ft_tolower.o: Rest/ft_tolower.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_tolower'
+#  Last modified 2024-08-20 10:40:07.157854099
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+String/ft_strnstr.o: String/ft_strnstr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strnstr'
+#  Last modified 2024-08-20 10:40:07.265855004
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+.PHONY: all bonus clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+String/ft_strrchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Memory/ft_memcmp.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Memory/ft_memmove.o: Memory/ft_memmove.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Memory/ft_memmove'
+#  Last modified 2024-08-20 10:40:07.089853529
+#  File has been updated.
+#  Successfully updated.
+ 
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# files hash-table stats:
+# Load=87/1024=8%, Rehash=0, Collisions=17/253=7%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 202 / storage = 2992 B / avg = 14 B
+# current buf: size = 8162 B / used = 2992 B / count = 202 / avg = 14 B
+
+# strcache performance: lookups = 271 / hit rate = 25%
+# hash-table stats:
+# Load=202/8192=2%, Rehash=0, Collisions=4/271=1%
+# Finished Make data base on Tue Aug 20 10:42:55 2024
+
+ 
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Tue Aug 20 10:42:55 2024
+
+# Variables
+
+# makefile (from 'Makefile', line 64)
+OBJ = $(SRC:.c=.o)
+# environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# makefile (from 'Makefile', line 19)
+SRC = Is/ft_isalpha.c Is/ft_isdigit.c Is/ft_isalnum.c Is/ft_isascii.c Is/ft_isprint.c String/ft_strlen.c Memory/ft_memset.c Rest/ft_bzero.c Memory/ft_memcpy.c Memory/ft_memmove.c String/ft_strlcpy.c String/ft_strlcat.c Rest/ft_toupper.c Rest/ft_tolower.c String/ft_strchr.c String/ft_strrchr.c String/ft_strncmp.c Memory/ft_memchr.c Memory/ft_memcmp.c String/ft_strnstr.c Rest/ft_atoi.c Rest/ft_calloc.c String/ft_strdup.c String/ft_substr.c String/ft_strjoin.c String/ft_strtrim.c Rest/ft_split.c Rest/ft_itoa.c String/ft_strmapi.c String/ft_striteri.c Put/ft_putchar_fd.c Put/ft_putstr_fd.c Put/ft_putendl_fd.c Put/ft_putnbr_fd.c 
+# environment
+SSH_AGENT_LAUNCHER = openssh
+# makefile (from 'Makefile', line 65)
+BONUS_OBJ = $(BONUS:.c=.o)
+# environment
+VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+# environment
+VSCODE_CWD = /home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long
+# environment
+GDM_LANG = en_US.UTF-8
+# default
+MAKE_COMMAND := make
+# environment
+QT_ACCESSIBILITY = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+XDG_DATA_DIRS = /usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+OLDPWD = /home/optimus-prime/Documents/42_Luanda/42 Cursus
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = /home/optimus-prime/.config/Code/CachedData/fee1edb8d6d72a0ddff41e5f71a671c23ed924b9
+# environment
+ 
+LANG = C
+# environment
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.9R93S2
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+GNOME_TERMINAL_SERVICE = :1.128
+# makefile
+MAKEFLAGS = pqrRw
+# makefile (from 'Makefile', line 54)
+BONUS = List/ft_lstnew.c List/ft_lstadd_front.c List/ft_lstsize.c List/ft_lstlast.c List/ft_lstadd_back.c List/ft_lstdelone.c List/ft_lstclear.c List/ft_lstiter.c List/ft_lstmap.c 
+# environment
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=e726ad2edb674ee580f1bdb966c4885d
+# makefile
+CURDIR := /home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long/Libft
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrRw
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+WAYLAND_DISPLAY = wayland-0
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = gnome
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 3376
+# environment
+XDG_SESSION_TYPE = wayland
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+SESSION_MANAGER = local/Optimus:@/tmp/.ICE-unix/1440,unix/Optimus:/tmp/.ICE-unix/1440
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=e726ad2edb674ee580f1bdb966c4885d
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en","availableLanguages":{}}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# environment
+XMODIFIERS = @im=ibus
+# environment
+SHLVL = 1
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/39c0fb60_0a06_4c32_a072_19ee219cd2c6
+# environment
+MAKELEVEL := 1
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# makefile (from 'Makefile', line 17)
+HEADER = ./inc/libft.h
+# environment
+USERNAME = optimus-prime
+# environment
+GNOME_SETUP_DISPLAY = :1
+# automatic
+?F = $(notdir $?)
+# makefile (from 'Makefile', line 13)
+NAME = libft.a
+# environment
+XDG_CURRENT_DESKTOP = GNOME
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:
+# automatic
++F = $(notdir $+)
+# environment
+DESKTOP_SESSION = gnome
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = GNOME
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = optimus-prime
+# makefile
+.DEFAULT_GOAL := all
+# environment
+SYSTEMD_EXEC_PID = 1440
+# environment
+DISPLAY = :0
+# environment
+USER = optimus-prime
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# environment
+DBUS_STARTER_BUS_TYPE = session
+# environment
+_ = /usr/bin/code
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# makefile (from 'Makefile', line 15)
+CFLAGS = -Wall -Wextra -Werror
+# environment
+COLORTERM = truecolor
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/optimus-prime
+# environment
+QT_IM_MODULE = ibus
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-b8cd84b0-1.92-main.sock
+# environment
+TERM = xterm-256color
+# environment
+IM_CONFIG_PHASE = 1
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 7006
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# makefile (from 'Makefile', line 14)
+CC = gcc
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+GDMSESSION = gnome
+# variable set hash-table stats:
+# Load=102/1024=10%, Rehash=0, Collisions=15/140=11%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# . (device 65025, inode 1179884): 11 files, no impossibilities.
+# String (device 65025, inode 1179921): 28 files, no impossibilities so far.
+# Is (device 65025, inode 1179885): 11 files, no impossibilities so far.
+# Rest (device 65025, inode 1179913): 16 files, no impossibilities so far.
+# Put (device 65025, inode 1179908): 10 files, no impossibilities so far.
+# Memory (device 65025, inode 1179902): 12 files, no impossibilities so far.
+
+# 88 files, no impossibilities in 6 directories.
+
+# Implicit Rules
+
+%.o: %.c
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# 1 implicit rules, 0 (0.0%) terminal.
+# Files
+ 
+
+# Not a target:
+Is/ft_isprint.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+String/ft_strmapi.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Rest/ft_atoi.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+List/ft_lstadd_back.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+Put/ft_putchar_fd.o: Put/ft_putchar_fd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Put/ft_putchar_fd'
+#  Last modified 2024-08-20 10:40:07.445856511
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+String/ft_strnstr.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+String/ft_substr.o: String/ft_substr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_substr'
+#  Last modified 2024-08-20 10:40:07.32985554
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+String/ft_strdup.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Put/ft_putstr_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Rest/ft_atoi.o: Rest/ft_atoi.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_atoi'
+#  Last modified 2024-08-20 10:40:07.281855138
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Put/ft_putchar_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+libft.a: Is/ft_isalpha.o Is/ft_isdigit.o Is/ft_isalnum.o Is/ft_isascii.o Is/ft_isprint.o String/ft_strlen.o Memory/ft_memset.o Rest/ft_bzero.o Memory/ft_memcpy.o Memory/ft_memmove.o String/ft_strlcpy.o String/ft_strlcat.o Rest/ft_toupper.o Rest/ft_tolower.o String/ft_strchr.o String/ft_strrchr.o String/ft_strncmp.o Memory/ft_memchr.o Memory/ft_memcmp.o String/ft_strnstr.o Rest/ft_atoi.o Rest/ft_calloc.o String/ft_strdup.o String/ft_substr.o String/ft_strjoin.o String/ft_strtrim.o Rest/ft_split.o Rest/ft_itoa.o String/ft_strmapi.o String/ft_striteri.o Put/ft_putchar_fd.o Put/ft_putstr_fd.o Put/ft_putendl_fd.o Put/ft_putnbr_fd.o
+#  Implicit rule search has not been done.
+#  Last modified 2024-08-20 10:40:07.533857248
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 73):
+	ar rc $(NAME) $(OBJ)
+	ranlib $(NAME)
+
+# Not a target:
+String/ft_strchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Rest/ft_itoa.o: Rest/ft_itoa.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_itoa'
+#  Last modified 2024-08-20 10:40:07.393856076
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+List/ft_lstadd_front.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+String/ft_strtrim.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Rest/ft_toupper.o: Rest/ft_toupper.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_toupper'
+#  Last modified 2024-08-20 10:40:07.137853931
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+String/ft_strchr.o: String/ft_strchr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strchr'
+#  Last modified 2024-08-20 10:40:07.1818543
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+String/ft_strlen.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Is/ft_isalnum.o: Is/ft_isalnum.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Is/ft_isalnum'
+#  Last modified 2024-08-20 10:40:06.977852594
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Is/ft_isalpha.o: Is/ft_isalpha.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Is/ft_isalpha'
+#  Last modified 2024-08-20 10:40:06.945852331
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Rest/ft_toupper.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+ 
+#  File has been updated.
+#  Successfully updated.
+
+String/ft_strrchr.o: String/ft_strrchr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strrchr'
+#  Last modified 2024-08-20 10:40:07.201854467
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Is/ft_isdigit.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+List/ft_lstmap.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Memory/ft_memchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+String/ft_strtrim.o: String/ft_strtrim.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strtrim'
+#  Last modified 2024-08-20 10:40:07.361855808
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Rest/ft_calloc.o: Rest/ft_calloc.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_calloc'
+#  Last modified 2024-08-20 10:40:07.297855272
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Put/ft_putnbr_fd.o: Put/ft_putnbr_fd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Put/ft_putnbr_fd'
+#  Last modified 2024-08-20 10:40:07.497856947
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Memory/ft_memcpy.o: Memory/ft_memcpy.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Memory/ft_memcpy'
+#  Last modified 2024-08-20 10:40:07.069853362
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+bonus: List/ft_lstnew.o List/ft_lstadd_front.o List/ft_lstsize.o List/ft_lstlast.o List/ft_lstadd_back.o List/ft_lstdelone.o List/ft_lstclear.o List/ft_lstiter.o List/ft_lstmap.o
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 77):
+	ar rc $(NAME) $(BONUS_OBJ)
+	ranlib $(NAME)
+
+String/ft_strlcat.o: String/ft_strlcat.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strlcat'
+#  Last modified 2024-08-20 10:40:07.121853797
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Memory/ft_memcpy.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Is/ft_isascii.o: Is/ft_isascii.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Is/ft_isascii'
+#  Last modified 2024-08-20 10:40:06.993852726
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Rest/ft_calloc.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 81):
+	/bin/rm -f $(OBJ) $(BONUS_OBJ)
+
+Memory/ft_memcmp.o: Memory/ft_memcmp.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Memory/ft_memcmp'
+#  Last modified 2024-08-20 10:40:07.249854869
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+List/ft_lstclear.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+String/ft_strncmp.o: String/ft_strncmp.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strncmp'
+#  Last modified 2024-08-20 10:40:07.217854601
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+String/ft_strlcpy.o: String/ft_strlcpy.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strlcpy'
+#  Last modified 2024-08-20 10:40:07.105853663
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Rest/ft_bzero.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Put/ft_putendl_fd.o: Put/ft_putendl_fd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Put/ft_putendl_fd'
+#  Last modified 2024-08-20 10:40:07.477856779
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+String/ft_strncmp.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Put/ft_putstr_fd.o: Put/ft_putstr_fd.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Put/ft_putstr_fd'
+#  Last modified 2024-08-20 10:40:07.461856645
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+String/ft_strjoin.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+String/ft_striteri.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+ 
+#  File has been updated.
+#  Successfully updated.
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+List/ft_lstsize.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+String/ft_strmapi.o: String/ft_strmapi.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strmapi'
+#  Last modified 2024-08-20 10:40:07.413856243
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+String/ft_strjoin.o: String/ft_strjoin.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strjoin'
+#  Last modified 2024-08-20 10:40:07.345855674
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Rest/ft_itoa.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+String/ft_striteri.o: String/ft_striteri.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_striteri'
+#  Last modified 2024-08-20 10:40:07.429856377
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+String/ft_strlen.o: String/ft_strlen.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strlen'
+#  Last modified 2024-08-20 10:40:07.025852993
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Put/ft_putendl_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+String/ft_strdup.o: String/ft_strdup.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strdup'
+#  Last modified 2024-08-20 10:40:07.313855406
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+List/ft_lstdelone.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Memory/ft_memset.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+String/ft_strlcpy.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Rest/ft_tolower.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+all: libft.a
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 84):
+	/bin/rm -f $(NAME)
+
+# Not a target:
+List/ft_lstlast.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+Rest/ft_bzero.o: Rest/ft_bzero.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_bzero'
+#  Last modified 2024-08-20 10:40:07.057853261
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+List/ft_lstnew.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Is/ft_isalpha.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Memory/ft_memset.o: Memory/ft_memset.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Memory/ft_memset'
+#  Last modified 2024-08-20 10:40:07.041853127
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+String/ft_strlcat.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+List/ft_lstiter.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+Memory/ft_memchr.o: Memory/ft_memchr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Memory/ft_memchr'
+#  Last modified 2024-08-20 10:40:07.233854735
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+ 
+
+# Not a target:
+Is/ft_isascii.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Memory/ft_memmove.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Rest/ft_split.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Is/ft_isalnum.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+String/ft_substr.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Is/ft_isdigit.o: Is/ft_isdigit.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Is/ft_isdigit'
+#  Last modified 2024-08-20 10:40:06.961852463
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Rest/ft_split.o: Rest/ft_split.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_split'
+#  Last modified 2024-08-20 10:40:07.377855942
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+Is/ft_isprint.o: Is/ft_isprint.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Is/ft_isprint'
+#  Last modified 2024-08-20 10:40:07.005852826
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Not a target:
+Put/ft_putnbr_fd.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Rest/ft_tolower.o: Rest/ft_tolower.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Rest/ft_tolower'
+#  Last modified 2024-08-20 10:40:07.157854099
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+String/ft_strnstr.o: String/ft_strnstr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'String/ft_strnstr'
+#  Last modified 2024-08-20 10:40:07.265855004
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+.PHONY: all bonus clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+String/ft_strrchr.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+Memory/ft_memcmp.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 08:14:18.89067684
+#  File has been updated.
+#  Successfully updated.
+
+Memory/ft_memmove.o: Memory/ft_memmove.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'Memory/ft_memmove'
+#  Last modified 2024-08-20 10:40:07.089853529
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 70):
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# files hash-table stats:
+# Load=87/1024=8%, Rehash=0, Collisions=17/253=7%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 202 / storage = 2992 B / avg = 14 B
+# current buf: size = 8162 B / used = 2992 B / count = 202 / avg = 14 B
+
+# strcache performance: lookups = 271 / hit rate = 25%
+# hash-table stats:
+# Load=202/8192=2%, Rehash=0, Collisions=4/271=1%
+# Finished Make data base on Tue Aug 20 10:42:55 2024
+
+ 
+# GNU Make 4.3
+# Built for x86_64-pc-linux-gnu
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Tue Aug 20 10:42:55 2024
+
+# Variables
+
+ 
+# environment
+GDK_BACKEND = x11
+# environment
+LC_ALL = C
+# environment
+SSH_AGENT_LAUNCHER = openssh
+# environment
+VSCODE_CRASH_REPORTER_PROCESS_TYPE = extensionHost
+# environment
+VSCODE_CWD = /home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long
+# environment
+GDM_LANG = en_US.UTF-8
+# default
+MAKE_COMMAND := make
+# environment
+QT_ACCESSIBILITY = 1
+# automatic
+@D = $(patsubst %/,%,$(dir $@))
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# environment
+PWD = /home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long
+# automatic
+%D = $(patsubst %/,%,$(dir $%))
+# environment
+XDG_DATA_DIRS = /usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
+# environment
+OLDPWD = /home/optimus-prime/Documents/42_Luanda/42 Cursus
+# makefile (from 'Makefile', line 31)
+S_FILES = ./SRCS/main.c ./SRCS/Error/error_handler.c 
+# automatic
+^D = $(patsubst %/,%,$(dir $^))
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = /home/optimus-prime/.config/Code/CachedData/fee1edb8d6d72a0ddff41e5f71a671c23ed924b9
+# makefile (from 'Makefile', line 19)
+LIBFT = -L$(L_DIR) -lft
+# environment
+LANG = C
+# makefile (from 'Makefile', line 34)
+S_OBJ = $(S_FILES:.c=.o)
+# environment
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.9R93S2
+# default
+.LOADED := 
+# default
+.INCLUDE_DIRS = /usr/local/include /usr/include /usr/include
+# environment
+GNOME_TERMINAL_SERVICE = :1.128
+# makefile
+MAKEFLAGS = pqrR
+# makefile (from 'Makefile', line 25)
+BLUE = \033[34m
+# environment
+DBUS_STARTER_ADDRESS = unix:path=/run/user/1000/bus,guid=e726ad2edb674ee580f1bdb966c4885d
+# makefile
+CURDIR := /home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
+# automatic
+*D = $(patsubst %/,%,$(dir $*))
+# environment
+MFLAGS = -pqrR
+# environment
+SSH_AUTH_SOCK = /run/user/1000/keyring/ssh
+# default
+.SHELLFLAGS := -c
+# environment
+WAYLAND_DISPLAY = wayland-0
+# automatic
++D = $(patsubst %/,%,$(dir $+))
+# environment
+XDG_SESSION_DESKTOP = gnome
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_PID = 3376
+# environment
+XDG_SESSION_TYPE = wayland
+# automatic
+?D = $(patsubst %/,%,$(dir $?))
+# environment
+SESSION_MANAGER = local/Optimus:@/tmp/.ICE-unix/1440,unix/Optimus:/tmp/.ICE-unix/1440
+# automatic
+*F = $(notdir $*)
+# environment
+CHROME_DESKTOP = code-url-handler.desktop
+# environment
+DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus,guid=e726ad2edb674ee580f1bdb966c4885d
+# automatic
+<D = $(patsubst %/,%,$(dir $<))
+# environment
+VSCODE_NLS_CONFIG = {"userLocale":"en-us","osLocale":"en-us","resolvedLanguage":"en","defaultMessagesFile":"/usr/share/code/resources/app/out/nls.messages.json","locale":"en","availableLanguages":{}}
+# default
+MAKE_HOST := x86_64-pc-linux-gnu
+# environment
+GNOME_DESKTOP_SESSION_ID = this-is-deprecated
+# makefile
+SHELL = /bin/sh
+# default
+MAKECMDGOALS := all
+# environment
+XMODIFIERS = @im=ibus
+# environment
+SHLVL = 1
+# environment
+GNOME_TERMINAL_SCREEN = /org/gnome/Terminal/screen/39c0fb60_0a06_4c32_a072_19ee219cd2c6
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = /usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games:/snap/bin
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# makefile (from 'Makefile', line 20)
+HEADER = inc/so_long.h
+# makefile (from 'Makefile', line 26)
+YELLOW = \033[33m
+# environment
+USERNAME = optimus-prime
+# makefile (from 'Makefile', line 28)
+GREEN = \033[32m
+# environment
+GNOME_SETUP_DISPLAY = :1
+# automatic
+?F = $(notdir $?)
+# makefile (from 'Makefile', line 14)
+NAME = so_long
+# environment
+XDG_CURRENT_DESKTOP = GNOME
+# environment
+LS_COLORS = rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.swp=00;90:*.tmp=00;90:*.dpkg-dist=00;90:*.dpkg-old=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:
+# automatic
++F = $(notdir $+)
+# environment
+DESKTOP_SESSION = gnome
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = GNOME
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+LOGNAME = optimus-prime
+# makefile
+.DEFAULT_GOAL := all
+# environment
+SYSTEMD_EXEC_PID = 1440
+# makefile (from 'Makefile', line 27)
+ORANGE = \033[38;5;208m
+# makefile (from 'Makefile', line 24)
+RED = \033[31m
+# environment
+DISPLAY = :0
+# environment
+USER = optimus-prime
+# environment
+GTK_MODULES = gail:atk-bridge
+# default
+MAKE_VERSION := 4.3
+# environment
+DBUS_STARTER_BUS_TYPE = session
+# environment
+_ = /usr/bin/code
+# makefile (from 'Makefile', line 23)
+RESET = \033[0m
+# environment
+XDG_RUNTIME_DIR = /run/user/1000
+# makefile (from 'Makefile', line 17)
+CFLAGS = -Wall -Wextra -Werror
+# environment
+COLORTERM = truecolor
+# environment
+XDG_SESSION_CLASS = user
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+HOME = /home/optimus-prime
+# environment
+QT_IM_MODULE = ibus
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+VSCODE_IPC_HOOK = /run/user/1000/vscode-b8cd84b0-1.92-main.sock
+# environment
+TERM = xterm-256color
+# environment
+IM_CONFIG_PHASE = 1
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# default
+SUFFIXES := 
+# makefile (from 'Makefile', line 18)
+L_DIR = ./Libft	
+# environment
+VSCODE_CLI = 1
+# environment
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# environment
+VTE_VERSION = 7006
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink load
+# makefile (from 'Makefile', line 16)
+CC = cc
+# environment
+XDG_MENU_PREFIX = gnome-
+# environment
+GDMSESSION = gnome
+# variable set hash-table stats:
+# Load=109/1024=11%, Rehash=0, Collisions=17/174=10%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# inc (device 65025, inode 1179939): 3 files, no impossibilities so far.
+# SRCS (device 65025, inode 1179938): 2 files, no impossibilities so far.
+# SRCS/Error (device 65025, inode 1182759): 4 files, no impossibilities so far.
+ 
+# . (device 65025, inode 1179883): 12 files, no impossibilities.
+
+# 21 files, no impossibilities in 4 directories.
+
+# Implicit Rules
+
+%.o: %.c inc/so_long.h
+#  recipe to execute (from 'Makefile', line 44):
+		 $(CC) $(CFLAGS) -c -o $@ $<
+
+# 1 implicit rules, 0 (0.0%) terminal.
+# Files
+
+-L./Libft:
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := -L./Libft
+# automatic
+# * := 
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/14=14%
+#  recipe to execute (from 'Makefile', line 47):
+		 @$(MAKE) -C $(L_DIR)
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 10:42:17.219850431
+#  File has been updated.
+#  Successfully updated.
+
+so_long: SRCS/main.o SRCS/Error/error_handler.o -L./Libft -lft
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  Last modified 2024-08-20 10:42:29.368114423
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := so_long
+# automatic
+# * := 
+# automatic
+# < := SRCS/main.o
+# automatic
+# + := SRCS/main.o SRCS/Error/error_handler.o -L./Libft -lft
+# automatic
+# % := 
+# automatic
+# ^ := SRCS/main.o SRCS/Error/error_handler.o -L./Libft -lft
+# automatic
+# ? := -L./Libft -lft
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=6/32=19%
+#  recipe to execute (from 'Makefile', line 39):
+		 $(CC) $(CFLAGS) -o $(NAME) $(S_OBJ) $(LIBFT)
+		 clear
+		 @echo "$(GREEN) COMPILATION COMPLETE$(RESET)"
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 50):
+		@$(MAKE) clean -C $(L_DIR)
+		rm -f $(S_OBJ)
+		clear
+		@echo "$(ORANGE) CLEANING THE OBJECTS$(RESET)"
+
+re: fclean all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+-lft:
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+# automatic
+# @ := -lft
+# automatic
+# * := 
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/14=14%
+#  recipe to execute (from 'Makefile', line 47):
+		 @$(MAKE) -C $(L_DIR)
+
+# Not a target:
+SRCS/Error/error_handler.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 10:36:44.947610686
+#  File has been updated.
+#  Successfully updated.
+
+SRCS/main.o: SRCS/main.c inc/so_long.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'SRCS/main'
+#  Last modified 2024-08-20 10:40:06.913852066
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 44):
+		 $(CC) $(CFLAGS) -c -o $@ $<
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: so_long
+#  Phony target (prerequisite of .PHONY).
+#  Command line target.
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/24=0%
+
+fclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 56):
+		@$(MAKE) fclean -C $(L_DIR)
+		rm -f $(NAME)
+		clear
+		@echo "$(RED) CLEARING ALL FILES$(RESET)"
+
+SRCS/Error/error_handler.o: SRCS/Error/error_handler.c inc/so_long.h
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'SRCS/Error/error_handler'
+#  Last modified 2024-08-20 10:40:06.929852198
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 44):
+		 $(CC) $(CFLAGS) -c -o $@ $<
+
+# Not a target:
+SRCS/main.c:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 10:36:43.147666619
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+inc/so_long.h:
+#  Implicit rule search has been done.
+#  Last modified 2024-08-20 10:04:00.958276512
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.SUFFIXES:
+#  Implicit rule search has not been done.
+ 
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: all clean fclean re
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=16/1024=2%, Rehash=0, Collisions=0/55=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 38 / storage = 372 B / avg = 9 B
+# current buf: size = 8162 B / used = 372 B / count = 38 / avg = 9 B
+
+# strcache performance: lookups = 77 / hit rate = 50%
+# hash-table stats:
+# Load=38/8192=0%, Rehash=0, Collisions=0/77=0%
+# Finished Make data base on Tue Aug 20 10:42:55 2024
+
+ 
