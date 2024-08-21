@@ -8,27 +8,24 @@ void	error(char *msg, int n)
 
 int	valid_open_file(char *file)
 {
-	int		i;
 	int		fd;
 	int		len;
 	char	*ext;
 
-	i = 0;
-	ext = "ber";
-	len = (int) ft_strlen(file) - 3;
-	while (file[len++] == ext[i])
-		i++;
-	if (i != 4)
-		error("Error - extension invalid !!\n", 1);
+	ext = ".ber";
+	len = (int) ft_strlen(file);
+	if (len < 4 || ft_strncmp(file + len - 4, ext, 4) != 0)
+		error("Error - Invalid extension !!\n", 1);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
-		error("Error openning the file !!\n", 1);
+		error("Error - Openning the file !!\n", 1);
 	return (fd);
 }
 
-char	valid_read_file(char *buffer, int fd)
+char	*valid_read_file(int fd)
 {
-	int	size;
+	int		size;
+	char	*buffer;
 
 	size = 0;
 	buffer = (char *)malloc(sizeof(char) * 1024);
@@ -39,29 +36,34 @@ char	valid_read_file(char *buffer, int fd)
 	{
 		close(fd);
 		free(buffer);
-		error("Error reading the file !!\n", 1);
+		error("Error - Reading the file !!\n", 1);
 	}
 	buffer[size] = '\0';
 	return (buffer);
 }
 
-int error_handler(char *args)
+int error_handler(int av, char **args)
 {
 	int		i;
 	int		j;
 	int		fd;
-	char	*buffer;
 	char	**map;
+	char	*buffer;
 
-	fd = valid_open_file(args);
-	map = ft_split(valid_read_file(buffer, fd), '\n');
-	 i = -1;
+	if (av < 2)
+		error("Error - Missing arguments\n", 1);
+	fd = valid_open_file(args[1]);
+	buffer = valid_read_file(fd);
+	validate_string(buffer);
+	map = ft_split(buffer, '\n');
+	validate_maps(map);
+	i = -1;
     while (map[++i])
     {
         j = -1;
         while (map[i][++j])
-            printf("%c", map[i][j]);
-        printf("\n");
+            write(1, &map[i][j], 1);
+        write(1 ,"\n", 1);
     }
 	 i = 0;
     while (map[i])

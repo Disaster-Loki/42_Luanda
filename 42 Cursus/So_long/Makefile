@@ -28,8 +28,11 @@ ORANGE	= \033[38;5;208m
 GREEN	= \033[32m
 
 # FILES
-S_FILES	= ./SRCS/main.c					\
-		  ./SRCS/Error/error_handler.c	\
+S_FILES	= ./SRCS/main.c						\
+		  ./SRCS/Error/error_handler.c		\
+		  ./SRCS/Error/error_utils.c		\
+		  ./SRCS/Error/validate_map.c		\
+		  ./SRCS/Error/validate_string.c	\
 
 S_OBJ	= $(S_FILES:.c=.o)
 
