@@ -40,9 +40,52 @@ void	valid_walls_map(char **map, char c)
 	}
 }
 
+void	valid_path_map(char **map)
+{
+	int	i;
+	int	j;
+	int	len;
+
+	i = -1;
+	while (map[++i])
+	{
+		j = -1;
+		len = (int) ft_strlen(map[i]);
+		while (map[i][++j])
+		{
+			if (map[i][j] == 'P' && i > 0 && j < len)
+			{
+				if ((map[i+1][j] == '1') && (map[i-1][j] == '1') &&
+				(map[i][j+1] == '1') && (map[i][j-1] == '1'))
+					error("Error - No path to player\n", 1);
+			}
+			if (map[i][j] == 'E' && i > 0 && j < len)
+			{
+				if ((map[i+1][j] == '1') && (map[i-1][j] == '1') &&
+				(map[i][j+1] == '1') && (map[i][j-1] == '1'))
+					error("Error - No way out\n", 1);
+			}
+		}
+	}
+}
+void	valid_path(char **map)
+{
+	t_point	begin;
+	int		found;
+
+	found = 0;
+	begin = begin_position(map, 'C');
+	walk_path(map, begin, map[begin.y][begin.x], &found);
+	if (found == 0)
+		error("Error - No path to the collectible\n",1);
+
+}
+
 int	validate_maps(char **map)
 {
 	valid_character(map);
 	valid_walls_map(map, '1');
+	valid_path_map(map);
+	valid_path(map);
 	return (1);
 }

@@ -6,7 +6,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Wed Aug 21 08:03:56 2024
+# Make data base, printed on Thu Aug 22 08:54:03 2024
 
 # Variables
 
@@ -41,7 +41,7 @@ PWD = /home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long
 # environment
 XDG_DATA_DIRS = /usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop
 # makefile (from 'Makefile', line 31)
-S_FILES = ./SRCS/main.c ./SRCS/Error/error_handler.c ./SRCS/Error/error_utils.c ./SRCS/Error/validate_map.c ./SRCS/Error/validate_string.c 
+S_FILES = ./SRCS/main.c ./SRCS/Error/error_handler.c ./SRCS/Error/validate_map.c ./SRCS/Error/validate_string.c ./SRCS/Error/validate_utils.c ./SRCS/Error/validate_rest.c 
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # automatic
@@ -52,10 +52,10 @@ VSCODE_CODE_CACHE_PATH = /home/optimus-prime/.config/Code/CachedData/fee1edb8d6d
 LIBFT = -L$(L_DIR) -lft
 # environment
 LANG = C
-# makefile (from 'Makefile', line 37)
+# makefile (from 'Makefile', line 38)
 S_OBJ = $(S_FILES:.c=.o)
 # environment
-XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.GDR5S2
+XAUTHORITY = /run/user/1000/.mutter-Xwaylandauth.V8DWS2
 # default
 .LOADED := 
 # default
@@ -68,6 +68,8 @@ BLUE = \033[34m
 CURDIR := /home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long
 # environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environment
+VSCODE_L10N_BUNDLE_LOCATION = 
 # automatic
 *D = $(patsubst %/,%,$(dir $*))
 # environment
@@ -87,7 +89,7 @@ MAKEFILE_LIST := Makefile
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 2250
+VSCODE_PID = 2421
 # environment
 XDG_SESSION_TYPE = wayland
 # automatic
@@ -135,7 +137,7 @@ HEADER = inc/so_long.h
 # makefile (from 'Makefile', line 26)
 YELLOW = \033[33m
 # environment
-INVOCATION_ID = 7a42eea27e74400f96443e1dab70b9ea
+INVOCATION_ID = 3019ea45e9494e91ba64da25ae366fff
 # environment
 USERNAME = optimus-prime
 # makefile (from 'Makefile', line 28)
@@ -163,7 +165,7 @@ GIO_LAUNCHED_DESKTOP_FILE = /usr/share/applications/code.desktop
 # makefile
 .DEFAULT_GOAL := all
 # environment
-SYSTEMD_EXEC_PID = 1471
+SYSTEMD_EXEC_PID = 1467
 # makefile (from 'Makefile', line 27)
 ORANGE = \033[38;5;208m
 # makefile (from 'Makefile', line 24)
@@ -177,9 +179,9 @@ GTK_MODULES = gail:atk-bridge
 # default
 MAKE_VERSION := 4.3
 # environment
-MANAGERPID = 1309
+MANAGERPID = 1311
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 2250
+GIO_LAUNCHED_DESKTOP_FILE_PID = 2421
 # environment
 _ = /usr/share/code/code
 # makefile (from 'Makefile', line 23)
@@ -189,7 +191,7 @@ XDG_RUNTIME_DIR = /run/user/1000
 # makefile (from 'Makefile', line 17)
 CFLAGS = -Wall -Wextra -Werror
 # environment
-JOURNAL_STREAM = 8:24818
+JOURNAL_STREAM = 8:21486
 # environment
 XDG_SESSION_CLASS = user
 # environment
@@ -221,7 +223,7 @@ XDG_MENU_PREFIX = gnome-
 # environment
 GDMSESSION = gnome
 # variable set hash-table stats:
-# Load=105/1024=10%, Rehash=0, Collisions=3/149=2%
+# Load=106/1024=10%, Rehash=0, Collisions=4/150=3%
 
 # Pattern-specific Variable Values
 
@@ -231,60 +233,57 @@ GDMSESSION = gnome
 
 # inc (device 65025, inode 1179939): 3 files, no impossibilities so far.
 # SRCS (device 65025, inode 1179938): 2 files, no impossibilities so far.
-# SRCS/Error (device 65025, inode 1182759): 10 files, no impossibilities so far.
-# . (device 65025, inode 1179883): 12 files, no impossibilities.
+# . (device 65025, inode 1179883): 11 files, no impossibilities.
 
-# 27 files, no impossibilities in 4 directories.
+# 16 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
 %.o: %.c inc/so_long.h
-#  recipe to execute (from 'Makefile', line 47):
+#  recipe to execute (from 'Makefile', line 48):
 		 $(CC) $(CFLAGS) -c -o $@ $<
 
 # 1 implicit rules, 0 (0.0%) terminal.
 # Files
 
-# Not a target:
-SRCS/Error/error_utils.c:
-#  Implicit rule search has been done.
-#  Last modified 2024-08-21 04:29:18.421573691
-#  File has been updated.
-#  Successfully updated.
-
 -L./Libft:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 50):
+#  recipe to execute (from 'Makefile', line 51):
 		 @$(MAKE) -C $(L_DIR)
+
+# Not a target:
+SRCS/Error/validate_rest.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2024-08-21 07:23:00.240917794
+#  Last modified 2024-08-22 08:53:58.514940391
 #  File has been updated.
 #  Successfully updated.
 
-so_long: SRCS/main.o SRCS/Error/error_handler.o SRCS/Error/error_utils.o SRCS/Error/validate_map.o SRCS/Error/validate_string.o -L./Libft -lft
+so_long: SRCS/main.o SRCS/Error/error_handler.o SRCS/Error/validate_map.o SRCS/Error/validate_string.o SRCS/Error/validate_utils.o SRCS/Error/validate_rest.o -L./Libft -lft
 #  Implicit rule search has not been done.
-#  Last modified 2024-08-21 07:54:32.256609194
+#  File does not exist.
 #  File has been updated.
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
-#  recipe to execute (from 'Makefile', line 42):
+#  recipe to execute (from 'Makefile', line 43):
 		 $(CC) $(CFLAGS) -o $(NAME) $(S_OBJ) $(LIBFT)
 		 clear
 		 @echo "$(GREEN) COMPILATION COMPLETE$(RESET)"
 
- 
 clean:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 53):
+#  recipe to execute (from 'Makefile', line 54):
 		@$(MAKE) clean -C $(L_DIR)
 		rm -f $(S_OBJ)
 		clear
@@ -296,34 +295,39 @@ re: fclean all
 #  File does not exist.
 #  File has not been updated.
 
-# Not a target:
-SRCS/Error/validate_string.c:
-#  Implicit rule search has been done.
-#  Last modified 2024-08-21 07:55:00.488908467
-#  File has been updated.
-#  Successfully updated.
-
 -lft:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 50):
+#  recipe to execute (from 'Makefile', line 51):
 		 @$(MAKE) -C $(L_DIR)
-
-# Not a target:
-SRCS/Error/error_handler.c:
-#  Implicit rule search has been done.
-#  Last modified 2024-08-21 07:50:21.982006609
-#  File has been updated.
-#  Successfully updated.
 
 SRCS/main.o: SRCS/main.c inc/so_long.h
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'SRCS/main'
-#  Last modified 2024-08-21 07:54:31.528601489
+#  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 47):
+#  Needs to be updated (-q is set).
+# automatic
+# @ := SRCS/main.o
+# automatic
+ 
+# * := SRCS/main
+# automatic
+# < := SRCS/main.c
+# automatic
+# + := SRCS/main.c inc/so_long.h
+# automatic
+# % := 
+# automatic
+# ^ := SRCS/main.c inc/so_long.h
+# automatic
+# ? := SRCS/main.c inc/so_long.h
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=2/15=13%
+#  recipe to execute (from 'Makefile', line 48):
 		 $(CC) $(CFLAGS) -c -o $@ $<
 
 # Not a target:
@@ -347,78 +351,47 @@ fclean: clean
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 59):
+#  recipe to execute (from 'Makefile', line 60):
 		@$(MAKE) fclean -C $(L_DIR)
 		rm -f $(NAME)
 		clear
 		@echo "$(RED) CLEARING ALL FILES$(RESET)"
 
-SRCS/Error/error_utils.o: SRCS/Error/error_utils.c inc/so_long.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'SRCS/Error/error_utils'
-#  Last modified 2024-08-21 07:54:31.568601912
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 47):
-		 $(CC) $(CFLAGS) -c -o $@ $<
+# Not a target:
+SRCS/Error/error_handler.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-SRCS/Error/error_handler.o: SRCS/Error/error_handler.c inc/so_long.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'SRCS/Error/error_handler'
-#  Last modified 2024-08-21 07:54:31.5486017
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 47):
-		 $(CC) $(CFLAGS) -c -o $@ $<
+# Not a target:
+SRCS/Error/validate_map.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-SRCS/Error/validate_map.o: SRCS/Error/validate_map.c inc/so_long.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'SRCS/Error/validate_map'
-#  Last modified 2024-08-21 07:54:31.588602124
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 47):
-		 $(CC) $(CFLAGS) -c -o $@ $<
+# Not a target:
+SRCS/Error/validate_string.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
-SRCS/Error/validate_string.o: SRCS/Error/validate_string.c inc/so_long.h
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'SRCS/Error/validate_string'
-#  Last modified 2024-08-21 07:54:31.608602336
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := SRCS/Error/validate_string.o
-# automatic
-# * := SRCS/Error/validate_string
-# automatic
-# < := SRCS/Error/validate_string.c
-# automatic
-# + := SRCS/Error/validate_string.c inc/so_long.h
-# automatic
-# % := 
-# automatic
-# ^ := SRCS/Error/validate_string.c inc/so_long.h
-# automatic
- 
-# ? := SRCS/Error/validate_string.c
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=2/15=13%
-#  recipe to execute (from 'Makefile', line 47):
-		 $(CC) $(CFLAGS) -c -o $@ $<
+# Not a target:
+SRCS/Error/validate_utils.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 SRCS/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2024-08-21 06:32:18.289052841
+#  Last modified 2024-08-22 03:39:55.411177235
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 inc/so_long.h:
 #  Implicit rule search has been done.
-#  Last modified 2024-08-21 07:31:35.461636219
+#  Last modified 2024-08-22 08:51:38.994854672
 #  File has been updated.
 #  Successfully updated.
 
@@ -427,27 +400,20 @@ inc/so_long.h:
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-SRCS/Error/validate_map.c:
-#  Implicit rule search has been done.
-#  Last modified 2024-08-21 07:19:56.426832321
-#  File has been updated.
-#  Successfully updated.
-
 # files hash-table stats:
-# Load=22/1024=2%, Rehash=0, Collisions=0/76=0%
+# Load=19/1024=2%, Rehash=0, Collisions=0/54=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 53 / storage = 700 B / avg = 13 B
-# current buf: size = 8162 B / used = 700 B / count = 53 / avg = 13 B
+# strcache buffers: 1 (0) / strings = 37 / storage = 387 B / avg = 10 B
+# current buf: size = 8162 B / used = 387 B / count = 37 / avg = 10 B
 
-# strcache performance: lookups = 98 / hit rate = 45%
+# strcache performance: lookups = 67 / hit rate = 44%
 # hash-table stats:
-# Load=53/8192=1%, Rehash=0, Collisions=0/98=0%
-# Finished Make data base on Wed Aug 21 08:03:56 2024
+# Load=37/8192=0%, Rehash=0, Collisions=0/67=0%
+# Finished Make data base on Thu Aug 22 08:54:03 2024
 
  

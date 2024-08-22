@@ -30,9 +30,10 @@ GREEN	= \033[32m
 # FILES
 S_FILES	= ./SRCS/main.c						\
 		  ./SRCS/Error/error_handler.c		\
-		  ./SRCS/Error/error_utils.c		\
 		  ./SRCS/Error/validate_map.c		\
 		  ./SRCS/Error/validate_string.c	\
+		  ./SRCS/Error/validate_utils.c		\
+		  ./SRCS/Error/validate_rest.c		\
 
 S_OBJ	= $(S_FILES:.c=.o)
 

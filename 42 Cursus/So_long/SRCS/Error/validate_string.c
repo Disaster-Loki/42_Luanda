@@ -1,17 +1,23 @@
 #include "../../inc/so_long.h"
 
+void	validate_single_character(char *str)
+{
+	if (!single_character(str, 'P'))
+		error("Error - character more than 1 occurrence\n",1);
+	if (!single_character(str, 'E'))
+		error("Error - character more than 1 occurrence\n",1);
+}
+
 void	validate_string(char *str)
 {
-	int	i;
-
-	i = -1;
-	if (str[0] == '\n')
-		error("Error - Invalid line\n", 1);
-	while (str[++i])
+	if (*str == '\n')
+		error("Error - Invalid line !!\n", 1);
+	while (*str)
 	{
-		if (str[i] == '\n' && str[i + 1] == '\n')
-			error("Error - Invalid line\n", 1);
+		if (*str == '\n' && *(str + 1) == '\n')
+			error("Error - Invalid line !!\n", 1);
+		str++;
 	}
-	if (str[i] == '\0' && str[i-1] == '\n')
-		error("Error - Invalid line\n", 1);
+	if (*str == '\0' && *(str - 1) == '\n')
+		error("Error - Invalid line !!\n", 1);
 }

@@ -19,18 +19,30 @@
 # include <fcntl.h>
 # include "../Libft/inc/libft.h"
 
+typedef struct s_point
+{
+    int x;
+    int y;
+}   t_point;
+
 // Error handler
 void	error(char *msg, int n);
 char	*valid_read_file(int fd);
 int		main(int av, char **args);
 int		valid_open_file(char *file);
 int		error_handler(int av, char **args);
-// Error utils
+// Validate Utils
 int		check_character(char c);
+int     ft_len_line(char **map);
+t_point	begin_position(char **map, char c);
+int	    single_character(char *map, char c);
+void	walk_path(char **map, t_point begin, char ch, int *found);
 // Validate String
 void	validate_string(char *str);
+void	validate_single_character(char *str);
 // Validate Maps
 int	    validate_maps(char **map);
+void	valid_path_map(char **map);
 void	valid_character(char **map);
 void	valid_walls_map(char **map, char c);
 

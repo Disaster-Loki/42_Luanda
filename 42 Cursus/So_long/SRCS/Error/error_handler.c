@@ -55,6 +55,7 @@ int error_handler(int av, char **args)
 	fd = valid_open_file(args[1]);
 	buffer = valid_read_file(fd);
 	validate_string(buffer);
+	validate_single_character(buffer);
 	map = ft_split(buffer, '\n');
 	validate_maps(map);
 	i = -1;
