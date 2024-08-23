@@ -1,5 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/23 14:16:51 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/08/23 14:16:55 by sde-carv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/so_long.h"
-int		check_character(char c)
+
+int	check_character(char c)
 {
 	return ((c == '0') || (c == '1') || (c == 'E') || (c == 'P') || (c == 'C'));
 }
@@ -12,6 +25,24 @@ int	ft_len_line(char **map)
 	while (map[len])
 		len++;
 	return (len);
+}
+
+int	single_character(char *map, char c)
+{
+	int	ch;
+
+	ch = 0;
+	while (*map)
+	{
+		if (*map == c)
+			ch++;
+		if (ch >= 2)
+			return (0);
+		map++;
+	}
+	if (ch == 0)
+		return (-1);
+	return (1);
 }
 
 t_point	begin_position(char **map, char c)
@@ -37,22 +68,4 @@ t_point	begin_position(char **map, char c)
 		}
 	}
 	return (pos);
-}
-
-int	single_character(char *map, char c)
-{
-	int	ch;
-
-	ch = 0;
-	while (*map)
-	{
-		if (*map == c)
-			ch++;
-		if (ch >= 2)
-				return (0);
-		map++;
-	}
-	if (ch == 0)
-		return (-1);
-	return (1);
 }

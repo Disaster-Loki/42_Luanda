@@ -34,6 +34,7 @@ S_FILES	= ./SRCS/main.c						\
 		  ./SRCS/Error/validate_string.c	\
 		  ./SRCS/Error/validate_utils.c		\
 		  ./SRCS/Error/validate_rest.c		\
+		  ./SRCS/Utils/ft_free.c 			\
 
 S_OBJ	= $(S_FILES:.c=.o)
 

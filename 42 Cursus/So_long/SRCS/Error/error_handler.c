@@ -1,7 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/23 14:16:51 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/08/23 14:16:55 by sde-carv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../inc/so_long.h"
 
 void	error(char *msg, int n)
 {
+	ft_putstr_fd("Error\n", 1);
 	ft_putstr_fd(msg, 1);
 	exit(n);
 }
@@ -42,10 +55,8 @@ char	*valid_read_file(int fd)
 	return (buffer);
 }
 
-int error_handler(int av, char **args)
+int	error_handler(int av, char **args)
 {
-	int		i;
-	int		j;
 	int		fd;
 	char	**map;
 	char	*buffer;
@@ -58,22 +69,9 @@ int error_handler(int av, char **args)
 	validate_single_character(buffer);
 	map = ft_split(buffer, '\n');
 	validate_maps(map);
-	i = -1;
-    while (map[++i])
-    {
-        j = -1;
-        while (map[i][++j])
-            write(1, &map[i][j], 1);
-        write(1 ,"\n", 1);
-    }
-	 i = 0;
-    while (map[i])
-    {
-        free(map[i]);
-        i++;
-    }
-    free(map);
-    free(buffer);
-    close(fd);
+	print_map(map);
+	ft_free(map);
+	free(buffer);
+	close(fd);
 	return (1);
 }

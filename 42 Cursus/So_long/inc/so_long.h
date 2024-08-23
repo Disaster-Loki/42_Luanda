@@ -51,5 +51,8 @@ void	valid_path(char **map, int c, char s);
 // Validate Rest
 char    **dup_map(char **map);
 int     total_collectable(char **map);
+// Free
+void	ft_free(char **map);
+void	print_map(char **map);
 
 #endif
