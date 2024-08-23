@@ -5,6 +5,7 @@
         "array": "c",
         "string_view": "c",
         "initializer_list": "c",
-        "fcntl.h": "c"
+        "fcntl.h": "c",
+        "random": "c"
     }
 }

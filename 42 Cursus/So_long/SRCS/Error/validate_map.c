@@ -27,7 +27,7 @@ void	valid_walls_map(char **map, char c)
 	while (map[++i] && map[i + 1])
 	{
 		if (len != (int) ft_strlen(map[i + 1]))
-			error("Error - Incomplete map\n", 1);
+			error("Error - Poorly formatted map\n", 1);
 	}
 	if (ft_strncmp(map[0], map[i], ft_strlen(map[i])) != 0)
 		error("Error - Poorly structured map\n", 1);
@@ -68,24 +68,30 @@ void	valid_path_map(char **map)
 		}
 	}
 }
-void	valid_path(char **map)
+void	valid_path(char **map, int c, char s)
 {
 	t_point	begin;
-	int		found;
+	int	t_collectable;
 
-	found = 0;
-	begin = begin_position(map, 'C');
-	walk_path(map, begin, map[begin.y][begin.x], &found);
-	if (found == 0)
-		error("Error - No path to the collectible\n",1);
-
+	t_collectable = total_collectable(map);
+	begin = begin_position(map, s);
+	begin.ch = c;
+	begin.found = 0;
+	walk_path(map, begin.x, begin.y, &begin);
+	printf("%d\n%d\n", t_collectable, begin.found);
+	if (t_collectable != begin.found)
+		error("Error - No path to the collectible\n", 1);
 }
 
 int	validate_maps(char **map)
 {
+	char	**copy;
+
+	copy = map;
 	valid_character(map);
 	valid_walls_map(map, '1');
 	valid_path_map(map);
-	valid_path(map);
+	valid_path(copy, 'E', 'P');
+	//valid_path(map, 's', 'E');
 	return (1);
 }

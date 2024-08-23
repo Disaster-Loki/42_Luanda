@@ -1,8 +1,9 @@
-make --dry-run --keep-going --print-directory
+make --dry-run --always-make --keep-going --print-directory
 make: Entering directory '/home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long'
 cc -Wall -Wextra -Werror -c -o SRCS/main.o SRCS/main.c
 cc -Wall -Wextra -Werror -c -o SRCS/Error/error_handler.o SRCS/Error/error_handler.c
 cc -Wall -Wextra -Werror -c -o SRCS/Error/validate_map.o SRCS/Error/validate_map.c
+ 
 cc -Wall -Wextra -Werror -c -o SRCS/Error/validate_string.o SRCS/Error/validate_string.c
 cc -Wall -Wextra -Werror -c -o SRCS/Error/validate_utils.o SRCS/Error/validate_utils.c
 cc -Wall -Wextra -Werror -c -o SRCS/Error/validate_rest.o SRCS/Error/validate_rest.c
@@ -10,17 +11,17 @@ make -C ./Libft
  
 make[1]: Entering directory '/home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long/Libft'
 gcc -Wall -Wextra -Werror -c Is/ft_isalpha.c -o Is/ft_isalpha.o
- 
 gcc -Wall -Wextra -Werror -c Is/ft_isdigit.c -o Is/ft_isdigit.o
 gcc -Wall -Wextra -Werror -c Is/ft_isalnum.c -o Is/ft_isalnum.o
+ 
 gcc -Wall -Wextra -Werror -c Is/ft_isascii.c -o Is/ft_isascii.o
 gcc -Wall -Wextra -Werror -c Is/ft_isprint.c -o Is/ft_isprint.o
 gcc -Wall -Wextra -Werror -c String/ft_strlen.c -o String/ft_strlen.o
+ 
 gcc -Wall -Wextra -Werror -c Memory/ft_memset.c -o Memory/ft_memset.o
 gcc -Wall -Wextra -Werror -c Rest/ft_bzero.c -o Rest/ft_bzero.o
 gcc -Wall -Wextra -Werror -c Memory/ft_memcpy.c -o Memory/ft_memcpy.o
 gcc -Wall -Wextra -Werror -c Memory/ft_memmove.c -o Memory/ft_memmove.o
- 
 gcc -Wall -Wextra -Werror -c String/ft_strlcpy.c -o String/ft_strlcpy.o
 gcc -Wall -Wextra -Werror -c String/ft_strlcat.c -o String/ft_strlcat.o
 gcc -Wall -Wextra -Werror -c Rest/ft_toupper.c -o Rest/ft_toupper.o
@@ -30,28 +31,19 @@ gcc -Wall -Wextra -Werror -c String/ft_strrchr.c -o String/ft_strrchr.o
 gcc -Wall -Wextra -Werror -c String/ft_strncmp.c -o String/ft_strncmp.o
 gcc -Wall -Wextra -Werror -c Memory/ft_memchr.c -o Memory/ft_memchr.o
 gcc -Wall -Wextra -Werror -c Memory/ft_memcmp.c -o Memory/ft_memcmp.o
- 
 gcc -Wall -Wextra -Werror -c String/ft_strnstr.c -o String/ft_strnstr.o
 gcc -Wall -Wextra -Werror -c Rest/ft_atoi.c -o Rest/ft_atoi.o
 gcc -Wall -Wextra -Werror -c Rest/ft_calloc.c -o Rest/ft_calloc.o
- 
 gcc -Wall -Wextra -Werror -c String/ft_strdup.c -o String/ft_strdup.o
 gcc -Wall -Wextra -Werror -c String/ft_substr.c -o String/ft_substr.o
- 
 gcc -Wall -Wextra -Werror -c String/ft_strjoin.c -o String/ft_strjoin.o
- 
 gcc -Wall -Wextra -Werror -c String/ft_strtrim.c -o String/ft_strtrim.o
 gcc -Wall -Wextra -Werror -c Rest/ft_split.c -o Rest/ft_split.o
- 
 gcc -Wall -Wextra -Werror -c Rest/ft_itoa.c -o Rest/ft_itoa.o
- 
 gcc -Wall -Wextra -Werror -c String/ft_strmapi.c -o String/ft_strmapi.o
- 
 gcc -Wall -Wextra -Werror -c String/ft_striteri.c -o String/ft_striteri.o
- 
 gcc -Wall -Wextra -Werror -c Put/ft_putchar_fd.c -o Put/ft_putchar_fd.o
 gcc -Wall -Wextra -Werror -c Put/ft_putstr_fd.c -o Put/ft_putstr_fd.o
- 
 gcc -Wall -Wextra -Werror -c Put/ft_putendl_fd.c -o Put/ft_putendl_fd.o
 gcc -Wall -Wextra -Werror -c Put/ft_putnbr_fd.c -o Put/ft_putnbr_fd.o
 ar rc libft.a Is/ft_isalpha.o Is/ft_isdigit.o Is/ft_isalnum.o Is/ft_isascii.o Is/ft_isprint.o String/ft_strlen.o Memory/ft_memset.o Rest/ft_bzero.o Memory/ft_memcpy.o Memory/ft_memmove.o String/ft_strlcpy.o String/ft_strlcat.o Rest/ft_toupper.o Rest/ft_tolower.o String/ft_strchr.o String/ft_strrchr.o String/ft_strncmp.o Memory/ft_memchr.o Memory/ft_memcmp.o String/ft_strnstr.o Rest/ft_atoi.o Rest/ft_calloc.o String/ft_strdup.o String/ft_substr.o String/ft_strjoin.o String/ft_strtrim.o Rest/ft_split.o Rest/ft_itoa.o String/ft_strmapi.o String/ft_striteri.o Put/ft_putchar_fd.o Put/ft_putstr_fd.o Put/ft_putendl_fd.o Put/ft_putnbr_fd.o
@@ -64,37 +56,32 @@ make[1]: Entering directory '/home/optimus-prime/Documents/42_Luanda/42 Cursus/S
 gcc -Wall -Wextra -Werror -c Is/ft_isalpha.c -o Is/ft_isalpha.o
 gcc -Wall -Wextra -Werror -c Is/ft_isdigit.c -o Is/ft_isdigit.o
 gcc -Wall -Wextra -Werror -c Is/ft_isalnum.c -o Is/ft_isalnum.o
- 
 gcc -Wall -Wextra -Werror -c Is/ft_isascii.c -o Is/ft_isascii.o
 gcc -Wall -Wextra -Werror -c Is/ft_isprint.c -o Is/ft_isprint.o
 gcc -Wall -Wextra -Werror -c String/ft_strlen.c -o String/ft_strlen.o
 gcc -Wall -Wextra -Werror -c Memory/ft_memset.c -o Memory/ft_memset.o
- 
 gcc -Wall -Wextra -Werror -c Rest/ft_bzero.c -o Rest/ft_bzero.o
 gcc -Wall -Wextra -Werror -c Memory/ft_memcpy.c -o Memory/ft_memcpy.o
 gcc -Wall -Wextra -Werror -c Memory/ft_memmove.c -o Memory/ft_memmove.o
- 
 gcc -Wall -Wextra -Werror -c String/ft_strlcpy.c -o String/ft_strlcpy.o
 gcc -Wall -Wextra -Werror -c String/ft_strlcat.c -o String/ft_strlcat.o
+ 
 gcc -Wall -Wextra -Werror -c Rest/ft_toupper.c -o Rest/ft_toupper.o
 gcc -Wall -Wextra -Werror -c Rest/ft_tolower.c -o Rest/ft_tolower.o
- 
 gcc -Wall -Wextra -Werror -c String/ft_strchr.c -o String/ft_strchr.o
 gcc -Wall -Wextra -Werror -c String/ft_strrchr.c -o String/ft_strrchr.o
 gcc -Wall -Wextra -Werror -c String/ft_strncmp.c -o String/ft_strncmp.o
- 
 gcc -Wall -Wextra -Werror -c Memory/ft_memchr.c -o Memory/ft_memchr.o
 gcc -Wall -Wextra -Werror -c Memory/ft_memcmp.c -o Memory/ft_memcmp.o
 gcc -Wall -Wextra -Werror -c String/ft_strnstr.c -o String/ft_strnstr.o
 gcc -Wall -Wextra -Werror -c Rest/ft_atoi.c -o Rest/ft_atoi.o
 gcc -Wall -Wextra -Werror -c Rest/ft_calloc.c -o Rest/ft_calloc.o
+ 
 gcc -Wall -Wextra -Werror -c String/ft_strdup.c -o String/ft_strdup.o
 gcc -Wall -Wextra -Werror -c String/ft_substr.c -o String/ft_substr.o
- 
 gcc -Wall -Wextra -Werror -c String/ft_strjoin.c -o String/ft_strjoin.o
 gcc -Wall -Wextra -Werror -c String/ft_strtrim.c -o String/ft_strtrim.o
 gcc -Wall -Wextra -Werror -c Rest/ft_split.c -o Rest/ft_split.o
- 
 gcc -Wall -Wextra -Werror -c Rest/ft_itoa.c -o Rest/ft_itoa.o
 gcc -Wall -Wextra -Werror -c String/ft_strmapi.c -o String/ft_strmapi.o
 gcc -Wall -Wextra -Werror -c String/ft_striteri.c -o String/ft_striteri.o
@@ -103,11 +90,9 @@ gcc -Wall -Wextra -Werror -c Put/ft_putchar_fd.c -o Put/ft_putchar_fd.o
 gcc -Wall -Wextra -Werror -c Put/ft_putstr_fd.c -o Put/ft_putstr_fd.o
 gcc -Wall -Wextra -Werror -c Put/ft_putendl_fd.c -o Put/ft_putendl_fd.o
 gcc -Wall -Wextra -Werror -c Put/ft_putnbr_fd.c -o Put/ft_putnbr_fd.o
- 
 ar rc libft.a Is/ft_isalpha.o Is/ft_isdigit.o Is/ft_isalnum.o Is/ft_isascii.o Is/ft_isprint.o String/ft_strlen.o Memory/ft_memset.o Rest/ft_bzero.o Memory/ft_memcpy.o Memory/ft_memmove.o String/ft_strlcpy.o String/ft_strlcat.o Rest/ft_toupper.o Rest/ft_tolower.o String/ft_strchr.o String/ft_strrchr.o String/ft_strncmp.o Memory/ft_memchr.o Memory/ft_memcmp.o String/ft_strnstr.o Rest/ft_atoi.o Rest/ft_calloc.o String/ft_strdup.o String/ft_substr.o String/ft_strjoin.o String/ft_strtrim.o Rest/ft_split.o Rest/ft_itoa.o String/ft_strmapi.o String/ft_striteri.o Put/ft_putchar_fd.o Put/ft_putstr_fd.o Put/ft_putendl_fd.o Put/ft_putnbr_fd.o
 ranlib libft.a
 make[1]: Leaving directory '/home/optimus-prime/Documents/42_Luanda/42 Cursus/So_long/Libft'
- 
 cc -Wall -Wextra -Werror -o so_long ./SRCS/main.o ./SRCS/Error/error_handler.o ./SRCS/Error/validate_map.o ./SRCS/Error/validate_string.o ./SRCS/Error/validate_utils.o ./SRCS/Error/validate_rest.o -L./Libft	 -lft
 clear
 echo "\033[32m COMPILATION COMPLETE\033[0m"

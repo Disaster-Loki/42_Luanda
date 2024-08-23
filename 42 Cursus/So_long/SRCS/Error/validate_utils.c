@@ -1,6 +1,5 @@
 #include "../../inc/so_long.h"
-
-int	check_character(char c)
+int		check_character(char c)
 {
 	return ((c == '0') || (c == '1') || (c == 'E') || (c == 'P') || (c == 'C'));
 }
@@ -53,23 +52,7 @@ int	single_character(char *map, char c)
 				return (0);
 		map++;
 	}
+	if (ch == 0)
+		return (-1);
 	return (1);
-}
-
-void	walk_path(char **map, t_point begin, char ch, int found)
-{
-	if (map[begin.y][begin.x] == '1')
-		return ;
-	if (begin.y < 0 || begin.x < 0 || map[begin.y][begin.x] != ch)
-		return ;
-	if (map[begin.y][begin.x] == 'P')
-	{
-		found = 1;
-		return ;
-	}
-	map[begin.y][begin.x] = 'F';
-	walk_path(map, (t_point){begin.x + 1, begin.y}, ch, found);
-	walk_path(map, (t_point){begin.x - 1, begin.y}, ch, found);
-	walk_path(map, (t_point){begin.x, begin.y + 1}, ch, found);
-	walk_path(map, (t_point){begin.x, begin.y - 1}, ch, found);
 }

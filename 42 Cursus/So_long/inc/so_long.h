@@ -21,8 +21,10 @@
 
 typedef struct s_point
 {
-    int x;
-    int y;
+    int     x;
+    int     y;
+    char    ch;
+    int     found;
 }   t_point;
 
 // Error handler
@@ -36,7 +38,7 @@ int		check_character(char c);
 int     ft_len_line(char **map);
 t_point	begin_position(char **map, char c);
 int	    single_character(char *map, char c);
-void	walk_path(char **map, t_point begin, char ch, int *found);
+void	walk_path(char **map, int x, int y, t_point *begin);
 // Validate String
 void	validate_string(char *str);
 void	validate_single_character(char *str);
@@ -45,5 +47,9 @@ int	    validate_maps(char **map);
 void	valid_path_map(char **map);
 void	valid_character(char **map);
 void	valid_walls_map(char **map, char c);
+void	valid_path(char **map, int c, char s);
+// Validate Rest
+char    **dup_map(char **map);
+int     total_collectable(char **map);
 
 #endif

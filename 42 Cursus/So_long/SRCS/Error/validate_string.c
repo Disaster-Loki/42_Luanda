@@ -2,6 +2,12 @@
 
 void	validate_single_character(char *str)
 {
+	if (single_character(str, 'P') == -1)
+		error("Error - No players\n",1);
+	if (single_character(str, 'E') == -1)
+		error("Error - No way out\n", 1);
+	if (single_character(str, 'C') == -1)
+		error("Error - No collectibles\n",1);
 	if (!single_character(str, 'P'))
 		error("Error - character more than 1 occurrence\n",1);
 	if (!single_character(str, 'E'))
