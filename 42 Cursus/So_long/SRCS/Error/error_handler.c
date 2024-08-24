@@ -69,7 +69,6 @@ int	error_handler(int av, char **args)
 	validate_single_character(buffer);
 	map = ft_split(buffer, '\n');
 	validate_maps(map);
-	print_map(map);
 	ft_free(map);
 	free(buffer);
 	close(fd);

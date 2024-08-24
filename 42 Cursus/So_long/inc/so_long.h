@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 # include "../Libft/inc/libft.h"
+# include "../Minilibx/mlx.h"
 
 typedef struct s_point
 {
@@ -26,6 +27,13 @@ typedef struct s_point
     char    ch;
     int     found;
 }   t_point;
+
+typedef struct s_windows
+{
+	void	*mlx;
+	char	**map;
+	void	*windows;
+}	t_windows;
 
 // Error handler
 void	error(char *msg, int n);
