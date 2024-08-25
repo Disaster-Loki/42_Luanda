@@ -41,7 +41,7 @@ void	walk_path(char **map, int x, int y, t_point *begin)
 	if (map[x][y] == begin->ch)
 		return ;
 	if (map[x][y] == 'C')
-		begin->found = begin->found + 1;
+		begin->count = begin->count + 1;
 	map[x][y] = 'F';
 	walk_path(map, (x + 1), y, begin);
 	walk_path(map, (x - 1), y, begin);

@@ -25,14 +25,14 @@ typedef struct s_point
     int     x;
     int     y;
     char    ch;
-    int     found;
+    int     count;
 }   t_point;
 
 typedef struct s_windows
 {
 	void	*mlx;
 	char	**map;
-	void	*windows;
+	void	*win;
 }	t_windows;
 
 // Error handler
@@ -61,6 +61,13 @@ char    **dup_map(char **map);
 int     total_collectable(char **map);
 // Free
 void	ft_free(char **map);
+// Get Maps
+char	**get_map(char *str);
 void	print_map(char **map);
+// Window Init
+void	window_init(char **args);
+void	*get_img_path(void *mlx, char c);
+int		keypress(int key, t_windows *win);
+void	print_map_window(void*mlx, void *win, char **map);
 
 #endif

@@ -38,6 +38,9 @@ S_FILES		= ./SRCS/main.c						\
 		  	./SRCS/Error/validate_utils.c		\
 		  	./SRCS/Error/validate_rest.c		\
 		  	./SRCS/ft_free.c 					\
+		  	./SRCS/get_map.c 					\
+		  	./SRCS/Window/window_init.c 		\
+		  	./SRCS/Window/keyboard.c 			\
 
 S_OBJ		= $(S_FILES:.c=.o)
 

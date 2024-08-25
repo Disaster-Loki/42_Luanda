@@ -81,7 +81,7 @@ void	valid_path_map(char **map)
 	}
 }
 
-//printf("%d\n%d\n", t_collectable, begin.found);
+//printf("%d\n%d\n", t_collectable, begin.count);
 void	valid_path(char **map, int c, char s)
 {
 	t_point	begin;
@@ -90,9 +90,9 @@ void	valid_path(char **map, int c, char s)
 	t_collectable = total_collectable(map);
 	begin = begin_position(map, s);
 	begin.ch = c;
-	begin.found = 0;
+	begin.count = 0;
 	walk_path(map, begin.x, begin.y, &begin);
-	if (t_collectable != begin.found)
+	if (t_collectable != begin.count)
 		error("Error - No path to the collectible\n", 1);
 }
 
