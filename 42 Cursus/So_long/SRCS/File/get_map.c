@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../../inc/so_long.h"
 
 void	print_map(char **map)
 {
@@ -27,17 +27,46 @@ void	print_map(char **map)
 	}
 }
 
-char	**get_map(char *str)
+char *read_map_content(int fd)
 {
-	int		fd;
-	int		size;
-	char	*buffer;
-	char	**map;
+    int size;
+    char *content;
+    int offset = 0;
 
-	fd = open(str, O_RDONLY);
-	buffer = (char *)malloc(sizeof(char) * 1024);
-	size = read(fd, buffer, 1024);
-	buffer[size] = '\0';
-	map = ft_split(buffer, '\n');
-	return (map);
+    content = (char *)malloc(sizeof(char) * 1000000);
+    if (!content)
+    {
+        error("Error - Memory allocation failed !!\n", 1);
+        return NULL;
+    }
+    size = read(fd, content, 1024);
+    while (size > 0)
+    {
+        offset += size;
+        size = read(fd, content + offset, 1024);
+    }
+    content[offset] = '\0';
+    return (content);
+}
+
+char **get_map(char *file)
+{
+    int fd;
+    char **map;
+    char *content;
+
+    fd = valid_open_file(file);
+    valid_read_file(fd);
+    content = read_map_content(fd);
+    if (!content || ft_strlen(content) >= 4)
+    {
+        validate_single_character(content);
+        validate_string(content);
+    }
+    else
+        error("Error - In building the map !!\n", 1);
+    close(fd);
+    map = ft_split(content, '\n');
+    free(content);
+    return map;
 }

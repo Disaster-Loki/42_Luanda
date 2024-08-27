@@ -24,7 +24,7 @@ void	valid_character(char **map)
 		while (map[i][++j])
 		{
 			if (!check_character(map[i][j]))
-				error("Error - Invalid character\n", 1);
+				error("Error - Invalid character!!\n", 1);
 		}
 	}
 }
@@ -46,7 +46,7 @@ void	valid_walls_map(char **map, char c)
 	i = 0;
 	while (map[++i])
 	{
-		len = ft_strlen(map[i]);
+		len = (int) ft_strlen(map[i]);
 		if ((map[i][0] != c) || (map[i][len - 1] != c))
 			error("Error - Poorly structured map\n", 1);
 	}
@@ -101,10 +101,11 @@ int	validate_maps(char **map)
 {
 	char	**copy;
 
-	copy = map;
+	copy = dup_map(map);
 	valid_character(map);
 	valid_walls_map(map, '1');
 	valid_path_map(map);
 	valid_path(copy, 'E', 'P');
+	ft_free(copy);
 	return (1);
 }

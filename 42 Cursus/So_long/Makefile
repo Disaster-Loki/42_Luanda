@@ -37,10 +37,12 @@ S_FILES		= ./SRCS/main.c						\
 		  	./SRCS/Error/validate_string.c		\
 		  	./SRCS/Error/validate_utils.c		\
 		  	./SRCS/Error/validate_rest.c		\
+		  	./SRCS/File/get_map.c 				\
+		  	./SRCS/File/get_next_line.c 		\
 		  	./SRCS/ft_free.c 					\
-		  	./SRCS/get_map.c 					\
 		  	./SRCS/Window/window_init.c 		\
 		  	./SRCS/Window/keyboard.c 			\
+		  	./SRCS/Window/window_close.c 		\
 
 S_OBJ		= $(S_FILES:.c=.o)
 

@@ -12,66 +12,84 @@
 
 #include "../../inc/so_long.h"
 
-void	*get_img_path(void *mlx, char c)
+void	get_img_path(char *mlx, t_img *img)
 {
-	int		x;
-	int		y;
-	void	*img;
+	int	x;
+	int	y;
 
 	x = 0;
 	y = 0;
-	if (c == '1')
-		img = mlx_xpm_file_to_image(mlx, "./SRCS/Images/walk.xpm", &x, &y);
-	if (c == 'P')
-		img = mlx_xpm_file_to_image(mlx, "./SRCS/Images/Player.xpm", &x, &y);
-	if (c == '0')
-		img = mlx_xpm_file_to_image(mlx, "./SRCS/Images/Path.xpm", &x, &y);
-	if (c == 'C')
-		img = mlx_xpm_file_to_image(mlx, "./SRCS/Images/coin.xpm", &x, &y);
-	if (c == 'E')
-		img = mlx_xpm_file_to_image(mlx, "./SRCS/Images/Exit.xpm", &x, &y);
-	return (img);
+	img->wall = mlx_xpm_file_to_image(mlx, "./SRCS/Imgs/wall.xpm", &x, &y);
+	img->player[0] = mlx_xpm_file_to_image(mlx, "./SRCS/Imgs/Player.xpm", &x, &y);
+	img->player[1] = mlx_xpm_file_to_image(mlx, "./SRCS/Imgs/Player2.xpm", &x, &y);
+	img->path = mlx_xpm_file_to_image(mlx, "./SRCS/Imgs/Path.xpm", &x, &y);
+	img->coin = mlx_xpm_file_to_image(mlx, "./SRCS/Imgs/coin.xpm", &x, &y);
+	img->exit = mlx_xpm_file_to_image(mlx, "./SRCS/Imgs/Exit.xpm", &x, &y);
 }
 
-void	print_map_window(void *mlx, void *win, char **map)
+void	print_image(t_game *game, char c, int wid, int hei)
+{
+	if (c == '1')
+		mlx_put_image_to_window(game->mlx, game->win, game->img.wall, wid, hei);
+	if (c == '0')
+		mlx_put_image_to_window(game->mlx, game->win, game->img.path, wid, hei);
+	if (c == 'E')
+		mlx_put_image_to_window(game->mlx, game->win, game->img.exit, wid, hei);
+	if (c == 'P')
+	{
+		if (game->flag == 0)
+			mlx_put_image_to_window(game->mlx, game->win, game->img.player[0], wid, hei);
+		else if (game->flag == 1)
+			mlx_put_image_to_window(game->mlx, game->win, game->img.player[1], wid, hei);
+	}
+	if (c == 'C')
+		mlx_put_image_to_window(game->mlx, game->win, game->img.coin, wid, hei);
+}
+
+void	print_map_window(t_game *game)
 {
 	int		i;
 	int		j;
-	void	*img;
-	int		width;
-	int		height;
 
 	i = -1;
-	width = 0;
-	height = 0;
-	while (map[++i])
+	game->img.wid = 0;
+	game->img.hei = 0;
+	while (game->map[++i])
 	{
 		j = -1;
-		width = 0;
-		while (map[i][++j])
-		{
-			img = get_img_path(mlx, map[i][j]);
-			mlx_put_image_to_window(mlx, win, img, width, height);
-			mlx_destroy_image(mlx, img);
-			width += 32;
+		game->img.wid = 0;
+		while (game->map[i][++j])
+		{	
+			print_image(game, game->map[i][j], game->img.wid, game->img.hei);
+			game->img.wid += 32;
 		}
-		height += 27;
+		game->img.hei += 27;
 	}
+}
+
+static void	get_init(t_game *game, char **args)
+{
+	game->flag = 0;
+	game->count = 0;
+	game->c_tibles = 0;
+	game->mlx = mlx_init();
+	game->g_name = "SO LONG";
+	game->map = get_map(args[1]);
+	game->t_tibles = total_collectable(game->map);
+	game->pos.y = ft_len_line(game->map) * 32;
+	game->pos.x = (int)ft_strlen(*(game->map)) * 32;
 }
 
 void	window_init(char **args)
 {
-	t_point		pos;
-	t_windows	windows;
-	char		*g_name;
+	t_game	game;
 
-	g_name = "SO LONG";
-	windows.mlx = mlx_init();
-	windows.map = get_map(args[1]);
-	pos.y = ft_len_line(windows.map);
-	pos.x = (int) ft_strlen(*(windows.map));
-	windows.win = mlx_new_window(windows.mlx, pos.x * 32, pos.y * 27, g_name);
-	mlx_key_hook(windows.win, keypress, &windows);
-	print_map_window(windows.mlx, windows.win, windows.map);
-	mlx_loop(windows.mlx);
+	get_init(&game, args);
+	get_count_steps(&game);
+	get_img_path(game.mlx, &game.img);
+	game.win = mlx_new_window(game.mlx, game.pos.x, game.pos.y, game.g_name);
+	mlx_hook(game.win, 02, 1L << 0, keypress, &game);
+	mlx_hook(game.win, 17, 0, close_game, &game);
+	print_map_window(&game);
+	mlx_loop(game.mlx);
 }

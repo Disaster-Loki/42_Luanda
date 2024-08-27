@@ -35,42 +35,31 @@ int	valid_open_file(char *file)
 	return (fd);
 }
 
-char	*valid_read_file(int fd)
+void	valid_read_file(int fd)
 {
 	int		size;
-	char	*buffer;
+	char	buffer[1024];
 
-	size = 0;
-	buffer = (char *)malloc(sizeof(char) * 1024);
-	if (!buffer)
-		return (0);
 	size = read(fd, buffer, 1024);
 	if (size == -1)
 	{
 		close(fd);
-		free(buffer);
 		error("Error - Reading the file !!\n", 1);
 	}
-	buffer[size] = '\0';
-	return (buffer);
+	if (size == 0)
+		error("Error - Map empty !!\n", 1);
+	close(fd);
 }
 
 int	error_handler(int av, char **args)
 {
-	int		fd;
 	char	**map;
-	char	*buffer;
 
 	if (av < 2)
 		error("Error - Missing arguments\n", 1);
-	fd = valid_open_file(args[1]);
-	buffer = valid_read_file(fd);
-	validate_string(buffer);
-	validate_single_character(buffer);
-	map = ft_split(buffer, '\n');
+	map = get_map(args[1]);
 	validate_maps(map);
+	print_map(map);
 	ft_free(map);
-	free(buffer);
-	close(fd);
 	return (1);
 }
