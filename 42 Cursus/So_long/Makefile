@@ -10,19 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-# NAME PROJECT
 NAME		= so_long
  
 CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
-L_DIR		= ./Libft	
+L_DIR		= ./libft	
 LIBFT		= -L$(L_DIR) -lft
 HEADER		= inc/so_long.h
-M_DIR		= ./Minilibx
+M_DIR		= ./minilibx-linux
 Minilibx	= -L$(M_DIR) -lmlx -lXext -lX11 -lm
 
-
-# COLORS
 RESET		= \033[0m
 RED			= \033[31m
 BLUE		= \033[34m
@@ -30,52 +27,37 @@ YELLOW		= \033[33m
 ORANGE		= \033[38;5;208m
 GREEN		= \033[32m
 
-# FILES
-S_FILES		= ./SRCS/main.c						\
-		  	./SRCS/Error/error_handler.c		\
-		  	./SRCS/Error/validate_map.c			\
-		  	./SRCS/Error/validate_string.c		\
-		  	./SRCS/Error/validate_utils.c		\
-		  	./SRCS/Error/validate_rest.c		\
-		  	./SRCS/File/get_map.c 				\
-		  	./SRCS/File/get_next_line.c 		\
-		  	./SRCS/ft_free.c 					\
-		  	./SRCS/Window/window_init.c 		\
-		  	./SRCS/Window/keyboard.c 			\
-		  	./SRCS/Window/window_close.c 		\
+S_FILES		= ./src/main.c						\
+		  	./src/ft_free.c 					\
+		  	./src/get_map.c 					\
+		  	./src/error/error_handler.c			\
+		  	./src/error/validate_map.c			\
+		  	./src/error/validate_string.c		\
+		  	./src/error/validate_utils.c		\
+		  	./src/error/validate_rest.c			\
+		  	./src/window/window_init.c 			\
+		  	./src/window/keyboard.c 			\
+		  	./src/window/window_close.c 		\
 
 S_OBJ		= $(S_FILES:.c=.o)
 
 all:	$(NAME)
 
-$(NAME): $(S_OBJ) $(LIBFT) $(Minilibx)
+$(NAME): $(S_OBJ)
+		 $(MAKE) -C $(L_DIR)
+		 $(MAKE) -C $(M_DIR)
 		 $(CC) $(CFLAGS) -o $(NAME) $(S_OBJ) $(LIBFT) $(Minilibx)
-		 clear
 		 @echo "$(GREEN) COMPILATION COMPLETE$(RESET)"
-
-%.o: %.c $(HEADER)
-		 $(CC) $(CFLAGS) -c -o $@ $<
-
-$(LIBFT):
-		 @$(MAKE) -C $(L_DIR)
-
-$(Minilibx):
-		 @$(MAKE) -C $(M_DIR)
 
 clean:
 		@$(MAKE) clean -C $(L_DIR)
 		rm -f $(S_OBJ)
-		clear
 		@$(MAKE) clean -C $(M_DIR)
-		clear
 		@echo "$(ORANGE) CLEANING THE OBJECTS$(RESET)"
 
 fclean: clean
 		@$(MAKE) fclean -C $(L_DIR)
 		rm -f $(NAME)
-		clear
 		@echo "$(RED) CLEARING ALL FILES$(RESET)"
 
 re: fclean all
-
-.PHONY: all clean fclean re

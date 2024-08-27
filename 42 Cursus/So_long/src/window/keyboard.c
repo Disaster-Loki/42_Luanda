@@ -21,20 +21,32 @@ void	get_count_steps(t_game *game)
 
 void	get_alter_position(t_game *game, t_point begin, int x, int y)
 {
-	if (game->map[begin.x + x][begin.y + y] == 'C')
+	char	move;
+
+	move = game->map[begin.x + x][begin.y + y];
+	if (move == 'C')
 		game->c_tibles++;
-	if (game->map[begin.x + x][begin.y + y] != '1'
-		&& game->map[begin.x + x][begin.y + y] != 'E')
+	if (move != '1')
 	{
-		game->map[begin.x][begin.y] = '0';
-		game->map[begin.x + x][begin.y + y] = 'P';
+		if (move == 'E')
+		{
+			if (game->t_tibles == game->c_tibles && game->count++ > 0)
+				{
+					get_count_steps(game);
+					close_game(game);
+				}
+			else
+				return ;
+		}
+		else
+		{
+			game->map[begin.x][begin.y] = '0';
+			game->map[begin.x + x][begin.y + y] = 'P';
+		}
 		game->count++;
 		get_count_steps(game);
 		print_map_window(game);
 	}
-	if ((game->map[begin.x + x][begin.y + y] == 'E')
-		&& (game->t_tibles == game->c_tibles))
-		close_game(game);
 }
 
 int	keypress(int key, t_game *game)

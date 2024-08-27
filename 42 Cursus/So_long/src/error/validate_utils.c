@@ -12,30 +12,61 @@
 
 #include "../../inc/so_long.h"
 
-void	validate_single_character(char *str)
+int	check_character(char c)
 {
-	if (single_character(str, 'P') == -1)
-		error("Error - No players\n", 1);
-	if (single_character(str, 'E') == -1)
-		error("Error - No way out\n", 1);
-	if (single_character(str, 'C') == -1)
-		error("Error - No collectibles\n", 1);
-	if (!single_character(str, 'P'))
-		error("Error - character more than 1 occurrence\n", 1);
-	if (!single_character(str, 'E'))
-		error("Error - character more than 1 occurrence\n", 1);
+	return ((c == '0') || (c == '1') || (c == 'E') || (c == 'P') || (c == 'C'));
 }
 
-void	validate_string(char *str)
+int	ft_len_line(char **map)
 {
-	if (*str == '\n')
-		error("Error - Invalid line !!\n", 1);
-	while (*str)
+	int	len;
+
+	len = 0;
+	while (map[len])
+		len++;
+	return (len);
+}
+
+int	single_character(char *map, char c)
+{
+	int	ch;
+	int	i;
+
+	ch = 0;
+	i = -1;
+	while (map[++i])
 	{
-		if (*str == '\n' && *(str + 1) == '\n')
-			error("Error - Invalid line !!\n", 1);
-		str++;
+		if (map[i] == c)
+			ch++;
+		if (ch >= 2)
+			return (0);
 	}
-	if (*str == '\0' && *(str - 1) == '\n')
-		error("Error - Invalid line !!\n", 1);
+	if (ch == 0)
+		return (-1);
+	return (1);
+}
+
+t_point	begin_position(char **map, char c)
+{
+	int		i;
+	int		j;
+	t_point	pos;
+
+	i = -1;
+	pos.x = 0;
+	pos.y = 0;
+	while (map[++i])
+	{
+		j = -1;
+		while (map[i][++j])
+		{
+			if (map[i][j] == c)
+			{
+				pos.x = i;
+				pos.y = j;
+				return (pos);
+			}
+		}
+	}
+	return (pos);
 }

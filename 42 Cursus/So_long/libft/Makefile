@@ -11,7 +11,7 @@
 # **************************************************************************** #
 
 NAME 	=	libft.a
-CC 		=	gcc
+CC 		=	cc
 CFLAGS 	=	-Wall -Wextra -Werror
 
 HEADER	=	./inc/libft.h
@@ -66,9 +66,6 @@ BONUS_OBJ = $(BONUS:.c=.o)
 
 all: $(NAME)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
-
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
 	ranlib $(NAME)
@@ -84,6 +81,3 @@ fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
-
-.PHONY: all bonus clean fclean re
-

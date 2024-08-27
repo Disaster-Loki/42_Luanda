@@ -12,54 +12,31 @@
 
 #include "../../inc/so_long.h"
 
-void	error(char *msg, int n)
+void	validate_single_character(char *str)
 {
-	ft_putstr_fd("Error\n", 1);
-	ft_putstr_fd(msg, 1);
-	exit(n);
+	if (single_character(str, 'P') == -1)
+		error_str("Error - No players\n", str);
+	if (single_character(str, 'E') == -1)
+		error_str("Error - No way out\n", str);
+	if (single_character(str, 'C') == -1)
+		error_str("Error - No collectibles\n", str);
+	if (!single_character(str, 'P'))
+		error_str("Error - character more than 1 occurrence\n", str);
+	if (!single_character(str, 'E'))
+		error_str("Error - character more than 1 occurrence\n", str);
 }
 
-int	valid_open_file(char *file)
+void	validate_string(char *str)
 {
-	int		fd;
-	int		len;
-	char	*ext;
+	int	i;
 
-	ext = ".ber";
-	len = (int) ft_strlen(file);
-	if (len < 4 || ft_strncmp(file + len - 4, ext, 4) != 0)
-		error("Error - Invalid extension !!\n", 1);
-	fd = open(file, O_RDONLY);
-	if (fd == -1)
-		error("Error - Openning the file !!\n", 1);
-	return (fd);
-}
-
-void	valid_read_file(int fd)
-{
-	int		size;
-	char	buffer[1024];
-
-	size = read(fd, buffer, 1024);
-	if (size == -1)
+	i = 0;
+	if (str[i] == '\n')
+		error_str("Error - Invalid line !!\n", str);
+	while (str[i])
 	{
-		close(fd);
-		error("Error - Reading the file !!\n", 1);
+		if (str[i] == '\n' && str[i + 1] == '\n')
+			error_str("Error - Invalid line !!\n", str);
+		i++;
 	}
-	if (size == 0)
-		error("Error - Map empty !!\n", 1);
-	close(fd);
-}
-
-int	error_handler(int av, char **args)
-{
-	char	**map;
-
-	if (av < 2)
-		error("Error - Missing arguments\n", 1);
-	map = get_map(args[1]);
-	validate_maps(map);
-	print_map(map);
-	ft_free(map);
-	return (1);
 }
