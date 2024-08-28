@@ -16,6 +16,8 @@ void	close_img(void *mlx, t_img *img)
 {
 	mlx_destroy_image(mlx, img->player[0]);
 	mlx_destroy_image(mlx, img->player[1]);
+	mlx_destroy_image(mlx, img->player[2]);
+	mlx_destroy_image(mlx, img->player[3]);
 	mlx_destroy_image(mlx, img->coin);
 	mlx_destroy_image(mlx, img->exit);
 	mlx_destroy_image(mlx, img->path);

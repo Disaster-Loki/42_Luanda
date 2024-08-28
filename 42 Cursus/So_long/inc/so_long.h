@@ -21,16 +21,16 @@
 
 typedef struct s_point
 {
-    int     x;
-    int     y;
-    char    ch;
-    int     count;
-    char	exit;
-}   		t_point;
+	int		x;
+	int		y;
+	char	ch;
+	int		count;
+	char	exit;
+}			t_point;
 
 typedef struct s_img
 {
-	void	*player[2];
+	void	*player[4];
 	void	*coin;
 	void	*exit;
 	void	*path;
@@ -42,34 +42,36 @@ typedef struct s_img
 typedef struct s_game
 {
 	t_point	pos;
-	t_img 	img;
+	t_img	img;
 	void	*mlx;
 	void	*win;
-	int 	flag;
-	char	**map;
+	int		flag;
 	int		count;
+	char	**map;
 	char	*g_name;
 	int		c_tibles;
 	int		t_tibles;
 }			t_game;
 
+char	**dup_map(char **map);
 int		main(int av, char **args);
 void	error(char *msg);
 int		len_str(char *str);
 void	ft_free(char **map);
 char	**get_map(char *str);
 int		check_character(char c);
-int     ft_len_line(char **map);
+int		ft_len_line(char **map);
 void	window_init(char **args);
 int		close_game(t_game *game);
 void	valid_read_file(int size);
 char	*read_map_content(int fd);
-int	    validate_maps(char **map);
+int		validate_maps(char **map);
 int		window_close(t_game *game);
 void	validate_string(char *str);
 void	valid_character(char **map);
 int		valid_open_file(char *file);
-int     total_collectable(char **map);
+void	get_count_exit(t_game *game);
+int		total_collectable(char **map);
 void	get_count_steps(t_game *game);
 void	print_map_window(t_game *game);
 void	error_str(char *msg, char *str);
@@ -79,7 +81,7 @@ void	close_img(void *mlx, t_img *img);
 t_point	begin_position(char **map, char c);
 int		error_handler(int av, char **args);
 void	valid_walls_map(char **map, char c);
-int	    single_character(char *map, char c);
+int		single_character(char *map, char c);
 void	get_img_path(char *mlx, t_img *img);
 void	get_init(t_game *game, char **args);
 void	validate_single_character(char *str);

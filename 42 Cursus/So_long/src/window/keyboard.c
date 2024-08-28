@@ -19,6 +19,13 @@ void	get_count_steps(t_game *game)
 	ft_putchar_fd('\n', 1);
 }
 
+void	get_count_exit(t_game *game)
+{
+	game->count++;
+	get_count_steps(game);
+	close_game(game);
+}
+
 void	get_alter_position(t_game *game, t_point begin, int x, int y)
 {
 	char	move;
@@ -30,11 +37,8 @@ void	get_alter_position(t_game *game, t_point begin, int x, int y)
 	{
 		if (move == 'E')
 		{
-			if (game->t_tibles == game->c_tibles && game->count++ > 0)
-				{
-					get_count_steps(game);
-					close_game(game);
-				}
+			if (game->t_tibles == game->c_tibles)
+				get_count_exit(game);
 			else
 				return ;
 		}
@@ -56,16 +60,22 @@ int	keypress(int key, t_game *game)
 
 	esc = 65307;
 	begin = begin_position(game->map, 'P');
-	if (key == 'w')
+	if (key == 'w' || key == 65362)
+	{
+		game->flag = 2;
 		get_alter_position(game, begin, -1, 0);
-	if (key == 's')
+	}
+	if (key == 's' || key == 65364)
+	{
+		game->flag = 3;
 		get_alter_position(game, begin, 1, 0);
-	if (key == 'd')
+	}
+	if (key == 'd' || key == 65363)
 	{
 		game->flag = 0;
 		get_alter_position(game, begin, 0, 1);
 	}
-	if (key == 'a')
+	if (key == 'a' || key == 65361)
 	{
 		game->flag = 1;
 		get_alter_position(game, begin, 0, -1);

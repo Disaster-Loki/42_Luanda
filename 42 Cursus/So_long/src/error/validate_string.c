@@ -21,9 +21,9 @@ void	validate_single_character(char *str)
 	if (single_character(str, 'C') == -1)
 		error_str("Error - No collectibles\n", str);
 	if (!single_character(str, 'P'))
-		error_str("Error - character more than 1 occurrence\n", str);
+		error_str("Error - More than one P on the map\n", str);
 	if (!single_character(str, 'E'))
-		error_str("Error - character more than 1 occurrence\n", str);
+		error_str("Error - More than one E on the map\n", str);
 }
 
 void	validate_string(char *str)
@@ -39,4 +39,6 @@ void	validate_string(char *str)
 			error_str("Error - Invalid line !!\n", str);
 		i++;
 	}
+	if (str[i] == '\0' && str[i - 1] == '\n')
+		error_str("Error - Invalid line !!\n", str);
 }

@@ -24,7 +24,7 @@ void	valid_character(char **map)
 		while (map[i][++j])
 		{
 			if (!check_character(map[i][j]))
-				error_map("Error -Invalid character!!\n", map);
+				error_map("Error - Invalid character !!\n", map);
 		}
 	}
 }
@@ -72,19 +72,18 @@ void	valid_path_map(char **map, int c, char s, char e)
 	}
 	else if (e == 'E')
 		if (!begin.count)
-			error_map("Error - No way out\n", map);
+			error_map("Error - No way out !!\n", map);
 }
 
 int	validate_maps(char **map)
 {
 	char	**copy;
-	char	**copy2;
 
-	copy = map;
-	copy2 = map;
 	valid_character(map);
 	valid_walls_map(map, '1');
-	valid_path_map(copy2, 'S', 'P', 'E');
-	valid_path_map(copy, 'E', 'P', 'C');
+	copy = dup_map(map);
+	valid_path_map(copy, 'S', 'P', 'E');
+	ft_free(copy);
+	valid_path_map(map, 'E', 'P', 'C');
 	return (1);
 }

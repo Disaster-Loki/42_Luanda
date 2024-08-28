@@ -32,6 +32,22 @@ int	total_collectable(char **map)
 	return (count);
 }
 
+char	**dup_map(char **map)
+{
+	int		i;
+	char	**dup_map;
+
+	i = 0;
+	while (map[i])
+		i++;
+	dup_map = (char **)malloc(sizeof(char *) * (i + 1));
+	i = -1;
+	while (map[++i])
+		dup_map[i] = ft_strdup(map[i]);
+	dup_map[i] = NULL;
+	return (dup_map);
+}
+
 void	walk_path(char **map, int x, int y, t_point *begin)
 {
 	if (map[x][y] == '1')

@@ -47,17 +47,20 @@ $(NAME): $(S_OBJ)
 		 $(MAKE) -C $(L_DIR)
 		 $(MAKE) -C $(M_DIR)
 		 $(CC) $(CFLAGS) -o $(NAME) $(S_OBJ) $(LIBFT) $(Minilibx)
+		 clear
 		 @echo "$(GREEN) COMPILATION COMPLETE$(RESET)"
 
 clean:
 		@$(MAKE) clean -C $(L_DIR)
 		rm -f $(S_OBJ)
 		@$(MAKE) clean -C $(M_DIR)
+		clear
 		@echo "$(ORANGE) CLEANING THE OBJECTS$(RESET)"
 
 fclean: clean
 		@$(MAKE) fclean -C $(L_DIR)
 		rm -f $(NAME)
+		clear
 		@echo "$(RED) CLEARING ALL FILES$(RESET)"
 
 re: fclean all

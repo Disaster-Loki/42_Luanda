@@ -12,16 +12,6 @@
 
 #include "../inc/so_long.h"
 
-int	len_str(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\n')
-		i++;
-	return (i);
-}
-
 char	*read_map_content(int fd)
 {
 	int		size;
@@ -52,9 +42,7 @@ char	**get_map(char *file)
 
 	fd = valid_open_file(file);
 	content = read_map_content(fd);
-	if (!content)
-		error("Error - Memory allocation failed !!\n");
-	if (len_str(content) >= 5)
+	if (ft_strlen(content) > 9)
 	{
 		validate_single_character(content);
 		validate_string(content);
