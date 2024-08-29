@@ -55,30 +55,26 @@ void	get_alter_position(t_game *game, t_point begin, int x, int y)
 
 int	keypress(int key, t_game *game)
 {
-	int		esc;
-	t_point	begin;
-
-	esc = 65307;
-	begin = begin_position(game->map, 'P');
+	game->pos = begin_position(game->map, 'P');
 	if (key == 'w' || key == 65362)
 	{
-		game->flag = 2;
-		get_alter_position(game, begin, -1, 0);
+		game->flag = 1;
+		get_alter_position(game, game->pos, -1, 0);
 	}
 	if (key == 's' || key == 65364)
 	{
-		game->flag = 3;
-		get_alter_position(game, begin, 1, 0);
+		game->flag = 2;
+		get_alter_position(game, game->pos, 1, 0);
 	}
 	if (key == 'd' || key == 65363)
 	{
 		game->flag = 0;
-		get_alter_position(game, begin, 0, 1);
+		get_alter_position(game, game->pos, 0, 1);
 	}
 	if (key == 'a' || key == 65361)
 	{
-		game->flag = 1;
-		get_alter_position(game, begin, 0, -1);
+		game->flag = 3;
+		get_alter_position(game, game->pos, 0, -1);
 	}
 	if (key == esc)
 		close_game(game);

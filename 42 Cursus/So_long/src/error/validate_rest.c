@@ -37,9 +37,7 @@ char	**dup_map(char **map)
 	int		i;
 	char	**dup_map;
 
-	i = 0;
-	while (map[i])
-		i++;
+	i = ft_len_line(map);
 	dup_map = (char **)malloc(sizeof(char *) * (i + 1));
 	i = -1;
 	while (map[++i])

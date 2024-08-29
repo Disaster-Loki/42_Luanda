@@ -75,6 +75,22 @@ void	valid_path_map(char **map, int c, char s, char e)
 			error_map("Error - No way out !!\n", map);
 }
 
+void	valid_path_map_exit(char **map, char **copy, char s, char e)
+{
+	t_point	begin;
+
+	begin = begin_position(map, s);
+	begin.ch = 'S';
+	begin.exit = e;
+	begin.count = 0;
+	walk_path(map, begin.x, begin.y, &begin);
+	if (e == 'E' && !begin.count)
+	{
+		ft_free(copy);
+		error_map("Error - No way out !!\n", map);
+	}
+}
+
 int	validate_maps(char **map)
 {
 	char	**copy;
@@ -82,7 +98,7 @@ int	validate_maps(char **map)
 	valid_character(map);
 	valid_walls_map(map, '1');
 	copy = dup_map(map);
-	valid_path_map(copy, 'S', 'P', 'E');
+	valid_path_map_exit(copy, map, 'P', 'E');
 	ft_free(copy);
 	valid_path_map(map, 'E', 'P', 'C');
 	return (1);

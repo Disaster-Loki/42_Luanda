@@ -19,6 +19,8 @@
 # include "../libft/inc/libft.h"
 # include "../minilibx-linux/mlx.h"
 
+# define esc 65307
+
 typedef struct s_point
 {
 	int		x;
@@ -88,6 +90,7 @@ void	validate_single_character(char *str);
 void	valid_path_map(char **map, int c, char s, char e);
 void	walk_path(char **map, int x, int y, t_point *begin);
 void	print_image(t_game *game, char c, int wid, int hei);
+void	valid_path_map_exit(char **map, char **copy, char s, char e);
 void	get_alter_position(t_game *game, t_point begin, int x, int y);
 
 #endif
