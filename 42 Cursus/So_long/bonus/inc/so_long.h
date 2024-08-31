@@ -16,8 +16,8 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
-# include "../libft/inc/libft.h"
-# include "../minilibx-linux/mlx.h"
+# include "../../libft/inc/libft.h"
+# include "../../minilibx-linux/mlx.h"
 
 # define ESC 65307
 
@@ -28,11 +28,13 @@ typedef struct s_point
 	char	ch;
 	int		count;
 	char	exit;
+	char	enemy;
 }			t_point;
 
 typedef struct s_img
 {
 	void	*player[4];
+	void	*enemy[4];
 	void	*coin;
 	void	*exit;
 	void	*path;
@@ -53,14 +55,21 @@ typedef struct s_game
 	char	*g_name;
 	int		c_tibles;
 	int		t_tibles;
+	int		frame;
+	int		move;
+	int	cf;
 }			t_game;
 
-char	**dup_map(char **map);
+void	print_t_tibles(t_game *game);
+void	print_steps(t_game *game);
+void	game_over(t_game *game, char c);
+int		manipulate_enemies(t_game *game);
 int		main(int av, char **args);
 void	error(char *msg);
 int		len_str(char *str);
 void	ft_free(char **map);
 char	**get_map(char *str);
+char	**dup_map(char **map);
 int		check_character(char c);
 int		ft_len_line(char **map);
 void	window_init(char **args);
@@ -84,7 +93,10 @@ t_point	begin_position(char **map, char c);
 int		error_handler(int av, char **args);
 void	valid_walls_map(char **map, char c);
 int		single_character(char *map, char c);
-void	get_img_path(char *mlx, t_img *img);
+
+void	get_img_path(char *mlx, t_img *img, int x, int y);
+void	get_img_path_enemy(char *mlx, t_img *img, int x, int y);
+void	get_img_path_player(char *mlx, t_img *img, int x, int y);
 void	get_init(t_game *game, char **args);
 void	validate_single_character(char *str);
 void	valid_path_map(char **map, int c, char s, char e);

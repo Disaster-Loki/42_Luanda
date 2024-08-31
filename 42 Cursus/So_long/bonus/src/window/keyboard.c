@@ -23,6 +23,7 @@ void	get_count_exit(t_game *game)
 {
 	game->count++;
 	get_count_steps(game);
+	ft_putstr_fd("Winner !!\n", 1);
 	close_game(game);
 }
 
@@ -31,6 +32,7 @@ void	get_alter_position(t_game *game, t_point begin, int x, int y)
 	char	move;
 
 	move = game->map[begin.x + x][begin.y + y];
+	game_over(game, move);
 	if (move == 'C')
 		game->c_tibles++;
 	if (move != '1')
