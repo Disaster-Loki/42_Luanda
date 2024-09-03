@@ -53,6 +53,7 @@ B_FILES		= ./bonus/src/main.c					\
 		  	./bonus/src/window/window_close.c 		\
 		  	./bonus/src/window/window_enemies.c 	\
 		  	./bonus/src/window/window_utils.c 		\
+		  	./bonus/src/window/move_enimies.c 		\
 
 S_OBJ		= $(S_FILES:.c=.o)
 B_OBJ		= $(B_FILES:.c=.o)

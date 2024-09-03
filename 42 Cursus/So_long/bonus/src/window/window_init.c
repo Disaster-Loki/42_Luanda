@@ -14,11 +14,21 @@
 
 void	get_init(t_game *game, char **args)
 {
+	int		i;
+	int		j;
+
+	i = -1;
 	game->flag = 0;
-	game->move = 0;
-	game->cf = 0;
+	game->move = 1;
 	game->count = 0;
 	game->frame = 0;
+	game->t_move = 0;
+	while (++i < 100)
+	{
+		j = -1;
+		while(++j < 100)
+			game->c_tible[i][j] = 0;
+	}
 	game->c_tibles = 0;
 	game->mlx = mlx_init();
 	game->g_name = "SO LONG";
@@ -82,7 +92,7 @@ void	window_init(char **args)
 	game.win = mlx_new_window(game.mlx, game.pos.x, game.pos.y, game.g_name);
 	mlx_hook(game.win, 02, 1L << 0, keypress, &game);
 	mlx_hook(game.win, 17, 0, close_game, &game);
-	print_map_window(&game);
 	mlx_loop_hook(game.mlx, manipulate_enemies, &game);
+	print_map_window(&game);
 	mlx_loop(game.mlx);
 }

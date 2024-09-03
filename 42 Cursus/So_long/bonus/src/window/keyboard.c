@@ -23,6 +23,7 @@ void	get_count_exit(t_game *game)
 {
 	game->count++;
 	get_count_steps(game);
+	print_steps(game);
 	ft_putstr_fd("Winner !!\n", 1);
 	close_game(game);
 }
