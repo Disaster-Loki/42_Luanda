@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../inc/so_long_bonus.h"
 
 int	total_collectable(char **map)
 {

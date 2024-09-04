@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../inc/so_long_bonus.h"
 
 void	get_img_path_enemy(char *mlx, t_img *img, int x, int y)
 {
@@ -72,7 +72,8 @@ void	print_map_window(t_game *game)
 	game->img.wid = 0;
 	game->img.hei = 30;
 	print_steps(game);
-	print_t_tibles(game);
+	if (game->v_tible)
+		print_t_tibles(game);
 	while (game->map[++i])
 	{
 		j = -1;

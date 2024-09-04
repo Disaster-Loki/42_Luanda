@@ -10,32 +10,48 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../inc/so_long_bonus.h"
+
+int	**get_init_matrix(t_game *game, int **matrix)
+{
+	int	i;
+	int	j;
+	int	width;
+	int	height;
+
+	height = ft_len_line(game->map);
+	width = (int) ft_strlen(game->map[0]);
+	matrix = (int **)malloc(sizeof(int *) * height);
+	i = -1;
+	while (++i < height)
+		matrix[i] = (int *)malloc(sizeof(int) * width);
+	i = -1;
+	while (++i < height)
+	{
+		j = -1;
+		while (++j < width)
+			matrix[i][j] = 0;
+	}
+	return (matrix);
+}
 
 void	get_init(t_game *game, char **args)
 {
-	int		i;
-	int		j;
-
-	i = -1;
 	game->flag = 0;
 	game->move = 1;
 	game->count = 0;
 	game->frame = 0;
 	game->t_move = 0;
-	while (++i < 100)
-	{
-		j = -1;
-		while(++j < 100)
-			game->c_tible[i][j] = 0;
-	}
+	game->v_tible = 0;
 	game->c_tibles = 0;
+	game->frame_count = 0;
 	game->mlx = mlx_init();
 	game->g_name = "SO LONG";
 	game->map = get_map(args[1]);
 	game->t_tibles = total_collectable(game->map);
 	game->pos.y = 30 + ft_len_line(game->map) * 32;
 	game->pos.x = (int)ft_strlen(*(game->map)) * 32;
+	game->move_tibles = get_init_matrix(game, game->move_tibles);
 }
 
 void	print_t_tibles(t_game *g)

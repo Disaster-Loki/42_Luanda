@@ -41,16 +41,16 @@ void	valid_walls_map(char **map, char c)
 	while (map[++i] && map[i + 1])
 	{
 		if (len != (int) ft_strlen(map[i + 1]))
-			error_map("Error - Poorly structured map !!\n", map);
+			error_map("Error - Non-rectangular map !!\n", map);
 	}
 	if (ft_strncmp(map[0], map[i], ft_strlen(map[i])) != 0)
-		error_map("Error - Poorly structured map !!\n", map);
+		error_map("Error - Different first and last line !!\n", map);
 	i = 0;
 	while (map[++i])
 	{
 		len = (int) ft_strlen(map[i]);
 		if ((map[i][0] != c) || (map[i][len - 1] != c))
-			error_map("Error - Poorly structured map !!\n", map);
+			error_map("Error - Different ends !!\n", map);
 	}
 }
 

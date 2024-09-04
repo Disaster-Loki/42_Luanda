@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../inc/so_long_bonus.h"
 
 void	close_img(void *mlx, t_img *img)
 {
@@ -30,7 +30,11 @@ void	close_img(void *mlx, t_img *img)
 
 int	window_close(t_game *game)
 {
-	ft_free(game->map);
+	int	rows;
+
+	rows = ft_len_line(game->map);
+	free_map(game->map);
+	free_matrix(game->move_tibles, rows);
 	mlx_clear_window(game->mlx, game->win);
 	close_img(game->mlx, &game->img);
 	mlx_destroy_window(game->mlx, game->win);

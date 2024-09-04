@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../inc/so_long_bonus.h"
 
 void	move_enemy(t_game *game, int line)
 {
@@ -61,12 +61,10 @@ void	get_move_enimy(t_game *game)
 
 int	manipulate_enemies(t_game *game)
 {
-	static int	frame_count;
-
-	frame_count++;
-	if (frame_count >= 100)
+	game->frame_count++;
+	if (game->frame_count >= 100)
 	{
-		frame_count = 0;
+		game->frame_count = 0;
 		game->frame = (game->frame + 1) % 4;
 		get_move_enimy(game);
 		get_alter_direction(game);

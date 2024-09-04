@@ -12,6 +12,17 @@
 
 #include "../../inc/so_long.h"
 
+void	valid_img_path(t_game *game, t_img *img)
+{
+	if (!img->player[0] || !img->player[1]
+		|| !img->player[2] || !img->player[3] || !img->wall
+		|| !img->coin || !img->exit || !img->path)
+	{
+		close_game(game);
+		error("Error - Error loading the image !!\n");
+	}
+}
+
 void	validate_single_character(char *str)
 {
 	if (single_character(str, 'P') == -1)

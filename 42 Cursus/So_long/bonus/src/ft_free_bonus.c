@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/so_long.h"
+#include "../inc/so_long_bonus.h"
 
-void	ft_free(char **map)
+void	free_map(char **map)
 {
 	int	i;
 
@@ -22,5 +22,18 @@ void	ft_free(char **map)
 		while (map[++i])
 			free(map[i]);
 		free(map);
+	}
+}
+
+void	free_matrix(int **matrix, int rows)
+{
+	int	i;
+
+	if (matrix)
+	{
+		i = -1;
+		while (++i < rows)
+			free(matrix[i]);
+		free(matrix);
 	}
 }

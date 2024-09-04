@@ -10,64 +10,55 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../inc/so_long_bonus.h"
 
-int	check_character(char c)
+void	error(char *msg)
 {
-	return ((c == '0') || (c == '1')
-		|| (c == 'E') || (c == 'P') || (c == 'C') || (c == 'I'));
+	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd(msg, 1);
+	exit(1);
 }
 
-int	ft_len_line(char **map)
+void	error_str(char *msg, char *str)
 {
-	int	len;
-
-	len = 0;
-	while (map[len])
-		len++;
-	return (len);
+	free(str);
+	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd(msg, 1);
+	exit(1);
 }
 
-int	single_character(char *map, char c)
+void	error_map(char *msg, char **map)
 {
-	int	ch;
-	int	i;
+	free_map(map);
+	ft_putstr_fd("Error\n", 1);
+	ft_putstr_fd(msg, 1);
+	exit(1);
+}
 
-	ch = 0;
-	i = -1;
-	while (map[++i])
-	{
-		if (map[i] == c)
-			ch++;
-		if (ch >= 2)
-			return (0);
-	}
-	if (ch == 0)
-		return (-1);
+int	valid_open_file(char *file)
+{
+	int		fd;
+	int		len;
+	char	*ext;
+
+	ext = ".ber";
+	len = (int) ft_strlen(file);
+	if (len < 4 || ft_strncmp(file + len - 4, ext, 4) != 0)
+		error("Error - Invalid extension !!\n");
+	fd = open(file, O_RDONLY);
+	if (fd == -1)
+		error("Error - Openning the file !!\n");
+	return (fd);
+}
+
+int	error_handler(int av, char **args)
+{
+	char	**map;
+
+	if (av < 2)
+		error("Error - Missing arguments\n");
+	map = get_map(args[1]);
+	validate_maps(map);
+	free_map(map);
 	return (1);
-}
-
-t_point	begin_position(char **map, char c)
-{
-	int		i;
-	int		j;
-	t_point	pos;
-
-	i = -1;
-	pos.x = 0;
-	pos.y = 0;
-	while (map[++i])
-	{
-		j = -1;
-		while (map[i][++j])
-		{
-			if (map[i][j] == c)
-			{
-				pos.x = i;
-				pos.y = j;
-				return (pos);
-			}
-		}
-	}
-	return (pos);
 }

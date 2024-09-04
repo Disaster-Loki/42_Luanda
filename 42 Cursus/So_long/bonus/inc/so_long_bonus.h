@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#ifndef SO_LONG_BONUS_H
+# define SO_LONG_BONUS_H
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -56,22 +56,16 @@ typedef struct s_game
 	char	**map;
 	int		t_move;
 	char	*g_name;
+	int		v_tible;
 	int		c_tibles;
 	int		t_tibles;
-	int		c_tible[100][100];
+	int		frame_count;
+	int		**move_tibles;
 }			t_game;
 
-void	move_enemy_tibles(t_game *game, int line, int col, int new_x);
-void	move_enemy_to_empty(t_game *game, int line, int col, int new_x);
-void	handle_enemy_collision(t_game *game, int line, int col, int new_x);
-int		is_valid_move(int new_x, int t_col, char c);
-void	move_enemy(t_game *game, int line);
-void	get_alter_direction(t_game *game);
-void	get_move_enimy(t_game *game);
-int		main(int av, char **args);
 void	error(char *msg);
 int		len_str(char *str);
-void	ft_free(char **map);
+void	free_map(char **map);
 char	**get_map(char *str);
 char	**dup_map(char **map);
 int		check_character(char c);
@@ -86,6 +80,7 @@ int		window_close(t_game *game);
 void	validate_string(char *str);
 void	valid_character(char **map);
 int		valid_open_file(char *file);
+void	get_move_enimy(t_game *game);
 void	print_t_tibles(t_game *game);
 void	get_count_exit(t_game *game);
 int		total_collectable(char **map);
@@ -97,10 +92,14 @@ int		keypress(int key, t_game *game);
 int		manipulate_enemies(t_game *game);
 void	error_map(char *msg, char **map);
 void	close_img(void *mlx, t_img *img);
+void	get_alter_direction(t_game *game);
+void	move_enemy(t_game *game, int line);
 t_point	begin_position(char **map, char c);
 int		error_handler(int av, char **args);
+void	free_matrix(int **matrix, int rows);
 void	valid_walls_map(char **map, char c);
 int		single_character(char *map, char c);
+int		is_valid_move(int new_x, int t_col, char c);
 void	get_img_path(char *mlx, t_img *img, int x, int y);
 void	get_img_path_enemy(char *mlx, t_img *img, int x, int y);
 void	get_img_path_player(char *mlx, t_img *img, int x, int y);
@@ -110,6 +109,9 @@ void	valid_path_map(char **map, int c, char s, char e);
 void	walk_path(char **map, int x, int y, t_point *begin);
 void	print_image(t_game *game, char c, int wid, int hei);
 void	valid_path_map_exit(char **map, char **copy, char s, char e);
+void	move_enemy_tibles(t_game *game, int line, int col, int new_x);
 void	get_alter_position(t_game *game, t_point begin, int x, int y);
+void	move_enemy_to_empty(t_game *game, int line, int col, int new_x);
+void	handle_enemy_collision(t_game *game, int line, int col, int new_x);
 
 #endif

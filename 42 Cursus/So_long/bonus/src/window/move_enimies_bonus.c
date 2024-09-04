@@ -10,30 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../inc/so_long.h"
+#include "../../inc/so_long_bonus.h"
 
 void	move_enemy_tibles(t_game *game, int line, int col, int new_x)
 {
 	if (game->map[line][new_x] == 'C')
 	{
-		if (game->c_tible[line][col] == 1)
+		game->v_tible = 0;
+		if (game->move_tibles[line][col] == 1)
 		{
 			game->map[line][col] = 'C';
-			game->c_tible[line][col] = 0;
+			game->move_tibles[line][col] = 0;
 		}
 		else
 			game->map[line][col] = '0';
 		game->map[line][new_x] = 'I';
-		game->c_tible[line][new_x] = 1;
+		game->move_tibles[line][new_x] = 1;
 	}
 }
 
 void	move_enemy_to_empty(t_game *game, int line, int col, int new_x)
 {
-	if (game->c_tible[line][col] == 1)
+	if (game->move_tibles[line][col] == 1)
 	{
 		game->map[line][col] = 'C';
-		game->c_tible[line][col] = 0;
+		game->move_tibles[line][col] = 0;
 	}
 	else
 		game->map[line][col] = '0';
