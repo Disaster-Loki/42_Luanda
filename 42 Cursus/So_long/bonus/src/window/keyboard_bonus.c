@@ -35,7 +35,7 @@ void	get_alter_position(t_game *game, t_point begin, int x, int y)
 	move = game->map[begin.x + x][begin.y + y];
 	game_over(game, move);
 	if (move == 'C')
-		game->c_tibles++;
+		get_player_animation(game, x, y);
 	if (move != '1')
 	{
 		if (move == 'E')

@@ -33,7 +33,7 @@ typedef struct s_point
 
 typedef struct s_img
 {
-	void	*player[4];
+	void	*player[8];
 	void	*enemy[4];
 	void	*coin;
 	void	*exit;
@@ -69,7 +69,9 @@ void	print_steps(t_game *game);
 void	print_t_tibles(t_game *game);
 void	print_map_window(t_game *game);
 void	get_init(t_game *game, char **args);
+void	print_image_player(t_game *g, int w, int h);
 void	get_img_path(t_game *game, char *mlx, t_img *img);
+void	print_image(t_game *game, char c, int wid, int hei);
 void	get_img_path_enemy(char *mlx, t_img *img, int x, int y);
 void	get_img_path_player(char *mlx, t_img *img, int x, int y);
 /*Windows Close*/
@@ -82,12 +84,12 @@ void	close_img(void *mlx, t_img *img);
 void	get_count_exit(t_game *game);
 void	get_count_steps(t_game *game);
 int		keypress(int key, t_game *game);
+void	get_player_animation(t_game *game, int x, int y);
 void	get_alter_position(t_game *game, t_point begin, int x, int y);
 /* Get Maps*/
 char	**get_map(char *str);
 int		ft_len_line(char **map);
 char	*read_map_content(int fd);
-void	print_image(t_game *game, char c, int wid, int hei);
 /* Error */
 void	error(char *msg);
 void	free_map(char **map);

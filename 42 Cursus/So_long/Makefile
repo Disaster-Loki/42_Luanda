@@ -50,6 +50,7 @@ B_FILES		= ./bonus/src/main_bonus.c						\
 		  	./bonus/src/error/validate_rest_bonus.c			\
 		  	./bonus/src/window/window_init_bonus.c 			\
 		  	./bonus/src/window/keyboard_bonus.c 			\
+		  	./bonus/src/window/player_animation.c 			\
 		  	./bonus/src/window/window_close_bonus.c 		\
 		  	./bonus/src/window/window_enemies_bonus.c 		\
 		  	./bonus/src/window/window_utils_bonus.c 		\
@@ -64,7 +65,6 @@ $(NAME): $(S_OBJ)
 		 $(MAKE) -C $(L_DIR)
 		 $(MAKE) -C $(M_DIR)
 		 $(CC) $(CFLAGS) -o $(NAME) $(S_OBJ) $(LIBFT) $(Minilibx)
-		 clear
 		 @echo "$(GREEN) MANDATORY - COMPILATION COMPLETE$(RESET)"
 
 bonus: $(BONUS_NAME)
@@ -73,7 +73,6 @@ $(BONUS_NAME): $(B_OBJ)
 		 $(MAKE) -C $(L_DIR)
 		 $(MAKE) -C $(M_DIR)
 		 $(CC) $(CFLAGS) -o $(BONUS_NAME) $(B_OBJ) $(LIBFT) $(Minilibx)
-		 clear
 		 @echo "$(GREEN) BONUS - COMPILATION COMPLETE$(RESET)"		
 
 clean:
@@ -81,14 +80,12 @@ clean:
 		@$(MAKE) clean -C $(M_DIR)
 		rm -f $(S_OBJ)
 		rm -f $(B_OBJ)
-		clear
 		@echo "$(ORANGE) CLEANING THE OBJECTS$(RESET)"
 
 fclean: clean
 		@$(MAKE) fclean -C $(L_DIR)
 		rm -f $(NAME)
 		rm -f $(BONUS_NAME)
-		clear
 		@echo "$(RED) CLEARING ALL FILES$(RESET)"
 
 re: fclean all

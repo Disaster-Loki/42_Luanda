@@ -14,14 +14,14 @@
 
 void	close_img(void *mlx, t_img *img)
 {
-	if (img->player[0])
-		mlx_destroy_image(mlx, img->player[0]);
-	if (img->player[1])
-		mlx_destroy_image(mlx, img->player[1]);
-	if (img->player[2])
-		mlx_destroy_image(mlx, img->player[2]);
-	if (img->player[3])
-		mlx_destroy_image(mlx, img->player[3]);
+	int	i;
+
+	i = -1;
+	while (++i < 8)
+	{
+		if (img->player[i])
+			mlx_destroy_image(mlx, img->player[i]);
+	}
 	if (img->enemy[0])
 		mlx_destroy_image(mlx, img->enemy[0]);
 	if (img->enemy[1])

@@ -16,50 +16,50 @@ CFLAGS 	=	-Wall -Wextra -Werror
 
 HEADER	=	./inc/libft.h
 
-SRC 	= 	Is/ft_isalpha.c				\
-			Is/ft_isdigit.c 			\
-			Is/ft_isalnum.c 			\
-			Is/ft_isascii.c 			\
-			Is/ft_isprint.c 			\
-			String/ft_strlen.c 			\
-			Memory/ft_memset.c 			\
-			Rest/ft_bzero.c				\
-			Memory/ft_memcpy.c 			\
-			Memory/ft_memmove.c 		\
-			String/ft_strlcpy.c 		\
-			String/ft_strlcat.c 		\
-			Rest/ft_toupper.c 			\
-			Rest/ft_tolower.c 			\
-			String/ft_strchr.c 			\
-			String/ft_strrchr.c 		\
-			String/ft_strncmp.c 		\
-			Memory/ft_memchr.c 			\
-			Memory/ft_memcmp.c 			\
-			String/ft_strnstr.c 		\
-			Rest/ft_atoi.c 				\
-			Rest/ft_calloc.c 			\
-			String/ft_strdup.c 			\
-			String/ft_substr.c 			\
-			String/ft_strjoin.c 		\
-			String/ft_strtrim.c 		\
-			Rest/ft_split.c 			\
-			Rest/ft_itoa.c 				\
-			String/ft_strmapi.c 		\
-			String/ft_striteri.c 		\
-			Put/ft_putchar_fd.c 		\
-			Put/ft_putstr_fd.c 			\
-			Put/ft_putendl_fd.c 		\
-			Put/ft_putnbr_fd.c			\
+SRC 	= 	is/ft_isalpha.c				\
+			is/ft_isdigit.c 			\
+			is/ft_isalnum.c 			\
+			is/ft_isascii.c 			\
+			is/ft_isprint.c 			\
+			string/ft_strlen.c 			\
+			memory/ft_memset.c 			\
+			rest/ft_bzero.c				\
+			memory/ft_memcpy.c 			\
+			memory/ft_memmove.c 		\
+			string/ft_strlcpy.c 		\
+			string/ft_strlcat.c 		\
+			rest/ft_toupper.c 			\
+			rest/ft_tolower.c 			\
+			string/ft_strchr.c 			\
+			string/ft_strrchr.c 		\
+			string/ft_strncmp.c 		\
+			memory/ft_memchr.c 			\
+			memory/ft_memcmp.c 			\
+			string/ft_strnstr.c 		\
+			rest/ft_atoi.c 				\
+			rest/ft_calloc.c 			\
+			string/ft_strdup.c 			\
+			string/ft_substr.c 			\
+			string/ft_strjoin.c 		\
+			string/ft_strtrim.c 		\
+			rest/ft_split.c 			\
+			rest/ft_itoa.c 				\
+			string/ft_strmapi.c 		\
+			string/ft_striteri.c 		\
+			put/ft_putchar_fd.c 		\
+			put/ft_putstr_fd.c 			\
+			put/ft_putendl_fd.c 		\
+			put/ft_putnbr_fd.c			\
 
-BONUS 	=	List/ft_lstnew.c 			\
-			List/ft_lstadd_front.c 		\
-			List/ft_lstsize.c 			\
-			List/ft_lstlast.c 			\
-			List/ft_lstadd_back.c 		\
-			List/ft_lstdelone.c 		\
-			List/ft_lstclear.c 			\
-			List/ft_lstiter.c 			\
-			List/ft_lstmap.c			\
+BONUS 	=	list/ft_lstnew.c 			\
+			list/ft_lstadd_front.c 		\
+			list/ft_lstsize.c 			\
+			list/ft_lstlast.c 			\
+			list/ft_lstadd_back.c 		\
+			list/ft_lstdelone.c 		\
+			list/ft_lstclear.c 			\
+			list/ft_lstiter.c 			\
+			list/ft_lstmap.c			\
 
 OBJ 	=	$(SRC:.c=.o)
 BONUS_OBJ = $(BONUS:.c=.o)

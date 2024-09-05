@@ -15,7 +15,7 @@
 void	get_img_path_enemy(char *mlx, t_img *img, int x, int y)
 {
 	img->enemy[0] = mlx_xpm_file_to_image(mlx, "./assets/red1.xpm", &x, &y);
-	img->enemy[1] = mlx_xpm_file_to_image(mlx, "./assets/red22.xpm", &x, &y);
+	img->enemy[1] = mlx_xpm_file_to_image(mlx, "./assets/red2.xpm", &x, &y);
 	img->enemy[2] = mlx_xpm_file_to_image(mlx, "./assets/red3.xpm", &x, &y);
 	img->enemy[3] = mlx_xpm_file_to_image(mlx, "./assets/red4.xpm", &x, &y);
 }
@@ -26,6 +26,10 @@ void	get_img_path_player(char *mlx, t_img *img, int x, int y)
 	img->player[1] = mlx_xpm_file_to_image(mlx, "./assets/player2.xpm", &x, &y);
 	img->player[2] = mlx_xpm_file_to_image(mlx, "./assets/player3.xpm", &x, &y);
 	img->player[3] = mlx_xpm_file_to_image(mlx, "./assets/player4.xpm", &x, &y);
+	img->player[4] = mlx_xpm_file_to_image(mlx, "./assets/player5.xpm", &x, &y);
+	img->player[5] = mlx_xpm_file_to_image(mlx, "./assets/player6.xpm", &x, &y);
+	img->player[6] = mlx_xpm_file_to_image(mlx, "./assets/player7.xpm", &x, &y);
+	img->player[7] = mlx_xpm_file_to_image(mlx, "./assets/player8.xpm", &x, &y);
 }
 
 void	get_img_path(t_game *game, char *mlx, t_img *img)
@@ -53,16 +57,7 @@ void	print_image(t_game *g, char c, int w, int h)
 	if (c == 'E')
 		mlx_put_image_to_window(g->mlx, g->win, g->img.exit, w, h);
 	if (c == 'P')
-	{
-		if (g->flag == 0)
-			mlx_put_image_to_window(g->mlx, g->win, g->img.player[0], w, h);
-		else if (g->flag == 1)
-			mlx_put_image_to_window(g->mlx, g->win, g->img.player[1], w, h);
-		else if (g->flag == 2)
-			mlx_put_image_to_window(g->mlx, g->win, g->img.player[2], w, h);
-		else if (g->flag == 3)
-			mlx_put_image_to_window(g->mlx, g->win, g->img.player[3], w, h);
-	}
+		print_image_player(g, w, h);
 	if (c == 'C')
 		mlx_put_image_to_window(g->mlx, g->win, g->img.coin, w, h);
 	if (c == 'I')
