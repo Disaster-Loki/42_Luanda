@@ -32,7 +32,6 @@ void	get_alter_position(t_game *game, t_point begin, int x, int y)
 {
 	char	move;
 
-	game->v_tible = 1;
 	move = game->map[begin.x + x][begin.y + y];
 	game_over(game, move);
 	if (move == 'C')

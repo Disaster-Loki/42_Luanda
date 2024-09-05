@@ -63,54 +63,61 @@ typedef struct s_game
 	int		**move_tibles;
 }			t_game;
 
-void	error(char *msg);
-int		len_str(char *str);
-void	free_map(char **map);
+/* Game Windows*/
+void	window_init(char **args);
+void	print_steps(t_game *game);
+void	print_t_tibles(t_game *game);
+void	print_map_window(t_game *game);
+void	get_init(t_game *game, char **args);
+void	get_img_path(t_game *game, char *mlx, t_img *img);
+void	get_img_path_enemy(char *mlx, t_img *img, int x, int y);
+void	get_img_path_player(char *mlx, t_img *img, int x, int y);
+/*Windows Close*/
+int		close_game(t_game *game);
+int		window_stop(t_game *game);
+int		window_close(t_game *game);
+void	game_over(t_game *game, char c);
+void	close_img(void *mlx, t_img *img);
+/* Keyboard*/
+void	get_count_exit(t_game *game);
+void	get_count_steps(t_game *game);
+int		keypress(int key, t_game *game);
+void	get_alter_position(t_game *game, t_point begin, int x, int y);
+/* Get Maps*/
 char	**get_map(char *str);
+int		ft_len_line(char **map);
+char	*read_map_content(int fd);
+void	print_image(t_game *game, char c, int wid, int hei);
+/* Error */
+void	error(char *msg);
+void	free_map(char **map);
 char	**dup_map(char **map);
 int		check_character(char c);
-int		ft_len_line(char **map);
-void	window_init(char **args);
-int		close_game(t_game *game);
-void	print_steps(t_game *game);
-void	valid_read_file(int size);
-char	*read_map_content(int fd);
 int		validate_maps(char **map);
-int		window_close(t_game *game);
+void	valid_read_file(int size);
 void	validate_string(char *str);
 void	valid_character(char **map);
 int		valid_open_file(char *file);
-void	get_move_enimy(t_game *game);
-void	print_t_tibles(t_game *game);
-void	get_count_exit(t_game *game);
 int		total_collectable(char **map);
-void	get_count_steps(t_game *game);
-void	print_map_window(t_game *game);
-void	game_over(t_game *game, char c);
 void	error_str(char *msg, char *str);
-int		keypress(int key, t_game *game);
-int		manipulate_enemies(t_game *game);
 void	error_map(char *msg, char **map);
-void	close_img(void *mlx, t_img *img);
-void	get_alter_direction(t_game *game);
-void	move_enemy(t_game *game, int line);
 t_point	begin_position(char **map, char c);
 int		error_handler(int av, char **args);
 void	free_matrix(int **matrix, int rows);
-void	valid_walls_map(char **map, char c);
 int		single_character(char *map, char c);
-int		is_valid_move(int new_x, int t_col, char c);
-void	get_img_path(char *mlx, t_img *img, int x, int y);
-void	get_img_path_enemy(char *mlx, t_img *img, int x, int y);
-void	get_img_path_player(char *mlx, t_img *img, int x, int y);
-void	get_init(t_game *game, char **args);
+void	valid_walls_map(char **map, char c);
 void	validate_single_character(char *str);
+void	valid_img_path(t_game *game, t_img *img);
 void	valid_path_map(char **map, int c, char s, char e);
 void	walk_path(char **map, int x, int y, t_point *begin);
-void	print_image(t_game *game, char c, int wid, int hei);
 void	valid_path_map_exit(char **map, char **copy, char s, char e);
+/* Handler Enemies*/
+void	get_move_enimy(t_game *game);
+int		manipulate_enemies(t_game *game);
+void	get_alter_direction(t_game *game);
+void	move_enemy(t_game *game, int line);
+int		is_valid_move(int new_x, int t_col, char c);
 void	move_enemy_tibles(t_game *game, int line, int col, int new_x);
-void	get_alter_position(t_game *game, t_point begin, int x, int y);
 void	move_enemy_to_empty(t_game *game, int line, int col, int new_x);
 void	handle_enemy_collision(t_game *game, int line, int col, int new_x);
 

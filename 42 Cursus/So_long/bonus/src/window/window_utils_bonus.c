@@ -15,7 +15,7 @@
 void	get_img_path_enemy(char *mlx, t_img *img, int x, int y)
 {
 	img->enemy[0] = mlx_xpm_file_to_image(mlx, "./assets/red1.xpm", &x, &y);
-	img->enemy[1] = mlx_xpm_file_to_image(mlx, "./assets/red2.xpm", &x, &y);
+	img->enemy[1] = mlx_xpm_file_to_image(mlx, "./assets/red22.xpm", &x, &y);
 	img->enemy[2] = mlx_xpm_file_to_image(mlx, "./assets/red3.xpm", &x, &y);
 	img->enemy[3] = mlx_xpm_file_to_image(mlx, "./assets/red4.xpm", &x, &y);
 }
@@ -28,14 +28,20 @@ void	get_img_path_player(char *mlx, t_img *img, int x, int y)
 	img->player[3] = mlx_xpm_file_to_image(mlx, "./assets/player4.xpm", &x, &y);
 }
 
-void	get_img_path(char *mlx, t_img *img, int x, int y)
+void	get_img_path(t_game *game, char *mlx, t_img *img)
 {
+	int	x;
+	int	y;
+
+	x = 0;
+	y = 0;
 	img->wall = mlx_xpm_file_to_image(mlx, "./assets/wall.xpm", &x, &y);
 	img->path = mlx_xpm_file_to_image(mlx, "./assets/path.xpm", &x, &y);
 	img->coin = mlx_xpm_file_to_image(mlx, "./assets/coin.xpm", &x, &y);
 	img->exit = mlx_xpm_file_to_image(mlx, "./assets/exit.xpm", &x, &y);
 	get_img_path_player(mlx, img, x, y);
 	get_img_path_enemy(mlx, img, x, y);
+	valid_img_path(game, img);
 }
 
 void	print_image(t_game *g, char c, int w, int h)
@@ -72,8 +78,7 @@ void	print_map_window(t_game *game)
 	game->img.wid = 0;
 	game->img.hei = 30;
 	print_steps(game);
-	if (game->v_tible)
-		print_t_tibles(game);
+	print_t_tibles(game);
 	while (game->map[++i])
 	{
 		j = -1;

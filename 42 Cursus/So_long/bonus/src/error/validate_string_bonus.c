@@ -44,3 +44,14 @@ void	validate_string(char *str)
 	if (str[i] == '\0' && str[i - 1] == '\n')
 		error_str("Error - Invalid line !!\n", str);
 }
+
+void	valid_img_path(t_game *game, t_img *img)
+{
+	if (!img->player[0] || !img->player[1] || !img->player[2] || !img->player[3]
+		|| !img->wall || !img->coin || !img->exit || !img->path
+		|| !img->enemy[0] || !img->enemy[1] || !img->enemy[2] || !img->enemy[3])
+	{
+		window_stop(game);
+		error("Error - Error loading the image !!\n");
+	}
+}

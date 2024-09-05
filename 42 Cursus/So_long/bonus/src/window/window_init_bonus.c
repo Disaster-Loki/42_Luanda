@@ -61,17 +61,17 @@ void	print_t_tibles(t_game *g)
 	char	*f_str;
 	int		len;
 
-	str = "Collectables : ";
-	t_tibles = ft_itoa(total_collectable(g->map));
+	str = "C_tables : ";
+	t_tibles = ft_itoa(g->c_tibles);
 	len = ft_strlen(str) + ft_strlen(t_tibles) + 1;
 	f_str = (char *)malloc(sizeof(char) * len);
 	if (!f_str)
 		return ;
 	ft_strlcpy(f_str, str, len);
 	ft_strlcat(f_str, t_tibles, len);
-	mlx_put_image_to_window(g->mlx, g->win, g->img.path, 90 + 25 + 32, 0);
-	mlx_put_image_to_window(g->mlx, g->win, g->img.path, 90 + 55 + 32, 0);
-	mlx_string_put(g->mlx, g->win, 90, 17, 0xFFFFFF, f_str);
+	mlx_put_image_to_window(g->mlx, g->win, g->img.path, 85 + 25 + 32, 0);
+	mlx_put_image_to_window(g->mlx, g->win, g->img.path, 85 + 55 + 32, 0);
+	mlx_string_put(g->mlx, g->win, 85, 17, 0xFFFFFF, f_str);
 	free(t_tibles);
 	free(f_str);
 }
@@ -103,8 +103,8 @@ void	window_init(char **args)
 	t_game	game;
 
 	get_init(&game, args);
+	get_img_path(&game, game.mlx, &game.img);
 	get_count_steps(&game);
-	get_img_path(game.mlx, &game.img, 0, 0);
 	game.win = mlx_new_window(game.mlx, game.pos.x, game.pos.y, game.g_name);
 	mlx_hook(game.win, 02, 1L << 0, keypress, &game);
 	mlx_hook(game.win, 17, 0, close_game, &game);

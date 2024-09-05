@@ -18,7 +18,7 @@ void	valid_img_path(t_game *game, t_img *img)
 		|| !img->player[2] || !img->player[3] || !img->wall
 		|| !img->coin || !img->exit || !img->path)
 	{
-		close_game(game);
+		window_stop(game);
 		error("Error - Error loading the image !!\n");
 	}
 }

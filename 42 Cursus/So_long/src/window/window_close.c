@@ -43,6 +43,15 @@ int	window_close(t_game *game)
 	return (0);
 }
 
+int	window_stop(t_game *game)
+{
+	ft_free(game->map);
+	close_img(game->mlx, &game->img);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	return (0);
+}
+
 int	close_game(t_game *game)
 {
 	if (!window_close(game))

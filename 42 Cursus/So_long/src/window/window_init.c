@@ -21,7 +21,7 @@ void	get_img_path(t_game *game, char *mlx, t_img *img)
 	y = 0;
 	img->player[0] = mlx_xpm_file_to_image(mlx, "./assets/player.xpm", &x, &y);
 	img->player[1] = mlx_xpm_file_to_image(mlx, "./assets/player2.xpm", &x, &y);
-	img->player[2] = mlx_xpm_file_to_image(mlx, "./assets/player3.xpm", &x, &y);
+	img->player[2] = mlx_xpm_file_to_image(mlx, "./assets/player.xpm", &x, &y);
 	img->player[3] = mlx_xpm_file_to_image(mlx, "./assets/player4.xpm", &x, &y);
 	img->wall = mlx_xpm_file_to_image(mlx, "./assets/wall.xpm", &x, &y);
 	img->path = mlx_xpm_file_to_image(mlx, "./assets/path.xpm", &x, &y);
@@ -92,8 +92,8 @@ void	window_init(char **args)
 	t_game	game;
 
 	get_init(&game, args);
-	get_count_steps(&game);
 	get_img_path(&game, game.mlx, &game.img);
+	get_count_steps(&game);
 	game.win = mlx_new_window(game.mlx, game.pos.x, game.pos.y, game.g_name);
 	mlx_hook(game.win, 02, 1L << 0, keypress, &game);
 	mlx_hook(game.win, 17, 0, close_game, &game);
