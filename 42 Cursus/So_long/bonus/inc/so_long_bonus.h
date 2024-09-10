@@ -63,7 +63,6 @@ typedef struct s_game
 	int		**move_tibles;
 }			t_game;
 
-/* Game Windows*/
 void	window_init(char **args);
 void	print_steps(t_game *game);
 void	print_t_tibles(t_game *game);
@@ -74,23 +73,23 @@ void	get_img_path(t_game *game, char *mlx, t_img *img);
 void	print_image(t_game *game, char c, int wid, int hei);
 void	get_img_path_enemy(char *mlx, t_img *img, int x, int y);
 void	get_img_path_player(char *mlx, t_img *img, int x, int y);
-/*Windows Close*/
+
 int		close_game(t_game *game);
 int		window_stop(t_game *game);
 int		window_close(t_game *game);
 void	game_over(t_game *game, char c);
 void	close_img(void *mlx, t_img *img);
-/* Keyboard*/
+
 void	get_count_exit(t_game *game);
 void	get_count_steps(t_game *game);
 int		keypress(int key, t_game *game);
 void	get_player_animation(t_game *game, int x, int y);
 void	get_alter_position(t_game *game, t_point begin, int x, int y);
-/* Get Maps*/
+
 char	**get_map(char *str);
 int		ft_len_line(char **map);
 char	*read_map_content(int fd);
-/* Error */
+
 void	error(char *msg);
 void	free_map(char **map);
 char	**dup_map(char **map);
@@ -113,7 +112,7 @@ void	valid_img_path(t_game *game, t_img *img);
 void	valid_path_map(char **map, int c, char s, char e);
 void	walk_path(char **map, int x, int y, t_point *begin);
 void	valid_path_map_exit(char **map, char **copy, char s, char e);
-/* Handler Enemies*/
+
 void	get_move_enimy(t_game *game);
 int		manipulate_enemies(t_game *game);
 void	get_alter_direction(t_game *game);

@@ -55,27 +55,26 @@ typedef struct s_game
 	int		t_tibles;
 }			t_game;
 
-/* Game Windows*/
 void	window_init(char **args);
 void	print_map_window(t_game *game);
 void	get_init(t_game *game, char **args);
 void	get_img_path(t_game *game, char *mlx, t_img *img);
-/*Windows Close*/
+
 int		close_game(t_game *game);
 int		window_stop(t_game *game);
 int		window_close(t_game *game);
 void	close_img(void *mlx, t_img *img);
-/* Keyboard*/
+
 void	get_count_exit(t_game *game);
 void	get_count_steps(t_game *game);
 int		keypress(int key, t_game *game);
 void	get_alter_position(t_game *game, t_point begin, int x, int y);
-/* Get Maps*/
+
 char	**get_map(char *str);
 int		ft_len_line(char **map);
 char	*read_map_content(int fd);
 void	print_image(t_game *game, char c, int wid, int hei);
-/* Error */
+
 void	error(char *msg);
 void	ft_free(char **map);
 char	**dup_map(char **map);
