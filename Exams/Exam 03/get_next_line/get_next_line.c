@@ -6,12 +6,13 @@
 /*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/09 14:45:30 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/09/09 15:22:34 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/09/13 16:51:53 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
+#include "get_next_line.h"
 
 char	*ft_strdup(char *src)
 {
