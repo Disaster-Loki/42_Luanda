@@ -22,10 +22,11 @@ YELLOW		= \033[33m
 ORANGE		= \033[38;5;208m
 GREEN		= \033[32m
 
-S_FILES		= ./src/main.c   			\
-			  ./src/utils.c  			\
-			  ./src/error_handler.c 	\
-			  ./src/get_philo_init.c 	\
+S_FILES		= ./main.c   			\
+			  ./utils.c  			\
+			  ./error_handler.c 	\
+			  ./philo_init.c 		\
+			  ./stages.c 			\
 
 S_OBJ		= $(S_FILES:.c=.c)
 

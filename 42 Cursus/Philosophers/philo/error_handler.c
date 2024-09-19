@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
+#include "philo.h"
 
 void	error(char *msg)
 {
-	ft_putstr(msg, ORANGE);
+	printf("%s%s%s", msg, ORANGE, RESET);
 	exit(1);
 }
 
@@ -24,7 +24,7 @@ void	error_handler(int av)
 		error("Error - Missing Arguments\n");
 	if (av < 6)
 	{
-		ft_putstr("Error - [N_philo] [Time_die] [Time_eat]", ORANGE);
+		error("Error - [N_philo] [Time_die] [Time_eat]");
 		error("[Time_sleep] [Time_eat_philo]\n");
 	}
 }

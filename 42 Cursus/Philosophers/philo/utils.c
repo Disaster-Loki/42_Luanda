@@ -10,26 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/philo.h"
-
-void	ft_putstr(char *str, char *color)
-{
-	char	*reset;
-
-	if (color)
-	{
-		while (*color)
-			write(1, color++, 1);
-	}
-	while (*str)
-		write(1, str++, 1);
-	if (color)
-	{
-		reset = RESET;
-		while (*reset)
-			write(1, reset++, 1);
-	}
-}
+#include "philo.h"
 
 int	ft_atoi(char *str)
 {
@@ -48,4 +29,18 @@ int	ft_atoi(char *str)
 	while (*str >= '0' && *str <= '9')
 		res = (res * 10) + (*str++ - '0');
 	return (res * sig);
+}
+
+long long	current_time()
+{
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
+}
+
+void	print_msg(t_philo *ph, char *str, char *color)
+{
+	printf("[%lli] ", (current_time() - ph->time));
+	printf("%d %s%s%s", ph->id, color, str, RESET);
 }
