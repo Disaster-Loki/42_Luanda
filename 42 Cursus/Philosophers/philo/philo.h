@@ -41,8 +41,8 @@ typedef struct s_conter
 
 typedef struct s_philo
 {
+	int				i;
 	int				id;
-	int				eat;
 	pthread_t		philo;
 	long long		time;
 	t_conter		*conter;

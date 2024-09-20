@@ -29,8 +29,8 @@ void	init_philors(t_philo *philors, t_conter *conter)
 	i = -1;
 	while (++i < conter->num_ph)
 	{
+		philors[i].i = -1;
 		philors[i].id = i + 1;
-		philors[i].eat = -1;
 		philors[i].conter = conter;
 		philors[i].time = current_time();
 		philors[i].fork_left = &conter->forks[i];

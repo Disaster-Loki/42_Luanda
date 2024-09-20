@@ -26,9 +26,10 @@ void	*process_init(void *date)
 	t_philo	*ph;
 
 	ph = (t_philo *)date;
-	while (!ph->conter->dead && (++ph->eat < ph->conter->time_eat_ph))
+	while (++ph->i < ph->conter->time_eat_ph)
 	{
-		stage_deading(ph);
+		if (!stage_deading(ph))
+			break ;
 		stage_thinking(ph);
 		stage_pick_up_fork(ph);
 		stage_eating(ph);
