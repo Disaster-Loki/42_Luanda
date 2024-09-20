@@ -51,17 +51,22 @@ typedef struct s_philo
 	pthread_mutex_t	*fork_right;
 }	t_philo;
 
-void	error(char *msg);
-long long	current_time();
-int		ft_atoi(char *str);
-void	error_handler(int av);
-void	*process_init(void *date);
-void	get_conter_init(t_conter *conter, char **args);
-void	philo_init(char **args);
-void	stage_eating(t_philo *ph);
-int		stage_deading(t_philo *ph);
-void	stage_thinking(t_philo *ph);
-void	stage_sleeping(t_philo *ph);
-void	print_msg(t_philo *ph, char *str, char *color);
+void		error(char *msg);
+long long	current_time(void);
+int			ft_atoi(char *str);
+void		error_handler(int av);
+void		philo_init(char **args);
+void		*process_init(void *date);
+void		stage_eating(t_philo *ph);
+int			stage_deading(t_philo *ph);
+void		stage_thinking(t_philo *ph);
+void		stage_sleeping(t_philo *ph);
+void		stage_drop_fork(t_philo *ph);
+void		stage_pick_up_fork(t_philo *ph);
+void		get_init(t_philo **philors, t_conter *conter);
+void		get_conter_init(t_conter *conter, char **args);
+void		print_msg(t_philo *ph, char *str, char *color);
+void		wait_philos(t_philo *philors, t_conter *conter);
+void		init_philors(t_philo *philors, t_conter *conter);
 
 #endif

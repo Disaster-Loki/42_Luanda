@@ -14,28 +14,21 @@
 
 void	stage_thinking(t_philo *ph)
 {
-	ph->time = current_time();
 	print_msg(ph, "is thinking\n", BLUE);
 }
 
 void	stage_eating(t_philo *ph)
 {
-	pthread_mutex_lock(ph->fork_left);
-	ph->time = current_time();
-	print_msg(ph, "pick up left fork\n", YELLOW);
-	pthread_mutex_lock(ph->fork_right);
-	print_msg(ph, "pick up right fork\n", YELLOW);
 	print_msg(ph, "is eating\n", LIME);
 	usleep(ph->conter->time_eat * 1000);
-	pthread_mutex_unlock(ph->fork_left);
-	pthread_mutex_unlock(ph->fork_right);
 }
 
 void	stage_sleeping(t_philo *ph)
 {
-	ph->time = current_time();
+	pthread_mutex_lock(&ph->conter->sleep);
 	print_msg(ph, "is sleeping\n", D_BLUE);
 	usleep(ph->conter->time_sleep * 1000);
+	pthread_mutex_unlock(&ph->conter->sleep);
 }
 
 int	stage_deading(t_philo *ph)
@@ -44,7 +37,7 @@ int	stage_deading(t_philo *ph)
 	{
 		ph->conter->dead = 1;
 		ph->conter->time_eat_ph = 0;
-		print_msg(ph, "died\n", RED);
+		print_msg(ph, "dead philosopher\n", RED);
 		return (0);
 	}
 	return (1);

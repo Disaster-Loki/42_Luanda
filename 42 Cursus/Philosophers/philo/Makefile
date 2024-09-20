@@ -27,6 +27,8 @@ S_FILES		= ./main.c   			\
 			  ./error_handler.c 	\
 			  ./philo_init.c 		\
 			  ./stages.c 			\
+			  ./stages_utils.c 		\
+			  ./philo_stages.c 		\
 
 S_OBJ		= $(S_FILES:.c=.c)
 

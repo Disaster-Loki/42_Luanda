@@ -22,47 +22,44 @@ void	get_conter_init(t_conter *conter, char **args)
 	conter->time_eat_ph = ft_atoi(args[5]);
 }
 
-void	*process_init(void *date)
+void	init_philors(t_philo *philors, t_conter *conter)
 {
-	t_philo	*ph;
+	int	i;
 
-	ph = (t_philo *)date;
-	while (++ph->eat < ph->conter->time_eat_ph)
+	i = -1;
+	while (++i < conter->num_ph)
 	{
-		stage_deading(ph);
-		stage_thinking(ph);
-		stage_eating(ph);
-		stage_sleeping(ph);
+		philors[i].id = i + 1;
+		philors[i].eat = -1;
+		philors[i].conter = conter;
+		philors[i].time = current_time();
+		philors[i].fork_left = &conter->forks[i];
+		philors[i].fork_right = &conter->forks[(i + 1) % conter->num_ph];
+		pthread_create(&philors[i].philo, NULL, process_init, &philors[i]);
 	}
-	return (NULL);
+}
+
+void	get_init(t_philo **philors, t_conter *conter)
+{
+	int	i;
+
+	i = -1;
+	*philors = malloc(sizeof(t_philo) * conter->num_ph);
+	conter->forks = malloc(sizeof(pthread_mutex_t) * conter->num_ph);
+	while (++i < conter->num_ph)
+		pthread_mutex_init(&conter->forks[i], NULL);
+	pthread_mutex_init(&conter->sleep, NULL);
 }
 
 void	philo_init(char **args)
 {
-	int			i;
 	t_conter	conter;
 	t_philo		*philors;
 
-	i = -1;
 	get_conter_init(&conter, args);
-	philors = malloc(sizeof(t_philo) * conter.num_ph);
-	conter.forks = malloc(sizeof(pthread_mutex_t) * conter.num_ph);
-	while (++i < conter.num_ph)
-		pthread_mutex_init(&conter.forks[i], NULL);
-	i = -1;
-	while (++i < conter.num_ph)
-	{
-		philors[i].id = i + 1;
-		philors[i].eat = -1;
-		philors[i].conter = &conter;
-		philors[i].time = current_time();
-		philors[i].fork_left = &conter.forks[i];
-		philors[i].fork_right = &conter.forks[(i + 1) % conter.num_ph];
-		pthread_create(&philors[i].philo, NULL, process_init, &philors[i]);
-	}
-	i = -1;
-	while (++i < conter.num_ph)
-		pthread_join(philors[i].philo, NULL);
+	get_init(&philors, &conter);
+	init_philors(philors, &conter);
+	wait_philos(philors, &conter);
 	free(conter.forks);
 	free(philors);
 }

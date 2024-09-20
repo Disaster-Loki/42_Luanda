@@ -31,7 +31,7 @@ int	ft_atoi(char *str)
 	return (res * sig);
 }
 
-long long	current_time()
+long long	current_time(void)
 {
 	struct timeval	time;
 
