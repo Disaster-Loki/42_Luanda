@@ -33,6 +33,7 @@ void	init_philors(t_philo *philors, t_conter *conter)
 		philors[i].id = i + 1;
 		philors[i].conter = conter;
 		philors[i].time = current_time();
+		philors[i].last_eat = current_time();
 		philors[i].fork_left = &conter->forks[i];
 		philors[i].fork_right = &conter->forks[(i + 1) % conter->num_ph];
 		pthread_create(&philors[i].philo, NULL, process_init, &philors[i]);
@@ -48,7 +49,8 @@ void	get_init(t_philo **philors, t_conter *conter)
 	conter->forks = malloc(sizeof(pthread_mutex_t) * conter->num_ph);
 	while (++i < conter->num_ph)
 		pthread_mutex_init(&conter->forks[i], NULL);
-	pthread_mutex_init(&conter->sleep, NULL);
+	pthread_mutex_init(&conter->stop, NULL);
+	pthread_mutex_init(&conter->meal, NULL);
 }
 
 void	philo_init(char **args)

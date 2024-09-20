@@ -14,7 +14,6 @@
 
 int	main(int av, char **args)
 {
-	(void)args;
 	error_handler(av);
 	philo_init(args);
 	return (0);

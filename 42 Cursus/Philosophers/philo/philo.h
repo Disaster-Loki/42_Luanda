@@ -35,8 +35,9 @@ typedef struct s_conter
 	int				time_sleep;
 	int				time_eat_ph;
 	int				dead;
+	pthread_mutex_t	stop;
+	pthread_mutex_t	meal;
 	pthread_mutex_t	*forks;
-	pthread_mutex_t	sleep;
 }	t_conter;
 
 typedef struct s_philo

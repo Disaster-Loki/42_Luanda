@@ -26,7 +26,7 @@ void	*process_init(void *date)
 	t_philo	*ph;
 
 	ph = (t_philo *)date;
-	while (!ph->conter->dead && (++ph->i < ph->conter->time_eat_ph))
+	while (++ph->i < ph->conter->time_eat_ph)
 	{
 		if (!stage_deading(ph))
 			break ;
