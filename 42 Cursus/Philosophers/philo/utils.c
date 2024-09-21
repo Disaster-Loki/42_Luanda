@@ -41,6 +41,11 @@ long long	current_time(void)
 
 void	print_msg(t_philo *ph, char *str, char *color)
 {
-	printf("[%lli] ", (current_time() - ph->time));
-	printf("%d %s%s%s", ph->id, color, str, RESET);
+	pthread_mutex_lock(&ph->conter->msg);
+	if (ph->conter->dead == 0)
+	{
+		printf("[%lli] ", (current_time() - ph->time));
+		printf("%d %s%s%s", ph->id, color, str, RESET);
+	}
+	pthread_mutex_unlock(&ph->conter->msg);
 }

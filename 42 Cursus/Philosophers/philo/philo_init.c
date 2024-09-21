@@ -12,14 +12,16 @@
 
 #include "philo.h"
 
-void	get_conter_init(t_conter *conter, char **args)
+void	get_conter_init(t_conter *conter, int av, char **args)
 {
 	conter->dead = 0;
+	conter->time_eat_ph = 0;
 	conter->num_ph = ft_atoi(args[1]);
 	conter->time_die = ft_atoi(args[2]);
 	conter->time_eat = ft_atoi(args[3]);
 	conter->time_sleep = ft_atoi(args[4]);
-	conter->time_eat_ph = ft_atoi(args[5]);
+	if (av == 6)
+		conter->time_eat_ph = ft_atoi(args[5]);
 }
 
 void	init_philors(t_philo *philors, t_conter *conter)
@@ -33,7 +35,6 @@ void	init_philors(t_philo *philors, t_conter *conter)
 		philors[i].id = i + 1;
 		philors[i].conter = conter;
 		philors[i].time = current_time();
-		philors[i].last_eat = current_time();
 		philors[i].fork_left = &conter->forks[i];
 		philors[i].fork_right = &conter->forks[(i + 1) % conter->num_ph];
 		pthread_create(&philors[i].philo, NULL, process_init, &philors[i]);
@@ -49,16 +50,15 @@ void	get_init(t_philo **philors, t_conter *conter)
 	conter->forks = malloc(sizeof(pthread_mutex_t) * conter->num_ph);
 	while (++i < conter->num_ph)
 		pthread_mutex_init(&conter->forks[i], NULL);
-	pthread_mutex_init(&conter->stop, NULL);
-	pthread_mutex_init(&conter->meal, NULL);
+	pthread_mutex_init(&conter->msg, NULL);
 }
 
-void	philo_init(char **args)
+void	philo_init(int av, char **args)
 {
 	t_conter	conter;
 	t_philo		*philors;
 
-	get_conter_init(&conter, args);
+	get_conter_init(&conter, av, args);
 	get_init(&philors, &conter);
 	init_philors(philors, &conter);
 	wait_philos(philors, &conter);

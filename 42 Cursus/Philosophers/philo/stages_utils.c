@@ -14,14 +14,37 @@
 
 void	stage_pick_up_fork(t_philo *ph)
 {
-	pthread_mutex_lock(ph->fork_left);
-	print_msg(ph, "pick up left fork\n", YELLOW);
-	pthread_mutex_lock(ph->fork_right);
-	print_msg(ph, "pick up right fork\n", YELLOW);
+	if (ph->id % 2 == 0)
+	{
+		pthread_mutex_lock(ph->fork_left);
+		print_msg(ph, "pick up left fork\n", YELLOW);
+		pthread_mutex_lock(ph->fork_right);
+		print_msg(ph, "pick up right fork\n", YELLOW);
+	}
+	else
+	{
+		usleep(2000);
+		pthread_mutex_lock(ph->fork_right);
+		print_msg(ph, "pick up right fork\n", YELLOW);
+		pthread_mutex_lock(ph->fork_left);
+		print_msg(ph, "pick up left fork\n", YELLOW);
+	}
 }
 
 void	stage_drop_fork(t_philo *ph)
 {
-	pthread_mutex_unlock(ph->fork_left);
-	pthread_mutex_unlock(ph->fork_right);
+	if (ph->id % 2 == 0)
+	{
+		pthread_mutex_unlock(ph->fork_left);
+		print_msg(ph, "drop_fork_left\n", YELLOW);
+		pthread_mutex_unlock(ph->fork_right);
+		print_msg(ph, "drop_fork_right\n", YELLOW);
+	}
+	else
+	{
+		pthread_mutex_unlock(ph->fork_right);
+		print_msg(ph, "drop_fork_right\n", YELLOW);
+		pthread_mutex_unlock(ph->fork_left);
+		print_msg(ph, "drop_fork_left\n", YELLOW);
+	}
 }

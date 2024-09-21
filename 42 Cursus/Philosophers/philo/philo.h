@@ -35,8 +35,7 @@ typedef struct s_conter
 	int				time_sleep;
 	int				time_eat_ph;
 	int				dead;
-	pthread_mutex_t	stop;
-	pthread_mutex_t	meal;
+	pthread_mutex_t	msg;
 	pthread_mutex_t	*forks;
 }	t_conter;
 
@@ -47,7 +46,6 @@ typedef struct s_philo
 	pthread_t		philo;
 	long long		time;
 	t_conter		*conter;
-	long long		last_eat;
 	pthread_mutex_t	*fork_left;
 	pthread_mutex_t	*fork_right;
 }	t_philo;
@@ -55,8 +53,7 @@ typedef struct s_philo
 void		error(char *msg);
 long long	current_time(void);
 int			ft_atoi(char *str);
-void		error_handler(int av);
-void		philo_init(char **args);
+void		philo_init(int av, char **args);
 void		*process_init(void *date);
 void		stage_eating(t_philo *ph);
 int			stage_deading(t_philo *ph);
@@ -64,8 +61,9 @@ void		stage_thinking(t_philo *ph);
 void		stage_sleeping(t_philo *ph);
 void		stage_drop_fork(t_philo *ph);
 void		stage_pick_up_fork(t_philo *ph);
+int			error_handler(int av, char **args);
 void		get_init(t_philo **philors, t_conter *conter);
-void		get_conter_init(t_conter *conter, char **args);
+void		get_conter_init(t_conter *conter, int av, char **args);
 void		print_msg(t_philo *ph, char *str, char *color);
 void		wait_philos(t_philo *philors, t_conter *conter);
 void		init_philors(t_philo *philors, t_conter *conter);

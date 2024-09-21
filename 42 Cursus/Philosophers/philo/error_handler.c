@@ -15,16 +15,24 @@
 void	error(char *msg)
 {
 	printf("%s%s%s", msg, ORANGE, RESET);
-	exit(1);
 }
 
-void	error_handler(int av)
+int	error_handler(int av, char **args)
 {
-	if (av == 1)
-		error("Error - Missing Arguments\n");
-	if (av < 6)
+	if (av != 5 && av != 6)
 	{
-		error("Error - [N_philo] [Time_die] [Time_eat]");
-		error("[Time_sleep] [Time_eat_philo]\n");
+		error("Error - check the parameters\n");
+		return (0);
 	}
+	if (ft_atoi(args[1]) > 200)
+	{
+		error("Error - many philosophers\n");
+		return (0);
+	}
+	if (ft_atoi(args[2]) < 60 || ft_atoi(args[3]) < 60 || ft_atoi(args[2]) < 60)
+	{
+		error("Error - Timers minimum parameter 60 ms\n");
+		return (0);
+	}
+	return (1);
 }
