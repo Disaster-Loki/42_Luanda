@@ -37,14 +37,16 @@ typedef struct s_conter
 	int				dead;
 	pthread_mutex_t	msg;
 	pthread_mutex_t	*forks;
+	pthread_mutex_t	mutex_dead;
 }	t_conter;
 
 typedef struct s_philo
 {
-	int				i;
 	int				id;
+	int				eat;
 	pthread_t		philo;
 	long long		time;
+	long long		start;
 	t_conter		*conter;
 	pthread_mutex_t	*fork_left;
 	pthread_mutex_t	*fork_right;
@@ -53,6 +55,8 @@ typedef struct s_philo
 void		error(char *msg);
 long long	current_time(void);
 int			ft_atoi(char *str);
+int			stage_one(t_philo *ph);
+void		strac_usleep(t_philo *ph, int lim);
 void		philo_init(int av, char **args);
 void		*process_init(void *date);
 void		stage_eating(t_philo *ph);

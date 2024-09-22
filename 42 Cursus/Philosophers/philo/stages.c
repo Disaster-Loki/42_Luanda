@@ -14,49 +14,39 @@
 
 void	stage_thinking(t_philo *ph)
 {
+	if (!stage_deading(ph))
+		return ;
 	print_msg(ph, "is thinking\n", BLUE);
 }
 
 void	stage_eating(t_philo *ph)
 {
-	ph->time = current_time();
-	usleep(ph->conter->time_eat * 1000);
-	print_msg(ph, "is eating\n", LIME);
-	pthread_mutex_lock(&ph->conter->msg);
 	if (!stage_deading(ph))
-	{
-		pthread_mutex_unlock(&ph->conter->msg);
 		return ;
-	}
-	pthread_mutex_unlock(&ph->conter->msg);
+	print_msg(ph, "is eating\n", LIME);
+	strac_usleep(ph, ph->conter->time_eat);
+	ph->time = current_time();
 }
 
 void	stage_sleeping(t_philo *ph)
 {
-	ph->time = current_time();
-	usleep(ph->conter->time_sleep * 1000);
-	print_msg(ph, "is sleeping\n", D_BLUE);
-	pthread_mutex_lock(&ph->conter->msg);
 	if (!stage_deading(ph))
-	{
-		pthread_mutex_unlock(&ph->conter->msg);
 		return ;
-	}
-	pthread_mutex_unlock(&ph->conter->msg);
+	print_msg(ph, "is sleeping\n", D_BLUE);
+	strac_usleep(ph, ph->conter->time_sleep);
 }
 
 int	stage_deading(t_philo *ph)
 {
-	if ((current_time() - ph->time) >= ph->conter->time_die)
+	long long	time_elapsed;
+
+	pthread_mutex_lock(&ph->conter->mutex_dead);
+	time_elapsed = current_time() - ph->time;
+	if (time_elapsed >= ph->conter->time_die && ph->conter->dead == 0)
 	{
-		if (ph->conter->dead == 0)
-		{
-			pthread_mutex_unlock(&ph->conter->msg);
-			ph->conter->dead = 1;
-			print_msg(ph, "dead philosopher\n", RED);
-			pthread_mutex_unlock(&ph->conter->msg);
-		}
-		return (0);
+		print_msg(ph, "dead philosopher\n", RED);
+		ph->conter->dead = 1;
 	}
-	return (1);
+	pthread_mutex_unlock(&ph->conter->mutex_dead);
+	return (ph->conter->dead == 0);
 }

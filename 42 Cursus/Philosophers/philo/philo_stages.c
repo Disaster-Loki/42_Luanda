@@ -12,13 +12,20 @@
 
 #include "philo.h"
 
-void	wait_philos(t_philo *philors, t_conter *conter)
+int	stage_one(t_philo *ph)
 {
-	int	i;
-
-	i = -1;
-	while (++i < conter->num_ph)
-		pthread_join(philors[i].philo, NULL);
+	if (ph->conter->num_ph == 1)
+	{
+		stage_thinking(ph);
+		pthread_mutex_lock(ph->fork_left);
+		print_msg(ph, "pick up left fork\n", YELLOW);
+		strac_usleep(ph, ph->conter->time_die);
+		print_msg(ph, "dead philosopher\n", RED);
+		ph->conter->dead = 1;
+		pthread_mutex_unlock(ph->fork_left);
+		return (1);
+	}
+	return (0);
 }
 
 void	*process_init(void *date)
@@ -26,17 +33,35 @@ void	*process_init(void *date)
 	t_philo	*ph;
 
 	ph = (t_philo *)date;
-	while (1)
+	while ((ph->conter->time_eat_ph == 0
+			|| ph->eat < ph->conter->time_eat_ph))
 	{
-		if (ph->conter->dead)
-			break ;
 		if (!stage_deading(ph))
+			break ;
+		if (stage_one(ph))
 			break ;
 		stage_thinking(ph);
 		stage_pick_up_fork(ph);
 		stage_eating(ph);
+		ph->eat++;
 		stage_drop_fork(ph);
 		stage_sleeping(ph);
+		pthread_mutex_lock(ph->conter->dead);
+		if (ph->conter->dead)
+		{
+			pthread_mutex_unlock(ph->conter->dead);
+			break ;
+		}
+		pthread_mutex_unlock(ph->conter->dead);
 	}
 	return (NULL);
+}
+
+void	wait_philos(t_philo *philors, t_conter *conter)
+{
+	int	i;
+
+	i = -1;
+	while (++i < conter->num_ph)
+		pthread_join(philors[i].philo, NULL);
 }

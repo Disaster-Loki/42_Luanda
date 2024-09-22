@@ -29,10 +29,5 @@ int	error_handler(int av, char **args)
 		error("Error - many philosophers\n");
 		return (0);
 	}
-	if (ft_atoi(args[2]) < 60 || ft_atoi(args[3]) < 60 || ft_atoi(args[2]) < 60)
-	{
-		error("Error - Timers minimum parameter 60 ms\n");
-		return (0);
-	}
 	return (1);
 }

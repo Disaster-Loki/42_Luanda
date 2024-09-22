@@ -39,12 +39,25 @@ long long	current_time(void)
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
 }
 
+void	strac_usleep(t_philo *ph, int lim)
+{
+	int	i;
+
+	i = -1;
+	while (++i < (lim / 10))
+	{
+		if (!stage_deading(ph))
+			break ;
+		usleep(10000);
+	}
+}
+
 void	print_msg(t_philo *ph, char *str, char *color)
 {
 	pthread_mutex_lock(&ph->conter->msg);
 	if (ph->conter->dead == 0)
 	{
-		printf("[%lli] ", (current_time() - ph->time));
+		printf("[%lli] ", (current_time() - ph->start));
 		printf("%d %s%s%s", ph->id, color, str, RESET);
 	}
 	pthread_mutex_unlock(&ph->conter->msg);

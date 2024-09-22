@@ -31,10 +31,11 @@ void	init_philors(t_philo *philors, t_conter *conter)
 	i = -1;
 	while (++i < conter->num_ph)
 	{
-		philors[i].i = -1;
+		philors[i].eat = 0;
 		philors[i].id = i + 1;
 		philors[i].conter = conter;
 		philors[i].time = current_time();
+		philors[i].start = current_time();
 		philors[i].fork_left = &conter->forks[i];
 		philors[i].fork_right = &conter->forks[(i + 1) % conter->num_ph];
 		pthread_create(&philors[i].philo, NULL, process_init, &philors[i]);
@@ -51,6 +52,7 @@ void	get_init(t_philo **philors, t_conter *conter)
 	while (++i < conter->num_ph)
 		pthread_mutex_init(&conter->forks[i], NULL);
 	pthread_mutex_init(&conter->msg, NULL);
+	pthread_mutex_init(&conter->mutex_dead, NULL);
 }
 
 void	philo_init(int av, char **args)

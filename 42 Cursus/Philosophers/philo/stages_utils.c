@@ -36,15 +36,11 @@ void	stage_drop_fork(t_philo *ph)
 	if (ph->id % 2 == 0)
 	{
 		pthread_mutex_unlock(ph->fork_left);
-		print_msg(ph, "drop_fork_left\n", YELLOW);
 		pthread_mutex_unlock(ph->fork_right);
-		print_msg(ph, "drop_fork_right\n", YELLOW);
 	}
 	else
 	{
 		pthread_mutex_unlock(ph->fork_right);
-		print_msg(ph, "drop_fork_right\n", YELLOW);
 		pthread_mutex_unlock(ph->fork_left);
-		print_msg(ph, "drop_fork_left\n", YELLOW);
 	}
 }
