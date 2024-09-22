@@ -33,8 +33,7 @@ void	*process_init(void *date)
 	t_philo	*ph;
 
 	ph = (t_philo *)date;
-	while ((ph->conter->time_eat_ph == 0
-			|| ph->eat < ph->conter->time_eat_ph))
+	while (ph->conter->time_eat_ph == 0 || ph->eat < ph->conter->time_eat_ph)
 	{
 		if (!stage_deading(ph))
 			break ;
@@ -46,13 +45,13 @@ void	*process_init(void *date)
 		ph->eat++;
 		stage_drop_fork(ph);
 		stage_sleeping(ph);
-		pthread_mutex_lock(ph->conter->dead);
+		pthread_mutex_lock(&ph->conter->mutex_dead);
 		if (ph->conter->dead)
 		{
-			pthread_mutex_unlock(ph->conter->dead);
+			pthread_mutex_unlock(&ph->conter->mutex_dead);
 			break ;
 		}
-		pthread_mutex_unlock(ph->conter->dead);
+		pthread_mutex_unlock(&ph->conter->mutex_dead);
 	}
 	return (NULL);
 }

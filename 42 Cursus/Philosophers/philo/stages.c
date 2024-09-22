@@ -46,7 +46,9 @@ int	stage_deading(t_philo *ph)
 	{
 		print_msg(ph, "dead philosopher\n", RED);
 		ph->conter->dead = 1;
+		pthread_mutex_unlock(&ph->conter->mutex_dead);
+		return (0);
 	}
 	pthread_mutex_unlock(&ph->conter->mutex_dead);
-	return (ph->conter->dead == 0);
+	return (1);
 }
