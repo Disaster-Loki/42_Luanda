@@ -21,12 +21,17 @@ int	error_handler(int av, char **args)
 {
 	if (av != 5 && av != 6)
 	{
-		error("Error - check the parameters\n");
+		error("Error - Check the parameters\n");
 		return (0);
 	}
 	if (ft_atoi(args[1]) > 200)
 	{
-		error("Error - many philosophers\n");
+		error("Error - Many philosophers\n");
+		return (0);
+	}
+	if (!check_args(av, args))
+	{
+		error("Error - Invalid parameters\n");
 		return (0);
 	}
 	return (1);

@@ -52,6 +52,27 @@ void	strac_usleep(t_philo *ph, int lim)
 	}
 }
 
+int	check_args(int av, char **args)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (++i < av)
+	{
+		j = 0;
+		if (args[i][j] == '+' || args[i][j] == '-')
+			j++;
+		while (args[i][j])
+		{
+			if (args[i][j] < '0' || args[i][j] > '9')
+				return (0);
+			j++;
+		}
+	}
+	return (1);
+}
+
 void	print_msg(t_philo *ph, char *str, char *color)
 {
 	pthread_mutex_lock(&ph->conter->msg);

@@ -56,6 +56,7 @@ void		error(char *msg);
 long long	current_time(void);
 int			ft_atoi(char *str);
 int			stage_one(t_philo *ph);
+int			check_args(int av, char **args);
 void		strac_usleep(t_philo *ph, int lim);
 void		philo_init(int av, char **args);
 void		*process_init(void *date);
