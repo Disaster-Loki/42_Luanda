@@ -33,12 +33,13 @@ void	init_philors(t_philo *philors, t_conter *conter)
 	{
 		philors[i].eat = 0;
 		philors[i].id = i + 1;
+		philors[i].pid = fork();
 		philors[i].conter = conter;
 		philors[i].time = current_time();
 		philors[i].start = current_time();
-		philors[i].fork_left = &conter->forks[i];
-		philors[i].fork_right = &conter->forks[(i + 1) % conter->num_ph];
-		pthread_create(&philors[i].philo, NULL, process_init, &philors[i]);
+		philors[i].fork_left = conter->forks[i];
+		philors[i].fork_right = conter->forks[(i + 1) % conter->num_ph];
+		process_init(&philors[i]);
 	}
 }
 
@@ -48,11 +49,17 @@ void	get_init(t_philo **philors, t_conter *conter)
 
 	i = -1;
 	*philors = malloc(sizeof(t_philo) * conter->num_ph);
-	conter->forks = malloc(sizeof(pthread_mutex_t) * conter->num_ph);
+	conter->forks = malloc(sizeof(sem_t *) * conter->num_ph);
+	if (!conter->forks)
+		return ;
 	while (++i < conter->num_ph)
-		pthread_mutex_init(&conter->forks[i], NULL);
-	pthread_mutex_init(&conter->msg, NULL);
-	pthread_mutex_init(&conter->mutex_dead, NULL);
+	{
+		conter->forks[i] = sem_open("/process_philo", O_CREAT, 0644, 1);
+		if (conter->forks[i] == SEM_FAILED)
+			error("Error - Failed to create Semaphore");
+	}
+	ft_memset(&conter->msg, 0, sizeof(sem_t));
+	ft_memset(&conter->mutex_dead, 0, sizeof(sem_t));
 }
 
 void	philo_init(int av, char **args)

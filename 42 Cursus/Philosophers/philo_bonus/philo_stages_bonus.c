@@ -17,12 +17,12 @@ int	stage_one(t_philo *ph)
 	if (ph->conter->num_ph == 1)
 	{
 		stage_thinking(ph);
-		pthread_mutex_lock(ph->fork_left);
+		sem_wait(ph->fork_left);
 		print_msg(ph, "has taken a fork\n", YELLOW);
 		strac_usleep(ph, ph->conter->time_die);
 		print_msg(ph, "dead\n", RED);
 		ph->conter->dead = 1;
-		pthread_mutex_unlock(ph->fork_left);
+		sem_post(ph->fork_left);
 		return (1);
 	}
 	return (0);
@@ -45,13 +45,13 @@ void	*process_init(void *date)
 		ph->eat++;
 		stage_drop_fork(ph);
 		stage_sleeping(ph);
-		pthread_mutex_lock(&ph->conter->mutex_dead);
+		sem_wait(&ph->conter->mutex_dead);
 		if (ph->conter->dead)
 		{
-			pthread_mutex_unlock(&ph->conter->mutex_dead);
+			sem_post(&ph->conter->mutex_dead);
 			break ;
 		}
-		pthread_mutex_unlock(&ph->conter->mutex_dead);
+		sem_post(&ph->conter->mutex_dead);
 	}
 	return (NULL);
 }
@@ -62,5 +62,10 @@ void	wait_philos(t_philo *philors, t_conter *conter)
 
 	i = -1;
 	while (++i < conter->num_ph)
-		pthread_join(philors[i].philo, NULL);
+	{
+		waitpid(philors[i].pid, NULL, 0);
+		sem_close(conter->forks[i]);
+		kill(philors[i].pid, SIGTERM);
+	}
+	sem_unlink("/process_philo");
 }

@@ -13,11 +13,15 @@
 #ifndef PHILO_BONUS_H
 # define PHILO_BONUS_H
 
+#include <wait.h>
+# include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
+# include <string.h>
 # include <unistd.h>
 # include <pthread.h>
 # include <sys/time.h>
+# include <semaphore.h>
 
 # define RESET "\033[0m"
 # define BLUE "\033[38;2;0;0;255m"
@@ -35,21 +39,21 @@ typedef struct s_conter
 	int				time_sleep;
 	int				time_eat_ph;
 	int				dead;
-	pthread_mutex_t	msg;
-	pthread_mutex_t	*forks;
-	pthread_mutex_t	mutex_dead;
+	sem_t			msg;
+	sem_t			**forks;
+	sem_t			mutex_dead;
 }	t_conter;
 
 typedef struct s_philo
 {
 	int				id;
 	int				eat;
-	pthread_t		philo;
+	pid_t			pid;
 	long long		time;
 	long long		start;
 	t_conter		*conter;
-	pthread_mutex_t	*fork_left;
-	pthread_mutex_t	*fork_right;
+	sem_t			*fork_left;
+	sem_t			*fork_right;
 }	t_philo;
 
 void		error(char *msg);
@@ -59,6 +63,7 @@ int			stage_one(t_philo *ph);
 int			check_args(int av, char **args);
 void		strac_usleep(t_philo *ph, int lim);
 void		philo_init(int av, char **args);
+void		*ft_memset(void *s, int c, size_t n);
 void		*process_init(void *date);
 void		stage_eating(t_philo *ph);
 int			stage_deading(t_philo *ph);

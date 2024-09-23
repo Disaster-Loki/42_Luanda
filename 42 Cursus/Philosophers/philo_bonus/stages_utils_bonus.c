@@ -12,21 +12,31 @@
 
 #include "philo_bonus.h"
 
+void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*ptr;
+
+	ptr = (unsigned char *)s;
+	while (n--)
+		*ptr++ = (unsigned char)c;
+	return (s);
+}
+
 void	stage_pick_up_fork(t_philo *ph)
 {
 	if (ph->id % 2 == 0)
 	{
-		pthread_mutex_lock(ph->fork_left);
+		sem_wait(ph->fork_left);
 		print_msg(ph, "has taken a fork\n", YELLOW);
-		pthread_mutex_lock(ph->fork_right);
+		sem_wait(ph->fork_right);
 		print_msg(ph, "has taken a fork\n", YELLOW);
 	}
 	else
 	{
 		usleep(2000);
-		pthread_mutex_lock(ph->fork_right);
+		sem_wait(ph->fork_right);
 		print_msg(ph, "has taken a fork\n", YELLOW);
-		pthread_mutex_lock(ph->fork_left);
+		sem_wait(ph->fork_left);
 		print_msg(ph, "has taken a fork\n", YELLOW);
 	}
 }
@@ -35,12 +45,12 @@ void	stage_drop_fork(t_philo *ph)
 {
 	if (ph->id % 2 == 0)
 	{
-		pthread_mutex_unlock(ph->fork_left);
-		pthread_mutex_unlock(ph->fork_right);
+		sem_post(ph->fork_left);
+		sem_post(ph->fork_right);
 	}
 	else
 	{
-		pthread_mutex_unlock(ph->fork_right);
-		pthread_mutex_unlock(ph->fork_left);
+		sem_post(ph->fork_right);
+		sem_post(ph->fork_left);
 	}
 }
