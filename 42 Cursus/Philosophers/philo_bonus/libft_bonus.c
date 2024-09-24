@@ -62,8 +62,8 @@ char	*ft_strncpy(char *desc, char *src, unsigned int n)
 char	*ft_itoa(int n)
 {
 	int		len;
-	char	*ptr;
 	long	nbr;
+	char	*ptr;
 
 	nbr = n;
 	len = ft_numlen(nbr);

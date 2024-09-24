@@ -66,13 +66,13 @@ void	wait_philos(t_philo *philors, t_conter *conter)
 	i = -1;
 	while (++i < conter->num_ph)
 	{
-		ft_strncpy(b_str, "/philo_", sizeof(str));
-		n_str = ft_itoa(i);
+		ft_strncpy(b_str, "/philo_", sizeof(b_str));
+		n_str = ft_itoa(i + 1);
 		str = ft_strcat(b_str, n_str);
-		free(n_str);
 		waitpid(philors[i].pid, NULL, 0);
 		sem_close(conter->forks[i]);
 		sem_unlink(str);
+		free(n_str);
 	}
 	sem_close(conter->msg);
 	sem_unlink("/msg");
