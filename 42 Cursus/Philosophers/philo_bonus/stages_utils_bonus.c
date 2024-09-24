@@ -12,16 +12,6 @@
 
 #include "philo_bonus.h"
 
-void	*ft_memset(void *s, int c, size_t n)
-{
-	unsigned char	*ptr;
-
-	ptr = (unsigned char *)s;
-	while (n--)
-		*ptr++ = (unsigned char)c;
-	return (s);
-}
-
 void	stage_pick_up_fork(t_philo *ph)
 {
 	if (ph->id % 2 == 0)

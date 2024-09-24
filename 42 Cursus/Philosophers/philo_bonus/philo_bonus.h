@@ -13,7 +13,7 @@
 #ifndef PHILO_BONUS_H
 # define PHILO_BONUS_H
 
-#include <wait.h>
+# include <wait.h>
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdlib.h>
@@ -39,9 +39,9 @@ typedef struct s_conter
 	int				time_sleep;
 	int				time_eat_ph;
 	int				dead;
-	sem_t			msg;
+	sem_t			*msg;
 	sem_t			**forks;
-	sem_t			mutex_dead;
+	sem_t			*mutex_dead;
 }	t_conter;
 
 typedef struct s_philo
@@ -56,6 +56,9 @@ typedef struct s_philo
 	sem_t			*fork_right;
 }	t_philo;
 
+char		*ft_strcat(char *dest, char *src);
+char		*ft_itoa(int n);
+char		*ft_strncpy(char *desc, char *src, unsigned int n);
 void		error(char *msg);
 long long	current_time(void);
 int			ft_atoi(char *str);
@@ -63,7 +66,6 @@ int			stage_one(t_philo *ph);
 int			check_args(int av, char **args);
 void		strac_usleep(t_philo *ph, int lim);
 void		philo_init(int av, char **args);
-void		*ft_memset(void *s, int c, size_t n);
 void		*process_init(void *date);
 void		stage_eating(t_philo *ph);
 int			stage_deading(t_philo *ph);

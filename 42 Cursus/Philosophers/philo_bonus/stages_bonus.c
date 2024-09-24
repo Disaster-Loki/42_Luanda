@@ -40,15 +40,15 @@ int	stage_deading(t_philo *ph)
 {
 	long long	time_elapsed;
 
-	sem_wait(&ph->conter->mutex_dead);
+	sem_wait(ph->conter->mutex_dead);
 	time_elapsed = current_time() - ph->time;
 	if (time_elapsed >= ph->conter->time_die && ph->conter->dead == 0)
 	{
-		print_msg(ph, "dead\n", RED);
+		print_msg(ph, "died\n", RED);
 		ph->conter->dead = 1;
-		sem_post(&ph->conter->mutex_dead);
+		sem_post(ph->conter->mutex_dead);
 		return (0);
 	}
-	sem_post(&ph->conter->mutex_dead);
+	sem_post(ph->conter->mutex_dead);
 	return (1);
 }

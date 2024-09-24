@@ -20,7 +20,7 @@ int	stage_one(t_philo *ph)
 		pthread_mutex_lock(ph->fork_left);
 		print_msg(ph, "has taken a fork\n", YELLOW);
 		strac_usleep(ph, ph->conter->time_die);
-		print_msg(ph, "dead\n", RED);
+		print_msg(ph, "died\n", RED);
 		ph->conter->dead = 1;
 		pthread_mutex_unlock(ph->fork_left);
 		return (1);

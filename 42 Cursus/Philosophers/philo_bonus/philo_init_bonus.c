@@ -45,21 +45,28 @@ void	init_philors(t_philo *philors, t_conter *conter)
 
 void	get_init(t_philo **philors, t_conter *conter)
 {
-	int	i;
+	int		i;
+	char	*str;
+	char	*n_str;
+	char	b_str[8];
 
-	i = -1;
 	*philors = malloc(sizeof(t_philo) * conter->num_ph);
 	conter->forks = malloc(sizeof(sem_t *) * conter->num_ph);
 	if (!conter->forks)
 		return ;
+	i = -1;
 	while (++i < conter->num_ph)
 	{
-		conter->forks[i] = sem_open("/process_philo", O_CREAT, 0644, 1);
+		ft_strncpy(b_str, "/philo_", sizeof(str));
+		n_str = ft_itoa(i);
+		str = ft_strcat(b_str, n_str);
+		free(n_str);
+		conter->forks[i] = sem_open(str, O_CREAT, 0644, 1);
 		if (conter->forks[i] == SEM_FAILED)
 			error("Error - Failed to create Semaphore");
 	}
-	ft_memset(&conter->msg, 0, sizeof(sem_t));
-	ft_memset(&conter->mutex_dead, 0, sizeof(sem_t));
+	conter->msg = sem_open("/msg", O_CREAT, 0644, 1);
+	conter->mutex_dead = sem_open("/m_dead", O_CREAT, 0644, 1);
 }
 
 void	philo_init(int av, char **args)

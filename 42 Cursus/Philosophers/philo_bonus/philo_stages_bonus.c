@@ -45,27 +45,37 @@ void	*process_init(void *date)
 		ph->eat++;
 		stage_drop_fork(ph);
 		stage_sleeping(ph);
-		sem_wait(&ph->conter->mutex_dead);
+		sem_wait(ph->conter->mutex_dead);
 		if (ph->conter->dead)
 		{
-			sem_post(&ph->conter->mutex_dead);
+			sem_post(ph->conter->mutex_dead);
 			break ;
 		}
-		sem_post(&ph->conter->mutex_dead);
+		sem_post(ph->conter->mutex_dead);
 	}
 	return (NULL);
 }
 
 void	wait_philos(t_philo *philors, t_conter *conter)
 {
-	int	i;
+	int		i;
+	char	*str;
+	char	*n_str;
+	char	b_str[8];
 
 	i = -1;
 	while (++i < conter->num_ph)
 	{
+		ft_strncpy(b_str, "/philo_", sizeof(str));
+		n_str = ft_itoa(i);
+		str = ft_strcat(b_str, n_str);
+		free(n_str);
 		waitpid(philors[i].pid, NULL, 0);
 		sem_close(conter->forks[i]);
-		kill(philors[i].pid, SIGTERM);
+		sem_unlink(str);
 	}
-	sem_unlink("/process_philo");
+	sem_close(conter->msg);
+	sem_unlink("/msg");
+	sem_close(conter->mutex_dead);
+	sem_unlink("/m_dead");
 }
