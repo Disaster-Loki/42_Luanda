@@ -76,10 +76,7 @@ int	check_args(int av, char **args)
 void	print_msg(t_philo *ph, char *str, char *color)
 {
 	sem_wait(ph->conter->msg);
-	if (ph->conter->dead == 0)
-	{
-		printf("[%lli] ", (current_time() - ph->start));
-		printf("%d %s%s%s", ph->id, color, str, RESET);
-	}
+	printf("[%lli] ", (current_time() - ph->start));
+	printf("%d %s%s%s", ph->id, color, str, RESET);
 	sem_post(ph->conter->msg);
 }

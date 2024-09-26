@@ -20,12 +20,10 @@ int	stage_one(t_philo *ph)
 		sem_wait(ph->forks);
 		print_msg(ph, "has taken a fork\n", YELLOW);
 		strac_usleep(ph, ph->conter->time_die);
-		print_msg(ph, "dead\n", RED);
-		ph->conter->dead = 1;
 		sem_post(ph->forks);
-		return (1);
+		return (0);
 	}
-	return (0);
+	return (1);
 }
 
 void	*process_init(void *date)
@@ -33,11 +31,12 @@ void	*process_init(void *date)
 	t_philo	*ph;
 
 	ph = (t_philo *)date;
+	sem_wait(ph->conter->mutex_dead);
 	while (ph->conter->time_eat_ph == 0 || ph->eat < ph->conter->time_eat_ph)
 	{
 		if (!stage_deading(ph))
 			break ;
-		if (stage_one(ph))
+		if (!stage_one(ph))
 			break ;
 		stage_thinking(ph);
 		stage_pick_up_fork(ph);
@@ -46,6 +45,7 @@ void	*process_init(void *date)
 		stage_drop_fork(ph);
 		stage_sleeping(ph);
 	}
+	sem_post(ph->conter->mutex_dead);
 	return (NULL);
 }
 

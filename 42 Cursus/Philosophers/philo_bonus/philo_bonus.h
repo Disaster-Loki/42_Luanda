@@ -38,7 +38,6 @@ typedef struct s_conter
 	int				time_eat;
 	int				time_sleep;
 	int				time_eat_ph;
-	int				dead;
 	sem_t			*msg;
 	sem_t			*forks;
 	sem_t			*mutex_dead;

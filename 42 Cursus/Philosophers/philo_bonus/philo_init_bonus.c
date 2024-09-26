@@ -14,7 +14,6 @@
 
 void	get_conter_init(t_conter *conter, int av, char **args)
 {
-	conter->dead = 0;
 	conter->time_eat_ph = 0;
 	conter->num_ph = ft_atoi(args[1]);
 	conter->time_die = ft_atoi(args[2]);
