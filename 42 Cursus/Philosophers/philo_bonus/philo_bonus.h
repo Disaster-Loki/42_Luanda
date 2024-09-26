@@ -40,7 +40,7 @@ typedef struct s_conter
 	int				time_eat_ph;
 	int				dead;
 	sem_t			*msg;
-	sem_t			**forks;
+	sem_t			*forks;
 	sem_t			*mutex_dead;
 }	t_conter;
 
@@ -52,8 +52,7 @@ typedef struct s_philo
 	long long		time;
 	long long		start;
 	t_conter		*conter;
-	sem_t			*fork_left;
-	sem_t			*fork_right;
+	sem_t			*forks;
 }	t_philo;
 
 char		*ft_strcat(char *dest, char *src);

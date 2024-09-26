@@ -25,7 +25,6 @@ void	stage_eating(t_philo *ph)
 		return ;
 	print_msg(ph, "is eating\n", LIME);
 	strac_usleep(ph, ph->conter->time_eat);
-	ph->time = current_time();
 }
 
 void	stage_sleeping(t_philo *ph)
@@ -40,15 +39,12 @@ int	stage_deading(t_philo *ph)
 {
 	long long	time_elapsed;
 
-	sem_wait(ph->conter->mutex_dead);
 	time_elapsed = current_time() - ph->time;
 	if (time_elapsed >= ph->conter->time_die && ph->conter->dead == 0)
 	{
 		print_msg(ph, "died\n", RED);
 		ph->conter->dead = 1;
-		sem_post(ph->conter->mutex_dead);
 		return (0);
 	}
-	sem_post(ph->conter->mutex_dead);
 	return (1);
 }

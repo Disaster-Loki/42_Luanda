@@ -17,12 +17,12 @@ int	stage_one(t_philo *ph)
 	if (ph->conter->num_ph == 1)
 	{
 		stage_thinking(ph);
-		sem_wait(ph->fork_left);
+		sem_wait(ph->forks);
 		print_msg(ph, "has taken a fork\n", YELLOW);
 		strac_usleep(ph, ph->conter->time_die);
 		print_msg(ph, "dead\n", RED);
 		ph->conter->dead = 1;
-		sem_post(ph->fork_left);
+		sem_post(ph->forks);
 		return (1);
 	}
 	return (0);
@@ -45,13 +45,6 @@ void	*process_init(void *date)
 		ph->eat++;
 		stage_drop_fork(ph);
 		stage_sleeping(ph);
-		sem_wait(ph->conter->mutex_dead);
-		if (ph->conter->dead)
-		{
-			sem_post(ph->conter->mutex_dead);
-			break ;
-		}
-		sem_post(ph->conter->mutex_dead);
 	}
 	return (NULL);
 }
@@ -59,21 +52,12 @@ void	*process_init(void *date)
 void	wait_philos(t_philo *philors, t_conter *conter)
 {
 	int		i;
-	char	*str;
-	char	*n_str;
-	char	b_str[8];
 
 	i = -1;
 	while (++i < conter->num_ph)
-	{
-		ft_strncpy(b_str, "/philo_", sizeof(b_str));
-		n_str = ft_itoa(i + 1);
-		str = ft_strcat(b_str, n_str);
 		waitpid(philors[i].pid, NULL, 0);
-		sem_close(conter->forks[i]);
-		sem_unlink(str);
-		free(n_str);
-	}
+	sem_close(conter->forks);
+	sem_unlink("/forks");
 	sem_close(conter->msg);
 	sem_unlink("/msg");
 	sem_close(conter->mutex_dead);

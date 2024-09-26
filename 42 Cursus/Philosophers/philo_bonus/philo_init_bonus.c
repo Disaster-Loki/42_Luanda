@@ -34,41 +34,22 @@ void	init_philors(t_philo *philors, t_conter *conter)
 		philors[i].eat = 0;
 		philors[i].id = i + 1;
 		philors[i].pid = fork();
-		if (philors[i].pid < 0)
-			error("fork failed");
 		philors[i].conter = conter;
 		philors[i].time = current_time();
 		philors[i].start = current_time();
-		philors[i].fork_left = conter->forks[i];
-		philors[i].fork_right = conter->forks[(i + 1) % conter->num_ph];
-		//printf("%d = %d\n", philors[i].id, philors[i].pid);
-		process_init(&philors[i]);
+		philors[i].forks = conter->forks;
+		if (philors[i].pid == 0)
+			process_init(&philors[i]);
 	}
 }
 
 void	get_init(t_philo **philors, t_conter *conter)
 {
-	int		i;
-	char	*str;
-	char	*n_str;
-	char	b_str[8];
+	int	len;
 
+	len = conter->num_ph;
 	*philors = malloc(sizeof(t_philo) * conter->num_ph);
-	conter->forks = malloc(sizeof(sem_t *) * conter->num_ph);
-	if (!conter->forks)
-		return ;
-	i = -1;
-	while (++i < conter->num_ph)
-	{
-		ft_strncpy(b_str, "/philo_", sizeof(b_str));
-		n_str = ft_itoa(i + 1);
-		str = ft_strcat(b_str, n_str);
-		printf("%s = %s\n", n_str, str);
-		conter->forks[i] = sem_open(str, O_CREAT, 0644, 1);
-		free(n_str);
-		if (conter->forks[i] == SEM_FAILED)
-			error("Error - Failed to create Semaphore");
-	}
+	conter->forks = sem_open("/forks", O_RDWR | O_CREAT | O_TRUNC, 0644, len);
 	conter->msg = sem_open("/msg", O_CREAT, 0644, 1);
 	conter->mutex_dead = sem_open("/m_dead", O_CREAT, 0644, 1);
 }
@@ -82,7 +63,6 @@ void	philo_init(int av, char **args)
 	get_init(&philors, &conter);
 	init_philors(philors, &conter);
 	wait_philos(philors, &conter);
-	free(conter.forks);
 	free(philors);
 	exit(0);
 }

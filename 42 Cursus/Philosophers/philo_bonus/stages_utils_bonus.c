@@ -14,33 +14,14 @@
 
 void	stage_pick_up_fork(t_philo *ph)
 {
-	if (ph->id % 2 == 0)
-	{
-		sem_wait(ph->fork_left);
-		print_msg(ph, "has taken a fork\n", YELLOW);
-		sem_wait(ph->fork_right);
-		print_msg(ph, "has taken a fork\n", YELLOW);
-	}
-	else
-	{
-		usleep(2000);
-		sem_wait(ph->fork_right);
-		print_msg(ph, "has taken a fork\n", YELLOW);
-		sem_wait(ph->fork_left);
-		print_msg(ph, "has taken a fork\n", YELLOW);
-	}
+	sem_wait(ph->forks);
+	print_msg(ph, "has taken a fork\n", YELLOW);
+	sem_wait(ph->forks);
+	print_msg(ph, "has taken a fork\n", YELLOW);
 }
 
 void	stage_drop_fork(t_philo *ph)
 {
-	if (ph->id % 2 == 0)
-	{
-		sem_post(ph->fork_left);
-		sem_post(ph->fork_right);
-	}
-	else
-	{
-		sem_post(ph->fork_right);
-		sem_post(ph->fork_left);
-	}
+	sem_post(ph->forks);
+	sem_post(ph->forks);
 }
