@@ -19,26 +19,24 @@ int	stage_one(t_philo *ph)
 		stage_thinking(ph);
 		sem_wait(ph->forks);
 		print_msg(ph, "has taken a fork\n", YELLOW);
-		strac_usleep(ph, ph->conter->time_die-1);
-		usleep(1000);
-		print_msg(ph, "died\n", RED);
+		strac_usleep(ph, ph->conter->time_die+1);
+		//print_msg(ph, "died\n", RED);
 		sem_post(ph->forks);
-		kill_all_philors(ph);
 		return (0);
 	}
 	return (1);
 }
 
-void	*process_init(void *date)
+void	process_init(t_philo *ph)
 {
-	t_philo	*ph;
+	pthread_t	monitor;
 
-	ph = (t_philo *)date;
-	pthread_create(&ph->monitor, NULL, monitor_death, ph);
-	//sem_wait(ph->conter->dead);
+	pthread_create(&monitor, NULL, monitor_death, ph);
+	pthread_detach(monitor);
 	while (ph->conter->time_eat_ph == 0 || ph->eat < ph->conter->time_eat_ph)
 	{
-		stage_one(ph);
+		if(!stage_one(ph))
+			break ;
 		stage_thinking(ph);
 		stage_pick_up_fork(ph);
 		stage_eating(ph);
@@ -46,22 +44,14 @@ void	*process_init(void *date)
 		stage_drop_fork(ph);
 		stage_sleeping(ph);
 	}
-	//sem_post(ph->conter->dead);
-	exit(1);	
-	return (NULL);
 }
 
-void	wait_philos(t_philo *philors, t_conter *conter)
+void	close_sep(t_conter *conter)
 {
-	int		i;
-
-	i = -1;
-	while (++i < conter->num_ph)
-		waitpid(philors[i].pid, NULL, 0);
-	sem_close(conter->forks);
 	sem_unlink("forks");
-	sem_close(conter->msg);
 	sem_unlink("msg");
-	sem_close(conter->dead);
 	sem_unlink("dead");
+	sem_close(conter->forks);
+	sem_close(conter->msg);
+	sem_close(conter->dead);
 }

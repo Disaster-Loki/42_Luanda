@@ -12,24 +12,28 @@
 
 #include "philo_bonus.h"
 
-void	get_conter_init(t_conter *conter, int av, char **args)
-{
-	conter->time_eat_ph = 0;
-	conter->num_ph = ft_atoi(args[1]);
-	conter->time_die = ft_atoi(args[2]);
-	conter->time_eat = ft_atoi(args[3]);
-	conter->time_sleep = ft_atoi(args[4]);
-	if (av == 6)
-		conter->time_eat_ph = ft_atoi(args[5]);
-}
-
-void	kill_all_philors(t_philo *ph)
+void	kill_all_philors(pid_t *pids, int num)
 {
 	int	i;
+	int	st;
+	pid_t	pid;
 	
 	i = -1;
-	while (++i < ph->conter->num_ph)
-		kill(ph->pid, SIGTERM);
+	while (1)
+	{
+		pid = waitpid(-1, &st, 0);
+		if (pid == -1)
+			break ;
+		if (WEXITSTATUS(st))
+		{
+			while (++i < num)
+				kill(pids[i], SIGTERM);
+			break ;
+		}
+	}
+	while (waitpid(-1, &st, 0) != -1)
+	{
+	}
 }
 
 void	*monitor_death(void *date)
@@ -42,7 +46,7 @@ void	*monitor_death(void *date)
 		if (!stage_deading(ph))
 		{
 			sem_post(ph->conter->dead);
-			kill_all_philors(ph);
+			exit(1);
 			return (NULL);
 		}
 		usleep(200);
@@ -60,36 +64,10 @@ void	init_philors(t_philo *philors, t_conter *conter)
 		philors[i].eat = 0;
 		philors[i].id = i + 1;
 		philors[i].stop = 0;
-		philors[i].pid = fork();
 		philors[i].conter = conter;
 		philors[i].time = current_time();
 		philors[i].start = current_time();
 		philors[i].forks = conter->forks;
-		if (philors[i].pid == 0)
-			process_init(&philors[i]);
 	}
 }
 
-void	get_init(t_philo **philors, t_conter *conter)
-{
-	int	len;
-
-	len = conter->num_ph;
-	*philors = malloc(sizeof(t_philo) * len);
-	conter->forks = sem_open("forks",  O_CREAT | O_EXCL, 0644, len);
-	conter->msg = sem_open("msg",  O_CREAT | O_EXCL, 0644, 1);
-	conter->dead = sem_open("dead",  O_CREAT | O_EXCL, 0644, 0);
-}
-
-void	philo_init(int av, char **args)
-{
-	t_conter	conter;
-	t_philo		*philors;
-
-	get_conter_init(&conter, av, args);
-	get_init(&philors, &conter);
-	init_philors(philors, &conter);
-	wait_philos(philors, &conter);
-	free(philors);
-	exit(0);
-}

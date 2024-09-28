@@ -47,16 +47,14 @@ typedef struct s_philo
 {
 	int				id;
 	int				eat;
-	pid_t			pid;
 	int			stop;
 	long long		time;
 	long long		start;
 	sem_t			*forks;
 	t_conter		*conter;
-	pthread_t		monitor;
 }	t_philo;
 
-void		kill_all_philors(t_philo *ph);
+void		kill_all_philors(pid_t *pid, int num);
 void		*monitor_death(void *date);
 char		*ft_strcat(char *dest, char *src);
 char		*ft_itoa(int n);
@@ -68,7 +66,7 @@ int			stage_one(t_philo *ph);
 int			check_args(int av, char **args);
 void		strac_usleep(t_philo *ph, int lim);
 void		philo_init(int av, char **args);
-void		*process_init(void *date);
+void	process_init(t_philo *ph);
 void		stage_eating(t_philo *ph);
 int			stage_deading(t_philo *ph);
 void		stage_thinking(t_philo *ph);
@@ -76,10 +74,10 @@ void		stage_sleeping(t_philo *ph);
 void		stage_drop_fork(t_philo *ph);
 void		stage_pick_up_fork(t_philo *ph);
 int			error_handler(int av, char **args);
-void		get_init(t_philo **philors, t_conter *conter);
+void		get_init(t_philo **philors, t_conter *conter, pid_t **pid);
 void		get_conter_init(t_conter *conter, int av, char **args);
 void		print_msg(t_philo *ph, char *str, char *color);
-void		wait_philos(t_philo *philors, t_conter *conter);
+void		close_sep(t_conter *conter);
 void		init_philors(t_philo *philors, t_conter *conter);
 
 #endif
