@@ -40,10 +40,10 @@ int	stage_deading(t_philo *ph)
 	long long	time_elapsed;
 
 	time_elapsed = current_time() - ph->time;
-	if (time_elapsed >= ph->conter->time_die)
+	if (time_elapsed >= ph->conter->time_die && ph->stop == 0)
 	{
 		print_msg(ph, "died\n", RED);
-		//sem_post(ph->conter->mutex_dead);
+		ph->stop = 1;
 		return (0);
 	}
 	return (1);

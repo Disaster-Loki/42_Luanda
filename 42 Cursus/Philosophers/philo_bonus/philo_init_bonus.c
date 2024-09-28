@@ -23,6 +23,33 @@ void	get_conter_init(t_conter *conter, int av, char **args)
 		conter->time_eat_ph = ft_atoi(args[5]);
 }
 
+void	kill_all_philors(t_philo *ph)
+{
+	int	i;
+	
+	i = -1;
+	while (++i < ph->conter->num_ph)
+		kill(ph->pid, SIGTERM);
+}
+
+void	*monitor_death(void *date)
+{
+	t_philo	*ph;
+	
+	ph = (t_philo *) date;
+	while (!ph->stop)
+	{
+		if (!stage_deading(ph))
+		{
+			sem_post(ph->conter->dead);
+			kill_all_philors(ph);
+			return (NULL);
+		}
+		usleep(200);
+	}
+	return (NULL);
+}
+
 void	init_philors(t_philo *philors, t_conter *conter)
 {
 	int	i;
@@ -32,6 +59,7 @@ void	init_philors(t_philo *philors, t_conter *conter)
 	{
 		philors[i].eat = 0;
 		philors[i].id = i + 1;
+		philors[i].stop = 0;
 		philors[i].pid = fork();
 		philors[i].conter = conter;
 		philors[i].time = current_time();
@@ -47,10 +75,10 @@ void	get_init(t_philo **philors, t_conter *conter)
 	int	len;
 
 	len = conter->num_ph;
-	*philors = malloc(sizeof(t_philo) * conter->num_ph);
-	conter->forks = sem_open("/forks", O_RDWR | O_CREAT | O_TRUNC, 0644, len);
-	conter->msg = sem_open("/msg", O_CREAT, 0644, 1);
-	conter->mutex_dead = sem_open("/m_dead", O_CREAT, 0644, 1);
+	*philors = malloc(sizeof(t_philo) * len);
+	conter->forks = sem_open("forks",  O_CREAT | O_EXCL, 0644, len);
+	conter->msg = sem_open("msg",  O_CREAT | O_EXCL, 0644, 1);
+	conter->dead = sem_open("dead",  O_CREAT | O_EXCL, 0644, 0);
 }
 
 void	philo_init(int av, char **args)

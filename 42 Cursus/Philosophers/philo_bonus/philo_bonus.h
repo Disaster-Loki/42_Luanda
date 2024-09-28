@@ -39,8 +39,8 @@ typedef struct s_conter
 	int				time_sleep;
 	int				time_eat_ph;
 	sem_t			*msg;
+	sem_t			*dead;
 	sem_t			*forks;
-	sem_t			*mutex_dead;
 }	t_conter;
 
 typedef struct s_philo
@@ -48,12 +48,16 @@ typedef struct s_philo
 	int				id;
 	int				eat;
 	pid_t			pid;
+	int			stop;
 	long long		time;
 	long long		start;
-	t_conter		*conter;
 	sem_t			*forks;
+	t_conter		*conter;
+	pthread_t		monitor;
 }	t_philo;
 
+void		kill_all_philors(t_philo *ph);
+void		*monitor_death(void *date);
 char		*ft_strcat(char *dest, char *src);
 char		*ft_itoa(int n);
 char		*ft_strncpy(char *desc, char *src, unsigned int n);
