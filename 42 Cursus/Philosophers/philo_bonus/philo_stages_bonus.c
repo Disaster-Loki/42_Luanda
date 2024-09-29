@@ -56,17 +56,16 @@ void	process_init(t_philo *ph, int n, t_conter *conter)
 	ph->stop = semaphore_philo(ph->id);
 	pthread_create(&monitor, NULL, monitor_death, ph);
 	pthread_detach(monitor);
-	sem_wait(ph->conter->dead);
-	while (!ph->cont &&
-		(ph->conter->time_eat_ph == 0 || ph->eat < ph->conter->time_eat_ph))
+	while (!ph->cont && (ph->conter->time_eat_ph == 0 ||
+		ph->eat < ph->conter->time_eat_ph))
 	{
 		if(!stage_one(ph))
 			break ;
 		stage_thinking(ph);
 		stage_eating(ph);
-		ph->eat++;
+		if (ph->eat >= ph->conter->time_eat_ph)
+			break;
 		stage_sleeping(ph);
 	}
-	sem_post(ph->conter->dead);
-	exit(1);
+	exit(0);
 }

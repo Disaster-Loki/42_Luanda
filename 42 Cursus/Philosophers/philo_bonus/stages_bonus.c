@@ -24,6 +24,7 @@ void	stage_eating(t_philo *ph)
 	sem_wait(ph->forks);
 	print_msg(ph, "has taken a fork\n", YELLOW);
 	print_msg(ph, "is eating\n", LIME);
+	++ph->eat;
 	ph->time = current_time();
 	strac_usleep(ph, ph->conter->time_eat);
 	sem_post(ph->forks);

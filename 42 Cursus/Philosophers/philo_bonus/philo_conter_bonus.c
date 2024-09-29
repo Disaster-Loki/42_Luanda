@@ -20,16 +20,16 @@ void	*monitor_death(void *data)
 	ph = (t_philo *)data;
 	while (!ph->cont)
 	{
+		sem_wait(ph->conter->dead);
 		time_elapsed = current_time() - ph->time;
 		if (time_elapsed >= ph->conter->time_die)
 		{
-			sem_wait(ph->conter->dead);
 			print_msg(ph, "died\n", RED);
-			sem_post(ph->conter->dead);
 			kill_all_philors(ph->conter->pids, ph->conter->num_ph);
 			exit(1);
 		}
-		usleep(20);
+		sem_post(ph->conter->dead);
+		usleep(100);
 	}
 	return (NULL);
 }
