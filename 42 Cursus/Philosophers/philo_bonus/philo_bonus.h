@@ -38,6 +38,7 @@ typedef struct s_conter
 	int				time_eat;
 	int				time_sleep;
 	int				time_eat_ph;
+	pid_t			*pids;
 	sem_t			*msg;
 	sem_t			*dead;
 	sem_t			*forks;
@@ -47,9 +48,10 @@ typedef struct s_philo
 {
 	int				id;
 	int				eat;
-	int			stop;
+	int				cont;
 	long long		time;
 	long long		start;
+	sem_t			*stop;
 	sem_t			*forks;
 	t_conter		*conter;
 }	t_philo;
@@ -66,7 +68,7 @@ int			stage_one(t_philo *ph);
 int			check_args(int av, char **args);
 void		strac_usleep(t_philo *ph, int lim);
 void		philo_init(int av, char **args);
-void	process_init(t_philo *ph);
+void		process_init(t_philo *ph, int n, t_conter *conter);
 void		stage_eating(t_philo *ph);
 int			stage_deading(t_philo *ph);
 void		stage_thinking(t_philo *ph);
@@ -78,6 +80,6 @@ void		get_init(t_philo **philors, t_conter *conter, pid_t **pid);
 void		get_conter_init(t_conter *conter, int av, char **args);
 void		print_msg(t_philo *ph, char *str, char *color);
 void		close_sep(t_conter *conter);
-void		init_philors(t_philo *philors, t_conter *conter);
+void	init_philo(t_philo *ph, t_conter *conter, int n);
 
 #endif

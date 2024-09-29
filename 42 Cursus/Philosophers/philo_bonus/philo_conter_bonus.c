@@ -12,62 +12,52 @@
 
 #include "philo_bonus.h"
 
-void	kill_all_philors(pid_t *pids, int num)
+void	*monitor_death(void *data)
 {
-	int	i;
-	int	st;
-	pid_t	pid;
+	t_philo		*ph;
+	long long	time_elapsed;
 	
-	i = -1;
-	while (1)
+	ph = (t_philo *)data;
+	while (!ph->cont)
 	{
-		pid = waitpid(-1, &st, 0);
-		if (pid == -1)
-			break ;
-		if (WEXITSTATUS(st))
+		time_elapsed = current_time() - ph->time;
+		if (time_elapsed >= ph->conter->time_die)
 		{
-			while (++i < num)
-				kill(pids[i], SIGTERM);
-			break ;
-		}
-	}
-	while (waitpid(-1, &st, 0) != -1)
-	{
-	}
-}
-
-void	*monitor_death(void *date)
-{
-	t_philo	*ph;
-	
-	ph = (t_philo *) date;
-	while (!ph->stop)
-	{
-		if (!stage_deading(ph))
-		{
+			sem_wait(ph->conter->dead);
+			print_msg(ph, "died\n", RED);
 			sem_post(ph->conter->dead);
+			kill_all_philors(ph->conter->pids, ph->conter->num_ph);
 			exit(1);
-			return (NULL);
 		}
-		usleep(200);
+		usleep(20);
 	}
 	return (NULL);
 }
 
-void	init_philors(t_philo *philors, t_conter *conter)
+void	kill_all_philors(pid_t *pids, int num)
 {
-	int	i;
-
+	int		i;
+	pid_t	pid;
+	int		status;
+	
 	i = -1;
-	while (++i < conter->num_ph)
+	while (1)
 	{
-		philors[i].eat = 0;
-		philors[i].id = i + 1;
-		philors[i].stop = 0;
-		philors[i].conter = conter;
-		philors[i].time = current_time();
-		philors[i].start = current_time();
-		philors[i].forks = conter->forks;
+		pid = waitpid(-1, &status, 0);
+		if (pid == -1)
+			break ;
+		if (WEXITSTATUS(status))
+		{
+			while (++i < num)
+			{
+				if (pids[i])
+				{
+					kill(pids[i], SIGTERM);
+				}
+			}
+			break ;
+		}
 	}
+	while (waitpid(-1, &status, 0) != -1)
+		;
 }
-

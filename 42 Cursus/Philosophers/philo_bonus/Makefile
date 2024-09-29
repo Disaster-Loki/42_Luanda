@@ -27,7 +27,7 @@ S_FILES		= ./main_bonus.c   				\
 			  ./utils_bonus.c  				\
 			  ./error_handler_bonus.c 		\
 			  ./stages_bonus.c 				\
-			  ./stages_utils_bonus.c 		\
+			  ./philo_init_bonus.c			\
 			  ./philo_stages_bonus.c 		\
 			  ./philo_conter_bonus.c 		\
 
