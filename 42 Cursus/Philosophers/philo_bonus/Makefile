@@ -23,7 +23,6 @@ ORANGE		= \033[38;5;208m
 GREEN		= \033[32m
 
 S_FILES		= ./main_bonus.c   				\
-			  ./libft_bonus.c 				\
 			  ./utils_bonus.c  				\
 			  ./error_handler_bonus.c 		\
 			  ./stages_bonus.c 				\

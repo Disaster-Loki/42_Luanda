@@ -14,8 +14,7 @@
 
 int	main(int av, char **args)
 {
-	if (!error_handler(av, args))
-		return (0);
+	error_handler(av, args);
 	philo_init(av, args);
 	return (0);
 }

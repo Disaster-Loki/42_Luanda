@@ -29,40 +29,48 @@ void	get_init(t_philo **philors, t_conter *conter, pid_t **pid)
 
 	len = conter->num_ph;
 	*pid = malloc(sizeof(pid_t) * len);
+	if (*pid == NULL)
+		error("Error - Memory allocation failed for pids\n");
 	*philors = malloc(sizeof(t_philo) * len);
-	conter->msg = sem_open("msg",  O_CREAT, 0644, 1);
-	conter->dead = sem_open("dead",  O_CREAT, 0644, 1);
-	conter->forks = sem_open("forks",  O_CREAT, 0644, len);
+	if (*philors == NULL)
+		error("Error - Memory allocation failed for philosophers\n");
+	conter->msg = sem_open("msg", O_CREAT, 0644, 1);
+	conter->dead = sem_open("dead", O_CREAT, 0644, 1);
+	conter->forks = sem_open("forks", O_CREAT, 0644, len);
+	if (conter->msg == SEM_FAILED || conter->dead == SEM_FAILED
+		|| conter->forks == SEM_FAILED)
+		error("Error - Failed to open semaphore\n");
 	sem_unlink("msg");
 	sem_unlink("dead");
 	sem_unlink("forks");
 }
 
-void free_resources(t_philo *philos, t_conter *conter)
+void	free_resources(t_philo *philos, t_conter *conter)
 {
-    free(philos);
-    free(conter->pids);
-    sem_close(conter->forks);
-    sem_close(conter->msg);
-    sem_close(conter->dead);
-    exit(0);
+	if (philos)
+		free(philos);
+	if (conter->pids)
+		free(conter->pids);
+	sem_close(conter->forks);
+	sem_close(conter->msg);
+	sem_close(conter->dead);
 }
 
-void philo_init(int av, char **args)
+void	philo_init(int av, char **args)
 {
-    int     i;
-    t_conter conter;
-    t_philo *philos;
+	int			i;
+	t_conter	conter;
+	t_philo		*philos;
 
-    i = -1;
-    get_conter_init(&conter, av, args);
-    get_init(&philos, &conter, &conter.pids);
-    while (++i < conter.num_ph)
-    {
-        conter.pids[i] = fork();
-        if (conter.pids[i] == 0)
-            process_init(&philos[i], i + 1, &conter);
-    }
-    kill_all_philors(conter.pids, conter.num_ph);
-    free_resources(philos, &conter);
+	i = -1;
+	get_conter_init(&conter, av, args);
+	get_init(&philos, &conter, &conter.pids);
+	while (++i < conter.num_ph)
+	{
+		conter.pids[i] = fork();
+		if (conter.pids[i] == 0)
+			process_init(&philos[i], i + 1, &conter);
+	}
+	kill_all_philors(&conter);
+	free_resources(philos, &conter);
 }

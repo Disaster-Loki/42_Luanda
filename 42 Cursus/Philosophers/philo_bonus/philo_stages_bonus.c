@@ -19,22 +19,12 @@ int	stage_one(t_philo *ph)
 		stage_thinking(ph);
 		sem_wait(ph->forks);
 		print_msg(ph, "has taken a fork\n", YELLOW);
-		strac_usleep(ph, ph->conter->time_die+1);
+		usleep(ph->conter->time_die * 1000);
+		print_msg(ph, "died\n", RED);
 		sem_post(ph->forks);
 		return (0);
 	}
 	return (1);
-}
-
-sem_t	*semaphore_philo(int id)
-{
-	sem_t	*res;
-	char	*name;
-
-	name = ft_itoa(id);
-	res = sem_open(name, O_CREAT, 0644, 1);
-	sem_unlink(name);
-	return (res);
 }
 
 void	init_philo(t_philo *ph, t_conter *conter, int n)
@@ -53,18 +43,16 @@ void	process_init(t_philo *ph, int n, t_conter *conter)
 	pthread_t	monitor;
 
 	init_philo(ph, conter, n);
-	ph->stop = semaphore_philo(ph->id);
 	pthread_create(&monitor, NULL, monitor_death, ph);
 	pthread_detach(monitor);
-	while (!ph->cont && (ph->conter->time_eat_ph == 0 ||
-		ph->eat < ph->conter->time_eat_ph))
+	while (!ph->cont && (ph->conter->time_eat_ph == 0
+			|| ph->eat < ph->conter->time_eat_ph))
 	{
-		if(!stage_one(ph))
+		if (!stage_one(ph))
 			break ;
 		stage_thinking(ph);
 		stage_eating(ph);
-		if (ph->eat >= ph->conter->time_eat_ph)
-			break;
+		++ph->eat;
 		stage_sleeping(ph);
 	}
 	exit(0);

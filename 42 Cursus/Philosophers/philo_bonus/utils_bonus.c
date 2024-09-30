@@ -25,6 +25,7 @@ int	ft_atoi(char *str)
 	{
 		if (*str == '-')
 			sig = -1;
+		str++;
 	}
 	while (*str >= '0' && *str <= '9')
 		res = (res * 10) + (*str++ - '0');
@@ -37,19 +38,6 @@ long long	current_time(void)
 
 	gettimeofday(&time, NULL);
 	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
-}
-
-void	strac_usleep(t_philo *ph, int lim)
-{
-	int	i;
-
-	i = -1;
-	while (++i < lim)
-	{
-		if (!stage_deading(ph))
-			break ;
-		usleep(1000);
-	}
 }
 
 int	check_args(int av, char **args)

@@ -15,32 +15,26 @@
 void	*monitor_death(void *data)
 {
 	t_philo		*ph;
-	long long	time_elapsed;
-	
+
 	ph = (t_philo *)data;
-	while (!ph->cont)
+	while (1)
 	{
 		sem_wait(ph->conter->dead);
-		time_elapsed = current_time() - ph->time;
-		if (time_elapsed >= ph->conter->time_die)
-		{
-			print_msg(ph, "died\n", RED);
-			kill_all_philors(ph->conter->pids, ph->conter->num_ph);
+		if (!stage_deading(ph))
 			exit(1);
-		}
 		sem_post(ph->conter->dead);
 		usleep(100);
 	}
 	return (NULL);
 }
 
-void	kill_all_philors(pid_t *pids, int num)
+void	kill_all_philors(t_conter *conter)
 {
 	int		i;
 	pid_t	pid;
 	int		status;
-	
-	i = -1;
+
+	i = 0;
 	while (1)
 	{
 		pid = waitpid(-1, &status, 0);
@@ -48,16 +42,15 @@ void	kill_all_philors(pid_t *pids, int num)
 			break ;
 		if (WEXITSTATUS(status))
 		{
-			while (++i < num)
+			while (i < conter->num_ph)
 			{
-				if (pids[i])
-				{
-					kill(pids[i], SIGTERM);
-				}
+				if (conter->pids[i])
+					kill(conter->pids[i], SIGTERM);
+				i++;
 			}
 			break ;
 		}
 	}
-	while (waitpid(-1, &status, 0) != -1)
-		;
+	//while (waitpid(-1, &status, 0) != -1)
+	//	;
 }
