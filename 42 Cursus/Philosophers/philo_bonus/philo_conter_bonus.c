@@ -21,7 +21,17 @@ void	*monitor_death(void *data)
 	{
 		sem_wait(ph->conter->dead);
 		if (!stage_deading(ph))
+		{
+			/*if (ph != NULL)
+			{
+				//sem_close(ph->conter->msg);
+				//sem_close(ph->conter->dead);
+				//sem_close(ph->conter->forks);
+				//free(ph->conter->pids);
+				//free(ph);				
+			}*/
 			exit(1);
+		}
 		sem_post(ph->conter->dead);
 		usleep(100);
 	}

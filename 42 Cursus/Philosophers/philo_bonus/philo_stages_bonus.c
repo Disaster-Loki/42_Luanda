@@ -20,7 +20,6 @@ int	stage_one(t_philo *ph)
 		sem_wait(ph->forks);
 		print_msg(ph, "has taken a fork\n", YELLOW);
 		usleep(ph->conter->time_die * 1000);
-		print_msg(ph, "died\n", RED);
 		sem_post(ph->forks);
 		return (0);
 	}
@@ -55,5 +54,6 @@ void	process_init(t_philo *ph, int n, t_conter *conter)
 		++ph->eat;
 		stage_sleeping(ph);
 	}
+	//free_resources(ph, ph->conter);
 	exit(0);
 }
