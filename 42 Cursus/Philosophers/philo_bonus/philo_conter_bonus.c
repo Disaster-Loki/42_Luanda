@@ -60,10 +60,8 @@ void	kill_all_philors(t_conter *conter)
 	}
 }
 
-void	free_resources(t_philo *philos, t_conter *conter)
+void	free_resources(t_conter *conter)
 {
-	if (philos)
-		free(philos);
 	if (conter->pids)
 		free(conter->pids);
 	sem_close(conter->forks);

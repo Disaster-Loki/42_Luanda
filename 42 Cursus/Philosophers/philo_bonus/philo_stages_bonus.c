@@ -36,18 +36,20 @@ void	init_philo(t_philo *ph, t_conter *conter, int n)
 	ph->forks = conter->forks;
 }
 
-void	process_init(t_philo *ph, int n, t_conter *conter)
+void	process_init(t_conter *conter, int n)
 {
-	init_philo(ph, conter, n);
-	pthread_create(&ph->monitor, NULL, monitor_death, ph);
-	pthread_detach(ph->monitor);
-	while (ph->conter->meal_eat_ph == 0 || ph->eat < ph->conter->meal_eat_ph)
+	t_philo	ph;
+
+	init_philo(&ph, conter, n);
+	pthread_create(&ph.monitor, NULL, monitor_death, &ph);
+	pthread_detach(ph.monitor);
+	while (ph.conter->meal_eat_ph == 0 || ph.eat < ph.conter->meal_eat_ph)
 	{
-		if (!stage_one(ph))
+		if (!stage_one(&ph))
 			break ;
-		stage_thinking(ph);
-		stage_eating(ph);
-		stage_sleeping(ph);
+		stage_thinking(&ph);
+		stage_eating(&ph);
+		stage_sleeping(&ph);
 	}
 	exit(0);
 }

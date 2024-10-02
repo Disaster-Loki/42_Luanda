@@ -55,7 +55,8 @@ typedef struct s_philo
 	pthread_t		monitor;
 }	t_philo;
 
-void	get_init(t_conter *conter);
+void		process_init(t_conter *conter, int n);
+void		get_init(t_conter *conter);
 void		error(char *msg);
 long long	current_time(void);
 int			ft_atoi(char *str);
@@ -72,10 +73,11 @@ void		stage_pick_up_fork(t_philo *ph);
 int			error_handler(int av, char **args);
 void		print_msg(t_philo *ph, char *str, char *color);
 void		init_philo(t_philo *ph, t_conter *conter, int n);
-void		process_init(t_philo *ph, int n, t_conter *conter);
+//void		process_init(t_philo *ph, int n, t_conter *conter);
 void		get_conter_init(t_conter *conter, int av, char **args);
 //void		get_init(t_philo **philors, t_conter *conter);
 void		kill_all_philors(t_conter *conter);
-void		free_resources(t_philo *philos, t_conter *conter);
+//void		free_resources(t_philo *philos, t_conter *conter);
+void	free_resources(t_conter *conter);
 
 #endif

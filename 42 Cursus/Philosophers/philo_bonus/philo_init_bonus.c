@@ -46,15 +46,14 @@ void	philo_init(int av, char **args)
 	t_conter	conter;
 
 	i = -1;
-	philos = NULL;
 	get_conter_init(&conter, av, args);
 	get_init(&conter);
 	while (++i < conter.num_ph)
 	{
 		conter.pids[i] = fork();
 		if (conter.pids[i] == 0)
-			process_init(&philos[i], i + 1, &conter);
+			process_init(&conter, i + 1);
 	}
 	kill_all_philors(&conter);
-	free_resources(philos, &conter);
+	free_resources(&conter);
 }
