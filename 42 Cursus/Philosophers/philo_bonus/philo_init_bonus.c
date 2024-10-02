@@ -14,13 +14,13 @@
 
 void	get_conter_init(t_conter *conter, int av, char **args)
 {
-	conter->time_eat_ph = 0;
+	conter->meal_eat_ph = 0;
 	conter->num_ph = ft_atoi(args[1]);
 	conter->time_die = ft_atoi(args[2]);
 	conter->time_eat = ft_atoi(args[3]);
 	conter->time_sleep = ft_atoi(args[4]);
 	if (av == 6)
-		conter->time_eat_ph = ft_atoi(args[5]);
+		conter->meal_eat_ph = ft_atoi(args[5]);
 }
 
 void	get_init(t_philo **philors, t_conter *conter)
@@ -29,11 +29,7 @@ void	get_init(t_philo **philors, t_conter *conter)
 
 	len = conter->num_ph;
 	conter->pids = malloc(sizeof(pid_t) * len);
-	if (conter->pids == NULL)
-		error("Error - Memory allocation failed for pids\n");
 	*philors = malloc(sizeof(t_philo) * len);
-	if (philors == NULL)
-		error("Error - Memory allocation failed for philosophers\n");
 	conter->msg = sem_open("msg", O_CREAT, 0644, 1);
 	conter->dead = sem_open("dead", O_CREAT, 0644, 1);
 	conter->forks = sem_open("forks", O_CREAT, 0644, len);
@@ -43,17 +39,6 @@ void	get_init(t_philo **philors, t_conter *conter)
 	sem_unlink("msg");
 	sem_unlink("dead");
 	sem_unlink("forks");
-}
-
-void	free_resources(t_philo *philos, t_conter *conter)
-{
-	if (philos)
-		free(philos);
-	if (conter->pids)
-		free(conter->pids);
-	sem_close(conter->forks);
-	sem_close(conter->msg);
-	sem_close(conter->dead);
 }
 
 void	philo_init(int av, char **args)
@@ -70,9 +55,7 @@ void	philo_init(int av, char **args)
 	{
 		conter.pids[i] = fork();
 		if (conter.pids[i] == 0)
-		{
 			process_init(&philos[i], i + 1, &conter);
-		}
 	}
 	kill_all_philors(&conter);
 	free_resources(philos, &conter);

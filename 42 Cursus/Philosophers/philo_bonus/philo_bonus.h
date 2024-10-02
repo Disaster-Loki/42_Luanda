@@ -37,7 +37,7 @@ typedef struct s_conter
 	int				time_die;
 	int				time_eat;
 	int				time_sleep;
-	int				time_eat_ph;
+	int				meal_eat_ph;
 	pid_t			*pids;
 	sem_t			*msg;
 	sem_t			*dead;
@@ -48,11 +48,11 @@ typedef struct s_philo
 {
 	int				id;
 	int				eat;
-	int				cont;
 	long long		time;
 	long long		start;
 	sem_t			*forks;
 	t_conter		*conter;
+	pthread_t		monitor;
 }	t_philo;
 
 void		error(char *msg);
@@ -69,13 +69,11 @@ void		philo_init(int av, char **args);
 int			check_args(int av, char **args);
 void		stage_pick_up_fork(t_philo *ph);
 int			error_handler(int av, char **args);
-//void		kill_all_philors(pid_t *pid, int num);
 void		print_msg(t_philo *ph, char *str, char *color);
 void		init_philo(t_philo *ph, t_conter *conter, int n);
 void		process_init(t_philo *ph, int n, t_conter *conter);
 void		get_conter_init(t_conter *conter, int av, char **args);
 void		get_init(t_philo **philors, t_conter *conter);
-//void		get_init(t_philo **philors, t_conter *conter, pid_t **pid);
 void		kill_all_philors(t_conter *conter);
 void		free_resources(t_philo *philos, t_conter *conter);
 

@@ -22,14 +22,10 @@ void	*monitor_death(void *data)
 		sem_wait(ph->conter->dead);
 		if (!stage_deading(ph))
 		{
-			/*if (ph != NULL)
-			{
-				//sem_close(ph->conter->msg);
-				//sem_close(ph->conter->dead);
-				//sem_close(ph->conter->forks);
-				//free(ph->conter->pids);
-				//free(ph);				
-			}*/
+			sem_close(ph->conter->msg);
+			sem_close(ph->conter->dead);
+			sem_close(ph->conter->forks);
+			free(ph->conter->pids);
 			exit(1);
 		}
 		sem_post(ph->conter->dead);
@@ -45,12 +41,13 @@ void	kill_all_philors(t_conter *conter)
 	int		status;
 
 	i = 0;
-	while (1)
+	status = 0;
+	while (status != 256)
 	{
 		pid = waitpid(-1, &status, 0);
 		if (pid == -1)
 			break ;
-		if (WEXITSTATUS(status))
+		if (status == 256)
 		{
 			while (i < conter->num_ph)
 			{
@@ -61,6 +58,15 @@ void	kill_all_philors(t_conter *conter)
 			break ;
 		}
 	}
-	//while (waitpid(-1, &status, 0) != -1)
-	//	;
+}
+
+void	free_resources(t_philo *philos, t_conter *conter)
+{
+	if (philos)
+		free(philos);
+	if (conter->pids)
+		free(conter->pids);
+	sem_close(conter->forks);
+	sem_close(conter->msg);
+	sem_close(conter->dead);
 }
