@@ -23,13 +23,12 @@ void	get_conter_init(t_conter *conter, int av, char **args)
 		conter->meal_eat_ph = ft_atoi(args[5]);
 }
 
-void	get_init(t_philo **philors, t_conter *conter)
+void	get_init(t_conter *conter)
 {
 	int	len;
 
 	len = conter->num_ph;
 	conter->pids = malloc(sizeof(pid_t) * len);
-	*philors = malloc(sizeof(t_philo) * len);
 	conter->msg = sem_open("msg", O_CREAT, 0644, 1);
 	conter->dead = sem_open("dead", O_CREAT, 0644, 1);
 	conter->forks = sem_open("forks", O_CREAT, 0644, len);
@@ -45,12 +44,11 @@ void	philo_init(int av, char **args)
 {
 	int			i;
 	t_conter	conter;
-	t_philo		*philos;
 
 	i = -1;
 	philos = NULL;
 	get_conter_init(&conter, av, args);
-	get_init(&philos, &conter);
+	get_init(&conter);
 	while (++i < conter.num_ph)
 	{
 		conter.pids[i] = fork();

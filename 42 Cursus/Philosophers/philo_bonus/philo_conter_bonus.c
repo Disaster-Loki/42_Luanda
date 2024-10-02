@@ -29,7 +29,7 @@ void	*monitor_death(void *data)
 			exit(1);
 		}
 		sem_post(ph->conter->dead);
-		usleep(100);
+		usleep(1);
 	}
 	return (NULL);
 }
