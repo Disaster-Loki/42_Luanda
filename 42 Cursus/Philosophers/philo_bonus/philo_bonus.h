@@ -42,12 +42,14 @@ typedef struct s_conter
 	sem_t			*msg;
 	sem_t			*dead;
 	sem_t			*forks;
+	sem_t			*order;
 }	t_conter;
 
 typedef struct s_philo
 {
 	int				id;
 	int				eat;
+	int				cont;
 	long long		time;
 	long long		start;
 	sem_t			*forks;
@@ -55,13 +57,12 @@ typedef struct s_philo
 	pthread_t		monitor;
 }	t_philo;
 
-void		process_init(t_conter *conter, int n);
-void		get_init(t_conter *conter);
 void		error(char *msg);
 long long	current_time(void);
 int			ft_atoi(char *str);
 int			stage_one(t_philo *ph);
 void		stage_eating(t_philo *ph);
+void		get_init(t_conter *conter);
 void		*monitor_death(void *date);
 int			stage_deading(t_philo *ph);
 void		stage_thinking(t_philo *ph);
@@ -70,14 +71,12 @@ void		stage_drop_fork(t_philo *ph);
 void		philo_init(int av, char **args);
 int			check_args(int av, char **args);
 void		stage_pick_up_fork(t_philo *ph);
+void		free_resources(t_conter *conter);
 int			error_handler(int av, char **args);
+void		kill_all_philors(t_conter *conter);
+void		process_init(t_conter *conter, int n);
 void		print_msg(t_philo *ph, char *str, char *color);
 void		init_philo(t_philo *ph, t_conter *conter, int n);
-//void		process_init(t_philo *ph, int n, t_conter *conter);
 void		get_conter_init(t_conter *conter, int av, char **args);
-//void		get_init(t_philo **philors, t_conter *conter);
-void		kill_all_philors(t_conter *conter);
-//void		free_resources(t_philo *philos, t_conter *conter);
-void	free_resources(t_conter *conter);
 
 #endif

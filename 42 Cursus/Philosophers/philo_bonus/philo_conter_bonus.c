@@ -17,16 +17,13 @@ void	*monitor_death(void *data)
 	t_philo		*ph;
 
 	ph = (t_philo *)data;
-	while (1)
+	while (ph->cont == 0)
 	{
 		sem_wait(ph->conter->dead);
 		if (!stage_deading(ph))
 		{
-			sem_close(ph->conter->msg);
-			sem_close(ph->conter->dead);
-			sem_close(ph->conter->forks);
-			free(ph->conter->pids);
-			exit(1);
+			ph->cont = 1;
+			return (NULL);
 		}
 		sem_post(ph->conter->dead);
 		usleep(1);
@@ -64,7 +61,8 @@ void	free_resources(t_conter *conter)
 {
 	if (conter->pids)
 		free(conter->pids);
-	sem_close(conter->forks);
 	sem_close(conter->msg);
 	sem_close(conter->dead);
+	sem_close(conter->order);
+	sem_close(conter->forks);
 }

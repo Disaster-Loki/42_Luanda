@@ -31,29 +31,49 @@ void	get_init(t_conter *conter)
 	conter->pids = malloc(sizeof(pid_t) * len);
 	conter->msg = sem_open("msg", O_CREAT, 0644, 1);
 	conter->dead = sem_open("dead", O_CREAT, 0644, 1);
+	conter->order = sem_open("order", O_CREAT, 0644, 1);
 	conter->forks = sem_open("forks", O_CREAT, 0644, len);
 	if (conter->msg == SEM_FAILED || conter->dead == SEM_FAILED
 		|| conter->forks == SEM_FAILED)
 		error("Error - Failed to open semaphore\n");
 	sem_unlink("msg");
 	sem_unlink("dead");
+	sem_unlink("order");
 	sem_unlink("forks");
 }
 
 void	philo_init(int av, char **args)
 {
 	int			i;
+	int			j;
+	int			status;
 	t_conter	conter;
 
-	i = -1;
+	i = 0;
+	j = -1;
 	get_conter_init(&conter, av, args);
 	get_init(&conter);
-	while (++i < conter.num_ph)
+	if (conter.meal_eat_ph == 0)
+		conter.meal_eat_ph = 1;
+	while (i < conter.num_ph)
 	{
+		sem_wait(conter.order);
 		conter.pids[i] = fork();
 		if (conter.pids[i] == 0)
+		{
 			process_init(&conter, i + 1);
+			exit(0);
+		}
+		waitpid(conter.pids[i], &status, 0);
+		if (status == 256)
+			break ;
+		sem_post(conter.order);
+		i++;
 	}
-	kill_all_philors(&conter);
+	while (++j < i)
+	{
+		if (conter.pids[j] > 0)
+			kill(conter.pids[j], SIGTERM);
+	}
 	free_resources(&conter);
 }

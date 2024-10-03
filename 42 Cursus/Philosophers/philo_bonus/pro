@@ -1,0 +1,384 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error_handler.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/15 10:44:35 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/09/15 10:44:52 by sde-carv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "philo_bonus.h"
+
+void	error(char *msg)
+{
+	printf("%s%s%s", msg, ORANGE, RESET);
+	exit(1);
+}
+
+int	error_handler(int av, char **args)
+{
+	if (av != 5 && av != 6)
+		error("Error - Check the parameters\n");
+	if (ft_atoi(args[1]) < 1 || ft_atoi(args[1]) > 200)
+		error("Error - Invalid number of philosophers\n");
+	if (!check_args(av, args))
+		error("Error - Invalid parameters\n");
+	return (1);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/15 10:15:27 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/09/15 10:16:50 by sde-carv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "philo_bonus.h"
+
+int	main(int av, char **args)
+{
+	error_handler(av, args);
+	philo_init(av, args);
+	return (0);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_philo_init.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/15 12:41:40 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/09/15 12:42:01 by sde-carv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "philo_bonus.h"
+
+void	*monitor_death(void *data)
+{
+	t_philo		*ph;
+
+	ph = (t_philo *)data;
+	while (ph->cont == 0)
+	{
+		sem_wait(ph->conter->dead);
+		if (!stage_deading(ph))
+		{
+			ph->cont = 1;
+			return (NULL);
+		}
+		sem_post(ph->conter->dead);
+		usleep(1);
+	}
+	return (NULL);
+}
+
+void	kill_all_philors(t_conter *conter)
+{
+	int		i;
+	pid_t	pid;
+	int		status;
+
+	i = 0;
+	status = 0;
+	while (status != 256)
+	{
+		pid = waitpid(-1, &status, 0);
+		if (pid == -1)
+			break ;
+		if (status == 256)
+		{
+			while (i < conter->num_ph)
+			{
+				if (conter->pids[i])
+					kill(conter->pids[i], SIGTERM);
+				i++;
+			}
+			break ;
+		}
+	}
+}
+
+void	free_resources(t_conter *conter)
+{
+	if (conter->pids)
+		free(conter->pids);
+	sem_close(conter->msg);
+	sem_close(conter->dead);
+	sem_close(conter->order);
+	sem_close(conter->forks);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo_init_bonus.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/29 11:11:03 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/09/29 11:11:06 by sde-carv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "philo_bonus.h"
+
+void	get_conter_init(t_conter *conter, int av, char **args)
+{
+	conter->meal_eat_ph = 0;
+	conter->num_ph = ft_atoi(args[1]);
+	conter->time_die = ft_atoi(args[2]);
+	conter->time_eat = ft_atoi(args[3]);
+	conter->time_sleep = ft_atoi(args[4]);
+	if (av == 6)
+		conter->meal_eat_ph = ft_atoi(args[5]);
+}
+
+void	get_init(t_conter *conter)
+{
+	int	len;
+
+	len = conter->num_ph;
+	conter->pids = malloc(sizeof(pid_t) * len);
+	conter->msg = sem_open("msg", O_CREAT, 0644, 1);
+	conter->dead = sem_open("dead", O_CREAT, 0644, 1);
+	conter->order = sem_open("order", O_CREAT, 0644, 1);
+	conter->forks = sem_open("forks", O_CREAT, 0644, len);
+	if (conter->msg == SEM_FAILED || conter->dead == SEM_FAILED
+		|| conter->forks == SEM_FAILED)
+		error("Error - Failed to open semaphore\n");
+	sem_unlink("msg");
+	sem_unlink("dead");
+	sem_unlink("order");
+	sem_unlink("forks");
+}
+
+void	philo_init(int av, char **args)
+{
+	int			i;
+	int			j;
+	int			status;
+	t_conter	conter;
+
+	i = 0;
+	j = -1;
+	get_conter_init(&conter, av, args);
+	get_init(&conter);
+	if (conter.meal_eat_ph == 0)
+		conter.meal_eat_ph = 1;
+	while (i < conter.num_ph)
+	{
+		sem_wait(conter.order);
+		conter.pids[i] = fork();
+		if (conter.pids[i] == 0)
+			process_init(&conter, i + 1);
+		waitpid(conter.pids[i], &status, 0);
+		if (status == 256)
+			break ;
+		sem_post(conter.order);
+		i++;
+	}
+	while (++j < i)
+	{
+		if (conter.pids[j] > 0)
+			kill(conter.pids[j], SIGTERM);
+	}
+	free_resources(&conter);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   philo_stage.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/20 10:39:57 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/09/20 10:40:02 by sde-carv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "philo_bonus.h"
+
+int	stage_one(t_philo *ph)
+{
+	if (ph->conter->num_ph == 1)
+	{
+		stage_thinking(ph);
+		sem_wait(ph->forks);
+		print_msg(ph, "has taken a fork\n", YELLOW);
+		usleep(ph->conter->time_die * 1000);
+		sem_post(ph->forks);
+		return (0);
+	}
+	return (1);
+}
+
+void	init_philo(t_philo *ph, t_conter *conter, int n)
+{
+	ph->id = n;
+	ph->eat = 0;
+	ph->cont = 0;
+	ph->conter = conter;
+	ph->time = current_time();
+	ph->start = current_time();
+	ph->forks = conter->forks;
+}
+
+void	process_init(t_conter *conter, int n)
+{
+	t_philo	ph;
+
+	init_philo(&ph, conter, n);
+	pthread_create(&ph.monitor, NULL, monitor_death, &ph);
+	pthread_detach(ph.monitor);
+	while (ph.cont == 0 && (ph.conter->meal_eat_ph == 0
+			|| ph.eat < ph.conter->meal_eat_ph))
+	{
+		if (!stage_one(&ph))
+			break ;
+		stage_thinking(&ph);
+		stage_eating(&ph);
+		stage_sleeping(&ph);
+	}
+	sem_close(conter->msg);
+	sem_close(conter->dead);
+	sem_close(conter->order);
+	sem_close(conter->forks);
+	free(conter->pids);
+	if (ph.cont == 1)
+		exit(1);
+	ph.cont = 1;
+	usleep(1000);
+	exit(0);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   stage.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/18 16:23:37 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/09/18 16:23:40 by sde-carv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "philo_bonus.h"
+
+void	stage_thinking(t_philo *ph)
+{
+	print_msg(ph, "is thinking\n", BLUE);
+}
+
+void	stage_eating(t_philo *ph)
+{
+	sem_wait(ph->forks);
+	print_msg(ph, "has taken a fork\n", YELLOW);
+	sem_wait(ph->forks);
+	print_msg(ph, "has taken a fork\n", YELLOW);
+	print_msg(ph, "is eating\n", LIME);
+	usleep(ph->conter->time_eat * 1000);
+	ph->time = current_time();
+	++ph->eat;
+	sem_post(ph->forks);
+	sem_post(ph->forks);
+}
+
+void	stage_sleeping(t_philo *ph)
+{
+	print_msg(ph, "is sleeping\n", D_BLUE);
+	usleep(ph->conter->time_sleep * 1000);
+}
+
+int	stage_deading(t_philo *ph)
+{
+	long long	time_elapsed;
+
+	time_elapsed = current_time() - ph->time;
+	if (time_elapsed >= ph->conter->time_die)
+	{
+		print_msg(ph, "died\n", RED);
+		return (0);
+	}
+	return (1);
+}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/15 10:34:18 by sde-carv          #+#    #+#             */
+/*   Updated: 2024/09/15 10:34:47 by sde-carv         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "philo_bonus.h"
+
+int	ft_atoi(char *str)
+{
+	int	sig;
+	int	res;
+
+	sig = 1;
+	res = 0;
+	while (*str >= 9 && *str <= 13)
+		str++;
+	if (*str == '+' || *str == '-')
+	{
+		if (*str == '-')
+			sig = -1;
+		str++;
+	}
+	while (*str >= '0' && *str <= '9')
+		res = (res * 10) + (*str++ - '0');
+	return (res * sig);
+}
+
+long long	current_time(void)
+{
+	struct timeval	time;
+
+	gettimeofday(&time, NULL);
+	return ((time.tv_sec * 1000) + (time.tv_usec / 1000));
+}
+
+int	check_args(int av, char **args)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (++i < av)
+	{
+		j = 0;
+		if (args[i][j] == '+' || args[i][j] == '-')
+			j++;
+		while (args[i][j])
+		{
+			if (args[i][j] < '0' || args[i][j] > '9')
+				return (0);
+			j++;
+		}
+	}
+	return (1);
+}
+
+void	print_msg(t_philo *ph, char *str, char *color)
+{
+	sem_wait(ph->conter->msg);
+	if (ph->cont == 0)
+	{
+		printf("[%lli] ", (current_time() - ph->start));
+		printf("%d %s%s%s", ph->id, color, str, RESET);
+	}
+	sem_post(ph->conter->msg);
+}
