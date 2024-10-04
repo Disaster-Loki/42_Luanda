@@ -30,7 +30,7 @@ void	init_philo(t_philo *ph, t_conter *conter, int n)
 {
 	ph->id = n;
 	ph->eat = 0;
-	ph->cont = 0;
+	ph->stop = 0;
 	ph->conter = conter;
 	ph->time = current_time();
 	ph->start = current_time();
@@ -43,8 +43,8 @@ void	process_init(t_conter *conter, int n)
 
 	init_philo(&ph, conter, n);
 	pthread_create(&ph.monitor, NULL, monitor_death, &ph);
-	pthread_detach(ph.monitor);
-	while (ph.cont == 0 && (ph.conter->meal_eat_ph == 0
+	//pthread_detach(ph.monitor);
+	while (ph.stop == 0 && (ph.conter->meal_eat_ph == 0
 			|| ph.eat < ph.conter->meal_eat_ph))
 	{
 		if (!stage_one(&ph))
@@ -53,13 +53,13 @@ void	process_init(t_conter *conter, int n)
 		stage_eating(&ph);
 		stage_sleeping(&ph);
 	}
+	pthread_join(ph.monitor, NULL);
 	sem_close(conter->msg);
 	sem_close(conter->dead);
 	sem_close(conter->order);
 	sem_close(conter->forks);
 	free(conter->pids);
-	if (ph.cont == 1)
+	if (ph.stop == 1)
 		exit(1);
-	ph.cont = 1;
-	usleep(1000);
+	exit(0);
 }

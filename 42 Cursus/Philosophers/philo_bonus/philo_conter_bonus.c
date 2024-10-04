@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_philo_init.c                                   :+:      :+:    :+:   */
+/*   philo_conter_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 12:41:40 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/09/15 12:42:01 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/04 11:21:36 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,18 @@ void	*monitor_death(void *data)
 	t_philo		*ph;
 
 	ph = (t_philo *)data;
-	while (ph->cont == 0)
+	while (!ph->stop)
 	{
 		sem_wait(ph->conter->dead);
 		if (!stage_deading(ph))
 		{
-			ph->cont = 1;
-			return (NULL);
+			ph->stop = 1;
+			break;
 		}
 		sem_post(ph->conter->dead);
-		usleep(1);
+		if (ph->conter->meal_eat_ph > 0
+			&& ph->eat == ph->conter->meal_eat_ph)
+			break ;
 	}
 	return (NULL);
 }
@@ -49,7 +51,7 @@ void	kill_all_philors(t_conter *conter)
 			while (i < conter->num_ph)
 			{
 				if (conter->pids[i])
-					kill(conter->pids[i], SIGTERM);
+					kill(conter->pids[i], SIGKILL);
 				i++;
 			}
 			break ;

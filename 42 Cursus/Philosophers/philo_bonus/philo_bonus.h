@@ -49,7 +49,7 @@ typedef struct s_philo
 {
 	int				id;
 	int				eat;
-	int				cont;
+	int				stop;
 	long long		time;
 	long long		start;
 	sem_t			*forks;

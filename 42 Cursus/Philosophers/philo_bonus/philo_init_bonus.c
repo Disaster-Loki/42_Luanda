@@ -6,7 +6,7 @@
 /*   By: sde-carv <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 11:11:03 by sde-carv          #+#    #+#             */
-/*   Updated: 2024/09/29 11:11:06 by sde-carv         ###   ########.fr       */
+/*   Updated: 2024/10/04 11:23:40 by sde-carv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,35 +45,19 @@ void	get_init(t_conter *conter)
 void	philo_init(int av, char **args)
 {
 	int			i;
-	int			j;
-	int			status;
 	t_conter	conter;
 
-	i = 0;
-	j = -1;
+	i = -1;
 	get_conter_init(&conter, av, args);
 	get_init(&conter);
-	if (conter.meal_eat_ph == 0)
-		conter.meal_eat_ph = 1;
-	while (i < conter.num_ph)
+	while (++i < conter.num_ph)
 	{
 		sem_wait(conter.order);
 		conter.pids[i] = fork();
 		if (conter.pids[i] == 0)
-		{
 			process_init(&conter, i + 1);
-			exit(0);
-		}
-		waitpid(conter.pids[i], &status, 0);
-		if (status == 256)
-			break ;
 		sem_post(conter.order);
-		i++;
 	}
-	while (++j < i)
-	{
-		if (conter.pids[j] > 0)
-			kill(conter.pids[j], SIGTERM);
-	}
+	kill_all_philors(&conter);
 	free_resources(&conter);
 }
