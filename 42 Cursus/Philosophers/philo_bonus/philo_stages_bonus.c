@@ -43,7 +43,6 @@ void	process_init(t_conter *conter, int n)
 
 	init_philo(&ph, conter, n);
 	pthread_create(&ph.monitor, NULL, monitor_death, &ph);
-	//pthread_detach(ph.monitor);
 	while (ph.stop == 0 && (ph.conter->meal_eat_ph == 0
 			|| ph.eat < ph.conter->meal_eat_ph))
 	{

@@ -23,12 +23,12 @@ void	*monitor_death(void *data)
 		if (!stage_deading(ph))
 		{
 			ph->stop = 1;
-			break;
+			break ;
 		}
-		sem_post(ph->conter->dead);
 		if (ph->conter->meal_eat_ph > 0
 			&& ph->eat == ph->conter->meal_eat_ph)
 			break ;
+		sem_post(ph->conter->dead);
 	}
 	return (NULL);
 }
@@ -39,20 +39,18 @@ void	kill_all_philors(t_conter *conter)
 	pid_t	pid;
 	int		status;
 
-	i = 0;
-	status = 0;
-	while (status != 256)
+	i = -1;
+	while (1)
 	{
 		pid = waitpid(-1, &status, 0);
 		if (pid == -1)
 			break ;
 		if (status == 256)
 		{
-			while (i < conter->num_ph)
+			while (++i < conter->num_ph)
 			{
 				if (conter->pids[i])
 					kill(conter->pids[i], SIGKILL);
-				i++;
 			}
 			break ;
 		}

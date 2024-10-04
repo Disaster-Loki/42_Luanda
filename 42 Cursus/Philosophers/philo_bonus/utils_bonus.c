@@ -68,6 +68,6 @@ void	print_msg(t_philo *ph, char *str, char *color)
 	{
 		printf("[%lli] ", (current_time() - ph->start));
 		printf("%d %s%s%s", ph->id, color, str, RESET);
+		sem_post(ph->conter->msg);
 	}
-	sem_post(ph->conter->msg);
 }

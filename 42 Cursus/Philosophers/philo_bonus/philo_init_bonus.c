@@ -52,11 +52,9 @@ void	philo_init(int av, char **args)
 	get_init(&conter);
 	while (++i < conter.num_ph)
 	{
-		sem_wait(conter.order);
 		conter.pids[i] = fork();
 		if (conter.pids[i] == 0)
 			process_init(&conter, i + 1);
-		sem_post(conter.order);
 	}
 	kill_all_philors(&conter);
 	free_resources(&conter);
