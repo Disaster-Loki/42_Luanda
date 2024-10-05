@@ -17,9 +17,9 @@ void	*monitor_death(void *data)
 	t_philo		*ph;
 
 	ph = (t_philo *)data;
+	sem_wait(ph->conter->dead);
 	while (!ph->stop)
 	{
-		sem_wait(ph->conter->dead);
 		if (!stage_deading(ph))
 		{
 			ph->stop = 1;
@@ -28,8 +28,8 @@ void	*monitor_death(void *data)
 		if (ph->conter->meal_eat_ph > 0
 			&& ph->eat == ph->conter->meal_eat_ph)
 			break ;
-		sem_post(ph->conter->dead);
 	}
+	sem_post(ph->conter->dead);
 	return (NULL);
 }
 

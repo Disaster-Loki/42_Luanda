@@ -24,9 +24,9 @@ int	error_handler(int av, char **args)
 		error("Error - Check the parameters\n");
 		return (0);
 	}
-	if (ft_atoi(args[1]) > 200)
+	if (ft_atoi(args[1]) < 1 || ft_atoi(args[1]) > 200)
 	{
-		error("Error - Many philosophers\n");
+		error("Error - Invalid number of philosophers\n");
 		return (0);
 	}
 	if (!check_args(av, args))

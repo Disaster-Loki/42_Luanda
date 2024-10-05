@@ -53,11 +53,11 @@ void	process_init(t_conter *conter, int n)
 		stage_sleeping(&ph);
 	}
 	pthread_join(ph.monitor, NULL);
-	sem_close(conter->msg);
-	sem_close(conter->dead);
-	sem_close(conter->order);
-	sem_close(conter->forks);
-	free(conter->pids);
+	sem_close(ph.conter->msg);
+	sem_close(ph.conter->dead);
+	sem_close(ph.conter->order);
+	sem_close(ph.conter->forks);
+	free(ph.conter->pids);
 	if (ph.stop == 1)
 		exit(1);
 	exit(0);
