@@ -23,7 +23,6 @@ void	stage_pick_up_fork(t_philo *ph)
 	}
 	else
 	{
-		usleep(2000);
 		pthread_mutex_lock(ph->fork_right);
 		print_msg(ph, "has taken a fork\n", YELLOW);
 		pthread_mutex_lock(ph->fork_left);
