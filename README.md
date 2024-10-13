@@ -18,7 +18,7 @@ Welcome to the **42_Luanda** repository! 🌍 This repository is a collection of
 - **Description:** This section reinforces "Piscine" concepts by offering additional exercises and reviews to solidify your understanding.
 - **Goal:** Consolidate your grasp of fundamental C programming concepts.
 
-### 📁 [42 Courses](https://https://github.com/Disaster-Loki/42_Cursus)
+### 📁 [42 Courses](https://github.com/Disaster-Loki/42_Cursus)
 - **Description:** This folder contains exercises from the regular 42 courses, expanding your C programming horizons.
 - **Goal:** Tackle more advanced topics and present more intricate challenges to sharpen your skills.
 
