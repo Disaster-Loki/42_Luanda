@@ -10,16 +10,18 @@ Welcome to the **42_Luanda** repository! 🌍 This repository is a collection of
 
 ## 📂 Repository Structure
 
+This repository serves as an index for the following related repositories, each containing specific exercises and projects. To explore each one, click on the links below:
+
 ### 📁 [42_Piscine](https://github.com/Disaster-Loki/42_Piscine)
-- **Description:** This folder contains foundational exercises that lay the groundwork for your C programming journey.
+- **Description:** A collection of foundational exercises that lay the groundwork for your C programming journey.
 - **Goal:** Build a solid foundation in essential C skills.
 
-### 📁 [42 Piscine Reloaded](https://github.com/Disaster-Loki/42_Piscine_Reloaded)
-- **Description:** This section reinforces "Piscine" concepts by offering additional exercises and reviews to solidify your understanding.
+### 📁 [42_Piscine_Reloaded](https://github.com/Disaster-Loki/42_Piscine_Reloaded)
+- **Description:** Reinforces "Piscine" concepts by offering additional exercises and reviews to solidify your understanding.
 - **Goal:** Consolidate your grasp of fundamental C programming concepts.
 
-### 📁 [42 Courses](https://github.com/Disaster-Loki/42_Cursus)
-- **Description:** This folder contains exercises from the regular 42 courses, expanding your C programming horizons.
+### 📁 [42_Cursus](https://github.com/Disaster-Loki/42_Cursus)
+- **Description:** A collection of exercises from the regular 42 courses, expanding your C programming horizons.
 - **Goal:** Tackle more advanced topics and present more intricate challenges to sharpen your skills.
 
 ---
@@ -28,7 +30,7 @@ Welcome to the **42_Luanda** repository! 🌍 This repository is a collection of
 
 ### Clone the Repository
 
-To clone this repository, run the following command:
+To clone the **42_Luanda** repository, run the following command:
 
 ```bash
 git clone https://github.com/Disaster-Loki/42_Luanda.git
