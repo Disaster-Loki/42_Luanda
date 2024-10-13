@@ -10,11 +10,11 @@ Welcome to the **42_Luanda** repository! 🌍 This repository is a collection of
 
 ## 📂 Repository Structure
 
-### 📁 [42_Piscine](https://https://github.com/Disaster-Loki/42_Piscine)
+### 📁 [42_Piscine](https://github.com/Disaster-Loki/42_Piscine)
 - **Description:** This folder contains foundational exercises that lay the groundwork for your C programming journey.
 - **Goal:** Build a solid foundation in essential C skills.
 
-### 📁 [42 Piscine Reloaded](https://https://github.com/Disaster-Loki/42_Piscine_Reloaded)
+### 📁 [42 Piscine Reloaded](https://github.com/Disaster-Loki/42_Piscine_Reloaded)
 - **Description:** This section reinforces "Piscine" concepts by offering additional exercises and reviews to solidify your understanding.
 - **Goal:** Consolidate your grasp of fundamental C programming concepts.
 
